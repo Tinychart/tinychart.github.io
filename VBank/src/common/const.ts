@@ -7,9 +7,9 @@ export const DEFAULT_MESSAGE_TIMEOUT = 10000;
 export const GOOGLE_ANALYTICS_ID = 'G-';
 export const NETWORK = 'TestNet';
 
-export const APPLICATION_ID = 98258543;
-export const COIN_ID = 98258565;
-export const RESERVE_ID = 98258564;
+export const APPLICATION_ID = 98281378;
+export const COIN_ID = 98281405;
+export const RESERVE_ID = 98281404;
 
 export const LOCAL_REACH_WALLET = 'vg-reach-wallet';
 

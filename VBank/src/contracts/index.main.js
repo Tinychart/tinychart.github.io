@@ -30,16 +30,16 @@ export function _getViews(s, viewlib) {
         read: {
           decode: async (i, svs, args) => {
             if (stdlib.eq(i, stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '1'))) {
-              const [v3445, v3446, v3447, v3448, v3449, v3450, v3451, v3452, v3453, v3460, v3462, v3476, v3511, v3539] = svs;
+              const [v3080, v3081, v3082, v3083, v3084, v3085, v3086, v3087, v3088, v3110, v3146, v3174] = svs;
               stdlib.assert(false, 'illegal view')
               }
             if (stdlib.eq(i, stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'))) {
-              const [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572] = svs;
+              const [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208] = svs;
               return (await ((async () => {
                 
-                const v3592 = [v3559, v3561, v3560, v3564, v3552, v3558, v3551, v3562, v3563, v3556, v3555, v3557, v3554];
+                const v3228 = [v3195, v3197, v3196, v3200, v3189, v3194, v3188, v3198, v3199, v3192, v3191, v3193, v3190];
                 
-                return v3592;}))(...args));
+                return v3228;}))(...args));
               }
             
             stdlib.assert(false, 'illegal view')
@@ -49,8 +49,8 @@ export function _getViews(s, viewlib) {
         }
       },
     views: {
-      1: [ctc0, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc2, ctc2, ctc5],
-      4: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1]
+      1: [ctc0, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc2, ctc2, ctc5],
+      4: [ctc0, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1]
       }
     };
   
@@ -74,6 +74,7 @@ export async function Admin(ctcTop, interact) {
   const ctc2 = stdlib.T_Bytes(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '8'));
   const ctc3 = stdlib.T_Bytes(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '96'));
   const ctc4 = stdlib.T_Object({
+    decimals: ctc0,
     metadata: ctc1,
     name: ctc1,
     supply: ctc0,
@@ -99,7 +100,6 @@ export async function Admin(ctcTop, interact) {
   const ctc10 = stdlib.T_Tuple([ctc0]);
   const ctc11 = stdlib.T_Data({
     AdminAPI_claimAdminFee0_192: ctc8,
-    AdminAPI_closeBank0_192: ctc8,
     AdminAPI_setAdminFee0_192: ctc9,
     AdminAPI_updatePrice0_192: ctc10,
     Claimant_burnReserve0_192: ctc10,
@@ -114,125 +114,126 @@ export async function Admin(ctcTop, interact) {
   const ctc15 = stdlib.T_Array(ctc14, stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '2'));
   
   
-  const v3395 = [stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '0'), stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '0'), false];
-  const v3396 = [v3395, v3395];
-  const v3402 = stdlib.protect(ctc5, await interact.setInitialParam(), {
-    at: './index.rsh:60:44:application',
-    fs: ['at ./index.rsh:48:13:application call to [unknown function] (defined at: ./index.rsh:48:17:function exp)'],
+  const v3030 = [stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '0'), stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '0'), false];
+  const v3031 = [v3030, v3030];
+  const v3037 = stdlib.protect(ctc5, await interact.setInitialParam(), {
+    at: './index.rsh:52:44:application',
+    fs: ['at ./index.rsh:40:13:application call to [unknown function] (defined at: ./index.rsh:40:17:function exp)'],
     msg: 'setInitialParam',
     who: 'Admin'
     });
-  const v3403 = v3402.adminFeeRatio;
-  const v3404 = v3402.initialBaseCurrencyPrice;
-  const v3405 = v3402.maxReserveRatio;
-  const v3406 = v3402.minRCPrice;
-  const v3407 = v3402.minReserveRatio;
-  const v3408 = v3402.protocolFeeRatio;
-  const v3409 = v3402.reserveCoinParam;
-  const v3410 = v3402.stableCoinParam;
-  const v3411 = v3402.thresholdStableCoin;
-  const v3412 = v3402.totalFee;
-  const v3415 = v3409.supply;
-  const v3420 = v3410.supply;
-  const v3433 = stdlib.add(v3403, v3408);
-  const v3434 = stdlib.eq(v3433, stdlib.checkedBigNumberify('./index.rsh:61:48:decimal', stdlib.UInt_max, '100'));
-  stdlib.assert(v3434, {
-    at: './index.rsh:61:11:application',
-    fs: ['at ./index.rsh:48:13:application call to [unknown function] (defined at: ./index.rsh:48:17:function exp)'],
+  const v3038 = v3037.adminFeeRatio;
+  const v3039 = v3037.initialBaseCurrencyPrice;
+  const v3040 = v3037.maxReserveRatio;
+  const v3041 = v3037.minRCPrice;
+  const v3042 = v3037.minReserveRatio;
+  const v3043 = v3037.protocolFeeRatio;
+  const v3044 = v3037.reserveCoinParam;
+  const v3045 = v3037.stableCoinParam;
+  const v3046 = v3037.thresholdStableCoin;
+  const v3047 = v3037.totalFee;
+  const v3051 = v3044.supply;
+  const v3057 = v3045.supply;
+  const v3070 = stdlib.add(v3038, v3043);
+  const v3071 = stdlib.eq(v3070, stdlib.checkedBigNumberify('./index.rsh:53:48:decimal', stdlib.UInt_max, '100'));
+  stdlib.assert(v3071, {
+    at: './index.rsh:53:11:application',
+    fs: ['at ./index.rsh:40:13:application call to [unknown function] (defined at: ./index.rsh:40:17:function exp)'],
     msg: null,
     who: 'Admin'
     });
-  const v3436 = stdlib.gt(v3415, stdlib.checkedBigNumberify('./index.rsh:62:38:decimal', stdlib.UInt_max, '0'));
-  stdlib.assert(v3436, {
-    at: './index.rsh:62:11:application',
-    fs: ['at ./index.rsh:48:13:application call to [unknown function] (defined at: ./index.rsh:48:17:function exp)'],
+  const v3073 = stdlib.gt(v3051, stdlib.checkedBigNumberify('./index.rsh:54:38:decimal', stdlib.UInt_max, '0'));
+  stdlib.assert(v3073, {
+    at: './index.rsh:54:11:application',
+    fs: ['at ./index.rsh:40:13:application call to [unknown function] (defined at: ./index.rsh:40:17:function exp)'],
     msg: null,
     who: 'Admin'
     });
-  const v3438 = stdlib.gt(v3420, stdlib.checkedBigNumberify('./index.rsh:63:37:decimal', stdlib.UInt_max, '0'));
-  stdlib.assert(v3438, {
-    at: './index.rsh:63:11:application',
-    fs: ['at ./index.rsh:48:13:application call to [unknown function] (defined at: ./index.rsh:48:17:function exp)'],
+  const v3075 = stdlib.gt(v3057, stdlib.checkedBigNumberify('./index.rsh:55:37:decimal', stdlib.UInt_max, '0'));
+  stdlib.assert(v3075, {
+    at: './index.rsh:55:11:application',
+    fs: ['at ./index.rsh:40:13:application call to [unknown function] (defined at: ./index.rsh:40:17:function exp)'],
     msg: null,
     who: 'Admin'
     });
-  const v3440 = stdlib.sub(stdlib.UInt_max, stdlib.checkedBigNumberify('./index.rsh:64:50:decimal', stdlib.UInt_max, '1'));
-  const v3441 = stdlib.eq(v3415, v3440);
-  stdlib.assert(v3441, {
-    at: './index.rsh:64:11:application',
-    fs: ['at ./index.rsh:48:13:application call to [unknown function] (defined at: ./index.rsh:48:17:function exp)'],
+  const v3077 = stdlib.eq(v3051, stdlib.UInt_max);
+  stdlib.assert(v3077, {
+    at: './index.rsh:56:11:application',
+    fs: ['at ./index.rsh:40:13:application call to [unknown function] (defined at: ./index.rsh:40:17:function exp)'],
     msg: null,
     who: 'Admin'
     });
-  const v3444 = stdlib.eq(v3420, v3440);
-  stdlib.assert(v3444, {
-    at: './index.rsh:65:11:application',
-    fs: ['at ./index.rsh:48:13:application call to [unknown function] (defined at: ./index.rsh:48:17:function exp)'],
+  const v3079 = stdlib.eq(v3057, stdlib.UInt_max);
+  stdlib.assert(v3079, {
+    at: './index.rsh:57:11:application',
+    fs: ['at ./index.rsh:40:13:application call to [unknown function] (defined at: ./index.rsh:40:17:function exp)'],
     msg: null,
     who: 'Admin'
     });
   
   const txn1 = await (ctc.sendrecv({
-    args: [v3412, v3403, v3408, v3407, v3405, v3404, v3406, v3411, v3409, v3410],
+    args: [v3047, v3038, v3043, v3042, v3040, v3039, v3041, v3046, v3044, v3045],
     evt_cnt: 10,
     funcNum: 0,
-    lct: stdlib.checkedBigNumberify('./index.rsh:69:9:dot', stdlib.UInt_max, '0'),
+    lct: stdlib.checkedBigNumberify('./index.rsh:61:9:dot', stdlib.UInt_max, '0'),
     onlyIf: true,
     out_tys: [ctc0, ctc0, ctc0, ctc0, ctc0, ctc0, ctc0, ctc0, ctc4, ctc4],
-    pay: [stdlib.checkedBigNumberify('./index.rsh:69:9:decimal', stdlib.UInt_max, '0'), []],
+    pay: [stdlib.checkedBigNumberify('./index.rsh:61:9:decimal', stdlib.UInt_max, '0'), []],
     sim_p: (async (txn1) => {
       const sim_r = { txns: [], mapRefs: [], maps: [] };
       let sim_txn_ctr = stdlib.UInt_max;
       const getSimTokCtr = () => { sim_txn_ctr = sim_txn_ctr.sub(1); return sim_txn_ctr; };
       
       
-      const {data: [v3446, v3447, v3448, v3449, v3450, v3451, v3452, v3453, v3454, v3455], secs: v3457, time: v3456, didSend: v78, from: v3445 } = txn1;
+      const {data: [v3081, v3082, v3083, v3084, v3085, v3086, v3087, v3088, v3089, v3090], secs: v3092, time: v3091, didSend: v78, from: v3080 } = txn1;
       
       ;
-      const v3460 = v3454.supply;
-      const v3462 = v3455.supply;
-      const v3470 = v3454.metadata;
-      const v3471 = v3454.name;
-      const v3473 = v3454.symbol;
-      const v3474 = v3454.url;
-      const v3475 = stdlib.simTokenNew(sim_r, v3471, v3473, v3474, v3470, v3460, undefined /* Nothing */, getSimTokCtr());
-      const v3476 = await txn1.getOutput('internal', 'v3475', ctc6, v3475);
-      const v3486 = v3396[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0')];
-      const v3488 = v3486[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '1')];
-      const v3489 = v3486[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '2')];
-      const v3490 = [v3460, v3488, v3489];
-      const v3491 = stdlib.Array_set(v3396, stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0'), v3490);
-      const v3493 = v3491[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0')];
-      const v3494 = v3493[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0')];
-      const v3496 = v3493[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '2')];
-      const v3497 = [v3494, v3460, v3496];
-      const v3498 = stdlib.Array_set(v3491, stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0'), v3497);
-      const v3499 = v3498[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0')];
-      const v3500 = v3499[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0')];
-      const v3501 = v3499[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '1')];
-      const v3503 = [v3500, v3501, false];
-      const v3504 = stdlib.Array_set(v3498, stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0'), v3503);
-      const v3505 = v3455.metadata;
-      const v3506 = v3455.name;
-      const v3508 = v3455.symbol;
-      const v3509 = v3455.url;
-      const v3510 = stdlib.simTokenNew(sim_r, v3506, v3508, v3509, v3505, v3462, undefined /* Nothing */, getSimTokCtr());
-      const v3511 = await txn1.getOutput('internal', 'v3510', ctc6, v3510);
-      const v3521 = v3504[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1')];
-      const v3523 = v3521[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1')];
-      const v3524 = v3521[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '2')];
-      const v3525 = [v3462, v3523, v3524];
-      const v3526 = stdlib.Array_set(v3504, stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1'), v3525);
-      const v3528 = v3526[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1')];
-      const v3529 = v3528[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '0')];
-      const v3531 = v3528[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '2')];
-      const v3532 = [v3529, v3462, v3531];
-      const v3533 = stdlib.Array_set(v3526, stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1'), v3532);
-      const v3534 = v3533[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1')];
-      const v3535 = v3534[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '0')];
-      const v3536 = v3534[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1')];
-      const v3538 = [v3535, v3536, false];
-      const v3539 = stdlib.Array_set(v3533, stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1'), v3538);
+      const v3095 = v3089.supply;
+      const v3097 = v3090.supply;
+      const v3103 = v3089.decimals;
+      const v3104 = v3089.metadata;
+      const v3105 = v3089.name;
+      const v3107 = v3089.symbol;
+      const v3108 = v3089.url;
+      const v3109 = stdlib.simTokenNew(sim_r, v3105, v3107, v3108, v3104, v3095, v3103, getSimTokCtr());
+      const v3110 = await txn1.getOutput('internal', 'v3109', ctc6, v3109);
+      const v3120 = v3031[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0')];
+      const v3122 = v3120[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '1')];
+      const v3123 = v3120[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '2')];
+      const v3124 = [v3095, v3122, v3123];
+      const v3125 = stdlib.Array_set(v3031, stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0'), v3124);
+      const v3127 = v3125[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0')];
+      const v3128 = v3127[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0')];
+      const v3130 = v3127[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '2')];
+      const v3131 = [v3128, v3095, v3130];
+      const v3132 = stdlib.Array_set(v3125, stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0'), v3131);
+      const v3133 = v3132[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0')];
+      const v3134 = v3133[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0')];
+      const v3135 = v3133[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '1')];
+      const v3137 = [v3134, v3135, false];
+      const v3138 = stdlib.Array_set(v3132, stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0'), v3137);
+      const v3139 = v3090.decimals;
+      const v3140 = v3090.metadata;
+      const v3141 = v3090.name;
+      const v3143 = v3090.symbol;
+      const v3144 = v3090.url;
+      const v3145 = stdlib.simTokenNew(sim_r, v3141, v3143, v3144, v3140, v3097, v3139, getSimTokCtr());
+      const v3146 = await txn1.getOutput('internal', 'v3145', ctc6, v3145);
+      const v3156 = v3138[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1')];
+      const v3158 = v3156[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1')];
+      const v3159 = v3156[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '2')];
+      const v3160 = [v3097, v3158, v3159];
+      const v3161 = stdlib.Array_set(v3138, stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1'), v3160);
+      const v3163 = v3161[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1')];
+      const v3164 = v3163[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '0')];
+      const v3166 = v3163[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '2')];
+      const v3167 = [v3164, v3097, v3166];
+      const v3168 = stdlib.Array_set(v3161, stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1'), v3167);
+      const v3169 = v3168[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1')];
+      const v3170 = v3169[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '0')];
+      const v3171 = v3169[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1')];
+      const v3173 = [v3170, v3171, false];
+      const v3174 = stdlib.Array_set(v3168, stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1'), v3173);
       sim_r.isHalt = false;
       
       return sim_r;
@@ -242,151 +243,153 @@ export async function Admin(ctcTop, interact) {
     tys: [ctc0, ctc0, ctc0, ctc0, ctc0, ctc0, ctc0, ctc0, ctc4, ctc4],
     waitIfNotPresent: false
     }));
-  const {data: [v3446, v3447, v3448, v3449, v3450, v3451, v3452, v3453, v3454, v3455], secs: v3457, time: v3456, didSend: v78, from: v3445 } = txn1;
+  const {data: [v3081, v3082, v3083, v3084, v3085, v3086, v3087, v3088, v3089, v3090], secs: v3092, time: v3091, didSend: v78, from: v3080 } = txn1;
   ;
-  const v3458 = stdlib.add(v3447, v3448);
-  const v3459 = stdlib.eq(v3458, stdlib.checkedBigNumberify('./index.rsh:82:47:decimal', stdlib.UInt_max, '100'));
-  stdlib.assert(v3459, {
-    at: './index.rsh:82:10:application',
+  const v3093 = stdlib.add(v3082, v3083);
+  const v3094 = stdlib.eq(v3093, stdlib.checkedBigNumberify('./index.rsh:74:47:decimal', stdlib.UInt_max, '100'));
+  stdlib.assert(v3094, {
+    at: './index.rsh:74:10:application',
     fs: [],
     msg: null,
     who: 'Admin'
     });
-  const v3460 = v3454.supply;
-  const v3461 = stdlib.gt(v3460, stdlib.checkedBigNumberify('./index.rsh:83:37:decimal', stdlib.UInt_max, '0'));
-  stdlib.assert(v3461, {
-    at: './index.rsh:83:10:application',
+  const v3095 = v3089.supply;
+  const v3096 = stdlib.gt(v3095, stdlib.checkedBigNumberify('./index.rsh:75:37:decimal', stdlib.UInt_max, '0'));
+  stdlib.assert(v3096, {
+    at: './index.rsh:75:10:application',
     fs: [],
     msg: null,
     who: 'Admin'
     });
-  const v3462 = v3455.supply;
-  const v3463 = stdlib.gt(v3462, stdlib.checkedBigNumberify('./index.rsh:84:36:decimal', stdlib.UInt_max, '0'));
-  stdlib.assert(v3463, {
-    at: './index.rsh:84:10:application',
+  const v3097 = v3090.supply;
+  const v3098 = stdlib.gt(v3097, stdlib.checkedBigNumberify('./index.rsh:76:36:decimal', stdlib.UInt_max, '0'));
+  stdlib.assert(v3098, {
+    at: './index.rsh:76:10:application',
     fs: [],
     msg: null,
     who: 'Admin'
     });
-  const v3465 = stdlib.sub(stdlib.UInt_max, stdlib.checkedBigNumberify('./index.rsh:86:49:decimal', stdlib.UInt_max, '1'));
-  const v3466 = stdlib.eq(v3460, v3465);
-  stdlib.assert(v3466, {
-    at: './index.rsh:86:10:application',
+  const v3100 = stdlib.eq(v3095, stdlib.UInt_max);
+  stdlib.assert(v3100, {
+    at: './index.rsh:78:10:application',
     fs: [],
     msg: null,
     who: 'Admin'
     });
-  const v3469 = stdlib.eq(v3462, v3465);
-  stdlib.assert(v3469, {
-    at: './index.rsh:87:10:application',
+  const v3102 = stdlib.eq(v3097, stdlib.UInt_max);
+  stdlib.assert(v3102, {
+    at: './index.rsh:79:10:application',
     fs: [],
     msg: null,
     who: 'Admin'
     });
-  const v3470 = v3454.metadata;
-  const v3471 = v3454.name;
-  const v3473 = v3454.symbol;
-  const v3474 = v3454.url;
-  const v3475 = undefined /* TokenNew */;
-  const v3476 = await txn1.getOutput('internal', 'v3475', ctc6, v3475);
-  const v3486 = v3396[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0')];
-  const v3488 = v3486[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '1')];
-  const v3489 = v3486[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '2')];
-  const v3490 = [v3460, v3488, v3489];
-  const v3491 = stdlib.Array_set(v3396, stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0'), v3490);
-  const v3493 = v3491[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0')];
-  const v3494 = v3493[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0')];
-  const v3496 = v3493[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '2')];
-  const v3497 = [v3494, v3460, v3496];
-  const v3498 = stdlib.Array_set(v3491, stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0'), v3497);
-  const v3499 = v3498[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0')];
-  const v3500 = v3499[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0')];
-  const v3501 = v3499[stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '1')];
-  const v3503 = [v3500, v3501, false];
-  const v3504 = stdlib.Array_set(v3498, stdlib.checkedBigNumberify('./index.rsh:92:37:application', stdlib.UInt_max, '0'), v3503);
-  const v3505 = v3455.metadata;
-  const v3506 = v3455.name;
-  const v3508 = v3455.symbol;
-  const v3509 = v3455.url;
-  const v3510 = undefined /* TokenNew */;
-  const v3511 = await txn1.getOutput('internal', 'v3510', ctc6, v3510);
-  const v3512 = [v3476];
-  const v11051 = v3512[stdlib.checkedBigNumberify('reach standard library:154:21:application', stdlib.UInt_max, '0')];
-  const v11055 = stdlib.tokenEq(v3511, v11051);
-  const v3520 = v11055 ? false : true;
-  stdlib.assert(v3520, {
-    at: './index.rsh:94:36:application',
+  const v3103 = v3089.decimals;
+  const v3104 = v3089.metadata;
+  const v3105 = v3089.name;
+  const v3107 = v3089.symbol;
+  const v3108 = v3089.url;
+  const v3109 = undefined /* TokenNew */;
+  const v3110 = await txn1.getOutput('internal', 'v3109', ctc6, v3109);
+  const v3120 = v3031[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0')];
+  const v3122 = v3120[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '1')];
+  const v3123 = v3120[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '2')];
+  const v3124 = [v3095, v3122, v3123];
+  const v3125 = stdlib.Array_set(v3031, stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0'), v3124);
+  const v3127 = v3125[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0')];
+  const v3128 = v3127[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0')];
+  const v3130 = v3127[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '2')];
+  const v3131 = [v3128, v3095, v3130];
+  const v3132 = stdlib.Array_set(v3125, stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0'), v3131);
+  const v3133 = v3132[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0')];
+  const v3134 = v3133[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0')];
+  const v3135 = v3133[stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '1')];
+  const v3137 = [v3134, v3135, false];
+  const v3138 = stdlib.Array_set(v3132, stdlib.checkedBigNumberify('./index.rsh:84:37:application', stdlib.UInt_max, '0'), v3137);
+  const v3139 = v3090.decimals;
+  const v3140 = v3090.metadata;
+  const v3141 = v3090.name;
+  const v3143 = v3090.symbol;
+  const v3144 = v3090.url;
+  const v3145 = undefined /* TokenNew */;
+  const v3146 = await txn1.getOutput('internal', 'v3145', ctc6, v3145);
+  const v3147 = [v3110];
+  const v9591 = v3147[stdlib.checkedBigNumberify('reach standard library:154:21:application', stdlib.UInt_max, '0')];
+  const v9595 = stdlib.tokenEq(v3146, v9591);
+  const v3155 = v9595 ? false : true;
+  stdlib.assert(v3155, {
+    at: './index.rsh:86:36:application',
     fs: [],
     msg: 'New token is unique',
     who: 'Admin'
     });
-  const v3521 = v3504[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1')];
-  const v3523 = v3521[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1')];
-  const v3524 = v3521[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '2')];
-  const v3525 = [v3462, v3523, v3524];
-  const v3526 = stdlib.Array_set(v3504, stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1'), v3525);
-  const v3528 = v3526[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1')];
-  const v3529 = v3528[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '0')];
-  const v3531 = v3528[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '2')];
-  const v3532 = [v3529, v3462, v3531];
-  const v3533 = stdlib.Array_set(v3526, stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1'), v3532);
-  const v3534 = v3533[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1')];
-  const v3535 = v3534[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '0')];
-  const v3536 = v3534[stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1')];
-  const v3538 = [v3535, v3536, false];
-  const v3539 = stdlib.Array_set(v3533, stdlib.checkedBigNumberify('./index.rsh:94:36:application', stdlib.UInt_max, '1'), v3538);
-  const v3540 = v3539[stdlib.checkedBigNumberify('./index.rsh:96:18:application', stdlib.UInt_max, '1')];
-  const v3541 = v3540[stdlib.checkedBigNumberify('./index.rsh:96:18:application', stdlib.UInt_max, '0')];
-  const v3542 = stdlib.eq(v3541, v3462);
-  stdlib.assert(v3542, {
-    at: './index.rsh:96:10:application',
+  const v3156 = v3138[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1')];
+  const v3158 = v3156[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1')];
+  const v3159 = v3156[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '2')];
+  const v3160 = [v3097, v3158, v3159];
+  const v3161 = stdlib.Array_set(v3138, stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1'), v3160);
+  const v3163 = v3161[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1')];
+  const v3164 = v3163[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '0')];
+  const v3166 = v3163[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '2')];
+  const v3167 = [v3164, v3097, v3166];
+  const v3168 = stdlib.Array_set(v3161, stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1'), v3167);
+  const v3169 = v3168[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1')];
+  const v3170 = v3169[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '0')];
+  const v3171 = v3169[stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1')];
+  const v3173 = [v3170, v3171, false];
+  const v3174 = stdlib.Array_set(v3168, stdlib.checkedBigNumberify('./index.rsh:86:36:application', stdlib.UInt_max, '1'), v3173);
+  const v3175 = v3174[stdlib.checkedBigNumberify('./index.rsh:88:18:application', stdlib.UInt_max, '1')];
+  const v3176 = v3175[stdlib.checkedBigNumberify('./index.rsh:88:18:application', stdlib.UInt_max, '0')];
+  const v3177 = stdlib.eq(v3176, v3097);
+  stdlib.assert(v3177, {
+    at: './index.rsh:88:10:application',
     fs: [],
     msg: null,
     who: 'Admin'
     });
-  const v3543 = v3539[stdlib.checkedBigNumberify('./index.rsh:97:18:application', stdlib.UInt_max, '0')];
-  const v3544 = v3543[stdlib.checkedBigNumberify('./index.rsh:97:18:application', stdlib.UInt_max, '0')];
-  const v3545 = stdlib.eq(v3544, v3460);
-  stdlib.assert(v3545, {
-    at: './index.rsh:97:10:application',
+  const v3178 = v3174[stdlib.checkedBigNumberify('./index.rsh:89:18:application', stdlib.UInt_max, '0')];
+  const v3179 = v3178[stdlib.checkedBigNumberify('./index.rsh:89:18:application', stdlib.UInt_max, '0')];
+  const v3180 = stdlib.eq(v3179, v3095);
+  stdlib.assert(v3180, {
+    at: './index.rsh:89:10:application',
     fs: [],
     msg: null,
     who: 'Admin'
     });
   const txn2 = await (ctc.sendrecv({
-    args: [v3445, v3446, v3447, v3448, v3449, v3450, v3451, v3452, v3453, v3460, v3462, v3476, v3511, v3539],
+    args: [v3080, v3081, v3082, v3083, v3084, v3085, v3086, v3087, v3088, v3110, v3146, v3174],
     evt_cnt: 0,
     funcNum: 1,
-    lct: v3456,
+    lct: v3091,
     onlyIf: true,
     out_tys: [],
-    pay: [stdlib.checkedBigNumberify('./index.rsh:101:9:decimal', stdlib.UInt_max, '0'), []],
+    pay: [stdlib.checkedBigNumberify('./index.rsh:93:9:decimal', stdlib.UInt_max, '0'), []],
     sim_p: (async (txn2) => {
       const sim_r = { txns: [], mapRefs: [], maps: [] };
       let sim_txn_ctr = stdlib.UInt_max;
       const getSimTokCtr = () => { sim_txn_ctr = sim_txn_ctr.sub(1); return sim_txn_ctr; };
       
       
-      const {data: [], secs: v3548, time: v3547, didSend: v137, from: v3546 } = txn2;
+      const {data: [], secs: v3183, time: v3182, didSend: v137, from: v3181 } = txn2;
       
       ;
       
-      const v3551 = stdlib.checkedBigNumberify('./index.rsh:125:19:decimal', stdlib.UInt_max, '0');
-      const v3552 = v3447;
-      const v3554 = v3450;
-      const v3555 = v3452;
-      const v3556 = v3453;
-      const v3557 = v3449;
-      const v3558 = v3448;
-      const v3559 = stdlib.checkedBigNumberify('./index.rsh:119:19:decimal', stdlib.UInt_max, '0');
-      const v3560 = stdlib.checkedBigNumberify('./index.rsh:121:19:decimal', stdlib.UInt_max, '0');
-      const v3561 = stdlib.checkedBigNumberify('./index.rsh:120:19:decimal', stdlib.UInt_max, '0');
-      const v3562 = v3451;
-      const v3563 = v3451;
-      const v3564 = v3446;
-      const v3565 = v3547;
-      const v3571 = v3539;
-      const v3572 = stdlib.checkedBigNumberify('./index.rsh:46:9:after expr stmt semicolon', stdlib.UInt_max, '0');
+      const v3186 = stdlib.div(v3086, stdlib.checkedBigNumberify('./index.rsh:116:44:decimal', stdlib.UInt_max, '1000000'));
+      const v3188 = stdlib.checkedBigNumberify('./index.rsh:115:19:decimal', stdlib.UInt_max, '0');
+      const v3189 = v3082;
+      const v3190 = v3085;
+      const v3191 = v3087;
+      const v3192 = v3088;
+      const v3193 = v3084;
+      const v3194 = v3083;
+      const v3195 = stdlib.checkedBigNumberify('./index.rsh:109:19:decimal', stdlib.UInt_max, '0');
+      const v3196 = stdlib.checkedBigNumberify('./index.rsh:111:19:decimal', stdlib.UInt_max, '0');
+      const v3197 = stdlib.checkedBigNumberify('./index.rsh:110:19:decimal', stdlib.UInt_max, '0');
+      const v3198 = v3186;
+      const v3199 = v3186;
+      const v3200 = v3081;
+      const v3201 = v3182;
+      const v3207 = v3174;
+      const v3208 = stdlib.checkedBigNumberify('./index.rsh:38:9:after expr stmt semicolon', stdlib.UInt_max, '0');
       
       if (await (async () => {
         
@@ -404,41 +407,42 @@ export async function Admin(ctcTop, interact) {
       }),
     soloSend: true,
     timeoutAt: undefined /* mto */,
-    tys: [ctc13, ctc0, ctc0, ctc0, ctc0, ctc0, ctc0, ctc0, ctc0, ctc0, ctc0, ctc6, ctc6, ctc15],
+    tys: [ctc13, ctc0, ctc0, ctc0, ctc0, ctc0, ctc0, ctc0, ctc0, ctc6, ctc6, ctc15],
     waitIfNotPresent: false
     }));
-  const {data: [], secs: v3548, time: v3547, didSend: v137, from: v3546 } = txn2;
+  const {data: [], secs: v3183, time: v3182, didSend: v137, from: v3181 } = txn2;
   ;
-  const v3549 = stdlib.addressEq(v3445, v3546);
-  stdlib.assert(v3549, {
-    at: './index.rsh:101:9:dot',
+  const v3184 = stdlib.addressEq(v3080, v3181);
+  stdlib.assert(v3184, {
+    at: './index.rsh:93:9:dot',
     fs: [],
     msg: 'sender correct',
     who: 'Admin'
     });
   stdlib.protect(ctc7, await interact.ready(), {
-    at: './index.rsh:102:23:application',
-    fs: ['at ./index.rsh:102:23:application call to [unknown function] (defined at: ./index.rsh:102:23:function exp)', 'at ./index.rsh:102:23:application call to "liftedInteract" (defined at: ./index.rsh:102:23:application)'],
+    at: './index.rsh:94:23:application',
+    fs: ['at ./index.rsh:94:23:application call to [unknown function] (defined at: ./index.rsh:94:23:function exp)', 'at ./index.rsh:94:23:application call to "liftedInteract" (defined at: ./index.rsh:94:23:application)'],
     msg: 'ready',
     who: 'Admin'
     });
   
-  let v3551 = stdlib.checkedBigNumberify('./index.rsh:125:19:decimal', stdlib.UInt_max, '0');
-  let v3552 = v3447;
-  let v3554 = v3450;
-  let v3555 = v3452;
-  let v3556 = v3453;
-  let v3557 = v3449;
-  let v3558 = v3448;
-  let v3559 = stdlib.checkedBigNumberify('./index.rsh:119:19:decimal', stdlib.UInt_max, '0');
-  let v3560 = stdlib.checkedBigNumberify('./index.rsh:121:19:decimal', stdlib.UInt_max, '0');
-  let v3561 = stdlib.checkedBigNumberify('./index.rsh:120:19:decimal', stdlib.UInt_max, '0');
-  let v3562 = v3451;
-  let v3563 = v3451;
-  let v3564 = v3446;
-  let v3565 = v3547;
-  let v3571 = v3539;
-  let v3572 = stdlib.checkedBigNumberify('./index.rsh:46:9:after expr stmt semicolon', stdlib.UInt_max, '0');
+  const v3186 = stdlib.div(v3086, stdlib.checkedBigNumberify('./index.rsh:116:44:decimal', stdlib.UInt_max, '1000000'));
+  let v3188 = stdlib.checkedBigNumberify('./index.rsh:115:19:decimal', stdlib.UInt_max, '0');
+  let v3189 = v3082;
+  let v3190 = v3085;
+  let v3191 = v3087;
+  let v3192 = v3088;
+  let v3193 = v3084;
+  let v3194 = v3083;
+  let v3195 = stdlib.checkedBigNumberify('./index.rsh:109:19:decimal', stdlib.UInt_max, '0');
+  let v3196 = stdlib.checkedBigNumberify('./index.rsh:111:19:decimal', stdlib.UInt_max, '0');
+  let v3197 = stdlib.checkedBigNumberify('./index.rsh:110:19:decimal', stdlib.UInt_max, '0');
+  let v3198 = v3186;
+  let v3199 = v3186;
+  let v3200 = v3081;
+  let v3201 = v3182;
+  let v3207 = v3174;
+  let v3208 = stdlib.checkedBigNumberify('./index.rsh:38:9:after expr stmt semicolon', stdlib.UInt_max, '0');
   
   while (await (async () => {
     
@@ -451,1140 +455,1064 @@ export async function Admin(ctcTop, interact) {
       timeoutAt: undefined /* mto */,
       waitIfNotPresent: false
       }));
-    const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn3;
-    switch (v4301[0]) {
+    const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn3;
+    switch (v3893[0]) {
       case 'AdminAPI_claimAdminFee0_192': {
-        const v4304 = v4301[1];
+        const v3896 = v3893[1];
         undefined /* setApiDetails */;
         ;
-        const v4438 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v4439 = v4438[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v4443 = v4438[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v4444 = v4438[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v4445 = [v4439, v4443, v4444];
-        const v4446 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v4445);
+        const v4020 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v4021 = v4020[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v4025 = v4020[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v4026 = v4020[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v4027 = [v4021, v4025, v4026];
+        const v4028 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v4027);
         ;
-        const v4447 = v4446[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v4448 = v4447[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v4452 = v4447[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v4453 = v4447[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v4454 = [v4448, v4452, v4453];
-        const v4455 = stdlib.Array_set(v4446, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v4454);
+        const v4029 = v4028[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v4030 = v4029[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v4034 = v4029[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v4035 = v4029[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v4036 = [v4030, v4034, v4035];
+        const v4037 = stdlib.Array_set(v4028, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v4036);
         ;
-        const v4457 = stdlib.addressEq(v4300, v3445);
-        stdlib.assert(v4457, {
-          at: './index.rsh:251:16:application',
-          fs: ['at ./index.rsh:250:11:application call to [unknown function] (defined at: ./index.rsh:250:11:function exp)'],
+        const v4039 = stdlib.addressEq(v3892, v3080);
+        stdlib.assert(v4039, {
+          at: './index.rsh:232:16:application',
+          fs: ['at ./index.rsh:231:11:application call to [unknown function] (defined at: ./index.rsh:231:11:function exp)'],
           msg: null,
           who: 'Admin'
           });
-        const v4461 = stdlib.sub(v3572, v3551);
+        const v4043 = stdlib.sub(v3208, v3188);
         ;
-        const v4462 = true;
-        await txn3.getOutput('AdminAPI_claimAdminFee', 'v4462', ctc12, v4462);
-        const cv3551 = stdlib.checkedBigNumberify('./index.rsh:261:11:decimal', stdlib.UInt_max, '0');
-        const cv3552 = v3552;
-        const cv3554 = v3554;
-        const cv3555 = v3555;
-        const cv3556 = v3556;
-        const cv3557 = v3557;
-        const cv3558 = v3558;
-        const cv3559 = v3559;
-        const cv3560 = v3560;
-        const cv3561 = v3561;
-        const cv3562 = v3562;
-        const cv3563 = v3563;
-        const cv3564 = v3564;
-        const cv3565 = v4302;
-        const cv3571 = v4455;
-        const cv3572 = v4461;
+        const v4044 = true;
+        await txn3.getOutput('AdminAPI_claimAdminFee', 'v4044', ctc12, v4044);
+        const cv3188 = stdlib.checkedBigNumberify('./index.rsh:241:11:decimal', stdlib.UInt_max, '0');
+        const cv3189 = v3189;
+        const cv3190 = v3190;
+        const cv3191 = v3191;
+        const cv3192 = v3192;
+        const cv3193 = v3193;
+        const cv3194 = v3194;
+        const cv3195 = v3195;
+        const cv3196 = v3196;
+        const cv3197 = v3197;
+        const cv3198 = v3198;
+        const cv3199 = v3199;
+        const cv3200 = v3200;
+        const cv3201 = v3894;
+        const cv3207 = v4037;
+        const cv3208 = v4043;
         
-        v3551 = cv3551;
-        v3552 = cv3552;
-        v3554 = cv3554;
-        v3555 = cv3555;
-        v3556 = cv3556;
-        v3557 = cv3557;
-        v3558 = cv3558;
-        v3559 = cv3559;
-        v3560 = cv3560;
-        v3561 = cv3561;
-        v3562 = cv3562;
-        v3563 = cv3563;
-        v3564 = cv3564;
-        v3565 = cv3565;
-        v3571 = cv3571;
-        v3572 = cv3572;
-        
-        continue;
-        break;
-        }
-      case 'AdminAPI_closeBank0_192': {
-        const v5052 = v4301[1];
-        undefined /* setApiDetails */;
-        ;
-        const v5186 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v5187 = v5186[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v5191 = v5186[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v5192 = v5186[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v5193 = [v5187, v5191, v5192];
-        const v5194 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v5193);
-        ;
-        const v5195 = v5194[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v5196 = v5195[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v5200 = v5195[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v5201 = v5195[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v5202 = [v5196, v5200, v5201];
-        const v5203 = stdlib.Array_set(v5194, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v5202);
-        ;
-        const v5218 = stdlib.addressEq(v4300, v3445);
-        const v5219 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:304:35:decimal', stdlib.UInt_max, '0'));
-        const v5220 = v5218 ? v5219 : false;
-        const v5221 = stdlib.eq(v3559, stdlib.checkedBigNumberify('./index.rsh:305:36:decimal', stdlib.UInt_max, '0'));
-        const v5222 = v5220 ? v5221 : false;
-        const v5223 = v5203[stdlib.checkedBigNumberify('./index.rsh:306:21:application', stdlib.UInt_max, '1')];
-        const v5224 = v5223[stdlib.checkedBigNumberify('./index.rsh:306:21:application', stdlib.UInt_max, '0')];
-        const v5225 = stdlib.eq(v5224, v3462);
-        const v5226 = v5222 ? v5225 : false;
-        const v5227 = v5203[stdlib.checkedBigNumberify('./index.rsh:307:21:application', stdlib.UInt_max, '0')];
-        const v5228 = v5227[stdlib.checkedBigNumberify('./index.rsh:307:21:application', stdlib.UInt_max, '0')];
-        const v5229 = stdlib.eq(v5228, v3460);
-        const v5230 = v5226 ? v5229 : false;
-        stdlib.assert(v5230, {
-          at: './index.rsh:303:16:application',
-          fs: ['at ./index.rsh:302:11:application call to [unknown function] (defined at: ./index.rsh:302:11:function exp)'],
-          msg: null,
-          who: 'Admin'
-          });
-        const v5238 = true;
-        await txn3.getOutput('AdminAPI_closeBank', 'v5238', ctc12, v5238);
-        const cv3551 = v3551;
-        const cv3552 = v3552;
-        const cv3554 = v3554;
-        const cv3555 = v3555;
-        const cv3556 = v3556;
-        const cv3557 = v3557;
-        const cv3558 = v3558;
-        const cv3559 = v3559;
-        const cv3560 = v3560;
-        const cv3561 = v3561;
-        const cv3562 = v3562;
-        const cv3563 = v3563;
-        const cv3564 = v3564;
-        const cv3565 = v4302;
-        const cv3571 = v5203;
-        const cv3572 = v3572;
-        
-        v3551 = cv3551;
-        v3552 = cv3552;
-        v3554 = cv3554;
-        v3555 = cv3555;
-        v3556 = cv3556;
-        v3557 = cv3557;
-        v3558 = cv3558;
-        v3559 = cv3559;
-        v3560 = cv3560;
-        v3561 = cv3561;
-        v3562 = cv3562;
-        v3563 = cv3563;
-        v3564 = cv3564;
-        v3565 = cv3565;
-        v3571 = cv3571;
-        v3572 = cv3572;
+        v3188 = cv3188;
+        v3189 = cv3189;
+        v3190 = cv3190;
+        v3191 = cv3191;
+        v3192 = cv3192;
+        v3193 = cv3193;
+        v3194 = cv3194;
+        v3195 = cv3195;
+        v3196 = cv3196;
+        v3197 = cv3197;
+        v3198 = cv3198;
+        v3199 = cv3199;
+        v3200 = cv3200;
+        v3201 = cv3201;
+        v3207 = cv3207;
+        v3208 = cv3208;
         
         continue;
         break;
         }
       case 'AdminAPI_setAdminFee0_192': {
-        const v5800 = v4301[1];
+        const v4606 = v3893[1];
         undefined /* setApiDetails */;
         ;
-        const v5934 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v5935 = v5934[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v5939 = v5934[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v5940 = v5934[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v5941 = [v5935, v5939, v5940];
-        const v5942 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v5941);
+        const v4730 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v4731 = v4730[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v4735 = v4730[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v4736 = v4730[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v4737 = [v4731, v4735, v4736];
+        const v4738 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v4737);
         ;
-        const v5943 = v5942[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v5944 = v5943[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v5948 = v5943[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v5949 = v5943[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v5950 = [v5944, v5948, v5949];
-        const v5951 = stdlib.Array_set(v5942, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v5950);
+        const v4739 = v4738[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v4740 = v4739[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v4744 = v4739[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v4745 = v4739[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v4746 = [v4740, v4744, v4745];
+        const v4747 = stdlib.Array_set(v4738, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v4746);
         ;
-        const v5994 = v5800[stdlib.checkedBigNumberify('./index.rsh:225:9:spread', stdlib.UInt_max, '0')];
-        const v5995 = v5800[stdlib.checkedBigNumberify('./index.rsh:225:9:spread', stdlib.UInt_max, '1')];
-        const v5996 = stdlib.add(v5994, v5995);
-        const v5997 = stdlib.eq(v5996, stdlib.checkedBigNumberify('./index.rsh:229:49:decimal', stdlib.UInt_max, '100'));
-        stdlib.assert(v5997, {
-          at: './index.rsh:229:16:application',
-          fs: ['at ./index.rsh:228:40:application call to [unknown function] (defined at: ./index.rsh:228:40:function exp)'],
+        const v4762 = v4606[stdlib.checkedBigNumberify('./index.rsh:207:9:spread', stdlib.UInt_max, '0')];
+        const v4763 = v4606[stdlib.checkedBigNumberify('./index.rsh:207:9:spread', stdlib.UInt_max, '1')];
+        const v4764 = stdlib.add(v4762, v4763);
+        const v4765 = stdlib.eq(v4764, stdlib.checkedBigNumberify('./index.rsh:211:49:decimal', stdlib.UInt_max, '100'));
+        stdlib.assert(v4765, {
+          at: './index.rsh:211:16:application',
+          fs: ['at ./index.rsh:210:40:application call to [unknown function] (defined at: ./index.rsh:210:40:function exp)'],
           msg: null,
           who: 'Admin'
           });
-        const v6001 = stdlib.sub(v3572, v3551);
+        const v4769 = stdlib.sub(v3208, v3188);
         ;
-        const v6002 = true;
-        await txn3.getOutput('AdminAPI_setAdminFee', 'v6002', ctc12, v6002);
-        const cv3551 = stdlib.checkedBigNumberify('./index.rsh:239:11:decimal', stdlib.UInt_max, '0');
-        const cv3552 = v5994;
-        const cv3554 = v3554;
-        const cv3555 = v3555;
-        const cv3556 = v3556;
-        const cv3557 = v3557;
-        const cv3558 = v5995;
-        const cv3559 = v3559;
-        const cv3560 = v3560;
-        const cv3561 = v3561;
-        const cv3562 = v3562;
-        const cv3563 = v3563;
-        const cv3564 = v3564;
-        const cv3565 = v4302;
-        const cv3571 = v5951;
-        const cv3572 = v6001;
+        const v4770 = true;
+        await txn3.getOutput('AdminAPI_setAdminFee', 'v4770', ctc12, v4770);
+        const cv3188 = stdlib.checkedBigNumberify('./index.rsh:220:11:decimal', stdlib.UInt_max, '0');
+        const cv3189 = v4762;
+        const cv3190 = v3190;
+        const cv3191 = v3191;
+        const cv3192 = v3192;
+        const cv3193 = v3193;
+        const cv3194 = v4763;
+        const cv3195 = v3195;
+        const cv3196 = v3196;
+        const cv3197 = v3197;
+        const cv3198 = v3198;
+        const cv3199 = v3199;
+        const cv3200 = v3200;
+        const cv3201 = v3894;
+        const cv3207 = v4747;
+        const cv3208 = v4769;
         
-        v3551 = cv3551;
-        v3552 = cv3552;
-        v3554 = cv3554;
-        v3555 = cv3555;
-        v3556 = cv3556;
-        v3557 = cv3557;
-        v3558 = cv3558;
-        v3559 = cv3559;
-        v3560 = cv3560;
-        v3561 = cv3561;
-        v3562 = cv3562;
-        v3563 = cv3563;
-        v3564 = cv3564;
-        v3565 = cv3565;
-        v3571 = cv3571;
-        v3572 = cv3572;
+        v3188 = cv3188;
+        v3189 = cv3189;
+        v3190 = cv3190;
+        v3191 = cv3191;
+        v3192 = cv3192;
+        v3193 = cv3193;
+        v3194 = cv3194;
+        v3195 = cv3195;
+        v3196 = cv3196;
+        v3197 = cv3197;
+        v3198 = cv3198;
+        v3199 = cv3199;
+        v3200 = cv3200;
+        v3201 = cv3201;
+        v3207 = cv3207;
+        v3208 = cv3208;
         
         continue;
         break;
         }
       case 'AdminAPI_updatePrice0_192': {
-        const v6548 = v4301[1];
+        const v5316 = v3893[1];
         undefined /* setApiDetails */;
         ;
-        const v6682 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v6683 = v6682[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v6687 = v6682[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v6688 = v6682[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v6689 = [v6683, v6687, v6688];
-        const v6690 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v6689);
+        const v5440 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v5441 = v5440[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v5445 = v5440[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v5446 = v5440[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v5447 = [v5441, v5445, v5446];
+        const v5448 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v5447);
         ;
-        const v6691 = v6690[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v6692 = v6691[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v6696 = v6691[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v6697 = v6691[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v6698 = [v6692, v6696, v6697];
-        const v6699 = stdlib.Array_set(v6690, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v6698);
+        const v5449 = v5448[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v5450 = v5449[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v5454 = v5449[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v5455 = v5449[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v5456 = [v5450, v5454, v5455];
+        const v5457 = stdlib.Array_set(v5448, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v5456);
         ;
-        const v6760 = v6548[stdlib.checkedBigNumberify('./index.rsh:204:9:spread', stdlib.UInt_max, '0')];
-        const v6761 = stdlib.gt(v6760, stdlib.checkedBigNumberify('./index.rsh:208:25:decimal', stdlib.UInt_max, '0'));
-        const v6762 = stdlib.addressEq(v4300, v3445);
-        const v6763 = v6761 ? v6762 : false;
-        stdlib.assert(v6763, {
-          at: './index.rsh:208:16:application',
-          fs: ['at ./index.rsh:207:18:application call to [unknown function] (defined at: ./index.rsh:207:18:function exp)'],
+        const v5490 = v5316[stdlib.checkedBigNumberify('./index.rsh:187:9:spread', stdlib.UInt_max, '0')];
+        const v5491 = stdlib.gt(v5490, stdlib.checkedBigNumberify('./index.rsh:191:25:decimal', stdlib.UInt_max, '0'));
+        const v5492 = stdlib.addressEq(v3892, v3080);
+        const v5493 = v5491 ? v5492 : false;
+        stdlib.assert(v5493, {
+          at: './index.rsh:191:16:application',
+          fs: ['at ./index.rsh:190:18:application call to [unknown function] (defined at: ./index.rsh:190:18:function exp)'],
           msg: null,
           who: 'Admin'
           });
-        const v6764 = true;
-        await txn3.getOutput('AdminAPI_updatePrice', 'v6764', ctc12, v6764);
-        const cv3551 = v3551;
-        const cv3552 = v3552;
-        const cv3554 = v3554;
-        const cv3555 = v3555;
-        const cv3556 = v3563;
-        const cv3557 = v3557;
-        const cv3558 = v3558;
-        const cv3559 = v3559;
-        const cv3560 = v3560;
-        const cv3561 = v3561;
-        const cv3562 = v6760;
-        const cv3563 = v6760;
-        const cv3564 = v3564;
-        const cv3565 = v4302;
-        const cv3571 = v6699;
-        const cv3572 = v3572;
+        const v5494 = true;
+        await txn3.getOutput('AdminAPI_updatePrice', 'v5494', ctc12, v5494);
+        const cv3188 = v3188;
+        const cv3189 = v3189;
+        const cv3190 = v3190;
+        const cv3191 = v3191;
+        const cv3192 = v3199;
+        const cv3193 = v3193;
+        const cv3194 = v3194;
+        const cv3195 = v3195;
+        const cv3196 = v3196;
+        const cv3197 = v3197;
+        const cv3198 = v5490;
+        const cv3199 = v5490;
+        const cv3200 = v3200;
+        const cv3201 = v3894;
+        const cv3207 = v5457;
+        const cv3208 = v3208;
         
-        v3551 = cv3551;
-        v3552 = cv3552;
-        v3554 = cv3554;
-        v3555 = cv3555;
-        v3556 = cv3556;
-        v3557 = cv3557;
-        v3558 = cv3558;
-        v3559 = cv3559;
-        v3560 = cv3560;
-        v3561 = cv3561;
-        v3562 = cv3562;
-        v3563 = cv3563;
-        v3564 = cv3564;
-        v3565 = cv3565;
-        v3571 = cv3571;
-        v3572 = cv3572;
+        v3188 = cv3188;
+        v3189 = cv3189;
+        v3190 = cv3190;
+        v3191 = cv3191;
+        v3192 = cv3192;
+        v3193 = cv3193;
+        v3194 = cv3194;
+        v3195 = cv3195;
+        v3196 = cv3196;
+        v3197 = cv3197;
+        v3198 = cv3198;
+        v3199 = cv3199;
+        v3200 = cv3200;
+        v3201 = cv3201;
+        v3207 = cv3207;
+        v3208 = cv3208;
         
         continue;
         break;
         }
       case 'Claimant_burnReserve0_192': {
-        const v7296 = v4301[1];
+        const v6026 = v3893[1];
         undefined /* setApiDetails */;
-        const v7344 = v7296[stdlib.checkedBigNumberify('./index.rsh:406:9:spread', stdlib.UInt_max, '0')];
+        const v6064 = v6026[stdlib.checkedBigNumberify('./index.rsh:351:9:spread', stdlib.UInt_max, '0')];
         ;
-        const v7430 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v7431 = v7430[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v7435 = v7430[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v7436 = v7430[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v7437 = [v7431, v7435, v7436];
-        const v7438 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v7437);
+        const v6150 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v6151 = v6150[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v6155 = v6150[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v6156 = v6150[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v6157 = [v6151, v6155, v6156];
+        const v6158 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v6157);
         ;
-        const v7439 = v7438[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v7440 = v7439[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v7441 = stdlib.add(v7440, v7344);
-        const v7444 = v7439[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v7445 = v7439[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v7446 = [v7441, v7444, v7445];
-        const v7447 = stdlib.Array_set(v7438, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v7446);
+        const v6159 = v6158[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v6160 = v6159[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v6161 = stdlib.add(v6160, v6064);
+        const v6164 = v6159[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v6165 = v6159[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v6166 = [v6161, v6164, v6165];
+        const v6167 = stdlib.Array_set(v6158, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v6166);
         ;
-        let v7522;
-        const v7523 = stdlib.eq(v3559, stdlib.checkedBigNumberify('./index.rsh:163:23:decimal', stdlib.UInt_max, '0'));
-        let v7524;
-        const v7525 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-        if (v7525) {
-          v7524 = v3562;
+        let v6214;
+        const v6215 = stdlib.eq(v3195, stdlib.checkedBigNumberify('./index.rsh:151:23:decimal', stdlib.UInt_max, '0'));
+        let v6216;
+        const v6217 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+        if (v6217) {
+          v6216 = v3198;
           }
         else {
-          const v7526 = stdlib.div(v3560, v3561);
-          const v7527 = stdlib.gt(v7526, v3562);
-          const v7529 = v7527 ? v3562 : v7526;
-          v7524 = v7529;
+          const v6218 = stdlib.div(v3196, v3197);
+          const v6219 = stdlib.gt(v6218, v3198);
+          const v6221 = v6219 ? v3198 : v6218;
+          v6216 = v6221;
           }
-        const v7530 = stdlib.mul(v3561, v7524);
-        const v7531 = stdlib.sub(v3560, v7530);
-        const v7532 = stdlib.eq(v7531, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-        const v7533 = v7523 ? true : v7532;
-        if (v7533) {
-          v7522 = v3555;
+        const v6222 = stdlib.mul(v3197, v6216);
+        const v6223 = stdlib.sub(v3196, v6222);
+        const v6224 = stdlib.eq(v6223, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+        const v6225 = v6215 ? true : v6224;
+        if (v6225) {
+          v6214 = v3191;
           }
         else {
-          let v7534;
-          if (v7525) {
-            v7534 = v3562;
+          let v6226;
+          if (v6217) {
+            v6226 = v3198;
             }
           else {
-            const v7536 = stdlib.div(v3560, v3561);
-            const v7537 = stdlib.gt(v7536, v3562);
-            const v7539 = v7537 ? v3562 : v7536;
-            v7534 = v7539;
+            const v6228 = stdlib.div(v3196, v3197);
+            const v6229 = stdlib.gt(v6228, v3198);
+            const v6231 = v6229 ? v3198 : v6228;
+            v6226 = v6231;
             }
-          const v7540 = stdlib.mul(v3561, v7534);
-          const v7541 = stdlib.sub(v3560, v7540);
-          const v7542 = stdlib.div(v7541, v3559);
-          const v7543 = stdlib.gt(v7542, v3555);
-          let v7544;
-          if (v7525) {
-            v7544 = v3562;
-            }
-          else {
-            const v7546 = stdlib.div(v3560, v3561);
-            const v7547 = stdlib.gt(v7546, v3562);
-            const v7549 = v7547 ? v3562 : v7546;
-            v7544 = v7549;
-            }
-          const v7550 = stdlib.mul(v3561, v7544);
-          const v7551 = stdlib.sub(v3560, v7550);
-          const v7552 = stdlib.div(v7551, v3559);
-          const v7553 = v7543 ? v7552 : v3555;
-          v7522 = v7553;
-          }
-        const v7554 = stdlib.div(v7344, v7522);
-        const v7555 = stdlib.mul(v7554, v3564);
-        const v7556 = stdlib.div(v7555, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-        let v7557;
-        if (v7525) {
-          v7557 = v3562;
-          }
-        else {
-          const v7559 = stdlib.div(v3560, v3561);
-          const v7560 = stdlib.gt(v7559, v3562);
-          const v7562 = v7560 ? v3562 : v7559;
-          v7557 = v7562;
-          }
-        const v7563 = stdlib.mul(v3561, v7557);
-        const v7564 = stdlib.div(v3560, v7563);
-        const v7565 = stdlib.ge(v7564, v3557);
-        let v7566;
-        let v7568;
-        if (v7525) {
-          v7568 = v3562;
-          }
-        else {
-          const v7570 = stdlib.div(v3560, v3561);
-          const v7571 = stdlib.gt(v7570, v3562);
-          const v7573 = v7571 ? v3562 : v7570;
-          v7568 = v7573;
-          }
-        const v7574 = stdlib.mul(v3561, v7568);
-        const v7575 = stdlib.sub(v3560, v7574);
-        const v7576 = stdlib.eq(v7575, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-        const v7577 = v7523 ? true : v7576;
-        if (v7577) {
-          v7566 = v3555;
-          }
-        else {
-          let v7578;
-          if (v7525) {
-            v7578 = v3562;
+          const v6232 = stdlib.mul(v3197, v6226);
+          const v6233 = stdlib.sub(v3196, v6232);
+          const v6234 = stdlib.div(v6233, v3195);
+          const v6235 = stdlib.gt(v6234, v3191);
+          let v6236;
+          if (v6217) {
+            v6236 = v3198;
             }
           else {
-            const v7580 = stdlib.div(v3560, v3561);
-            const v7581 = stdlib.gt(v7580, v3562);
-            const v7583 = v7581 ? v3562 : v7580;
-            v7578 = v7583;
+            const v6238 = stdlib.div(v3196, v3197);
+            const v6239 = stdlib.gt(v6238, v3198);
+            const v6241 = v6239 ? v3198 : v6238;
+            v6236 = v6241;
             }
-          const v7584 = stdlib.mul(v3561, v7578);
-          const v7585 = stdlib.sub(v3560, v7584);
-          const v7586 = stdlib.div(v7585, v3559);
-          const v7587 = stdlib.gt(v7586, v3555);
-          let v7588;
-          if (v7525) {
-            v7588 = v3562;
+          const v6242 = stdlib.mul(v3197, v6236);
+          const v6243 = stdlib.sub(v3196, v6242);
+          const v6244 = stdlib.div(v6243, v3195);
+          const v6245 = v6235 ? v6244 : v3191;
+          v6214 = v6245;
+          }
+        const v6246 = stdlib.div(v6064, v6214);
+        const v6247 = stdlib.mul(v6246, v3200);
+        const v6248 = stdlib.div(v6247, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+        let v6249;
+        if (v6217) {
+          v6249 = v3198;
+          }
+        else {
+          const v6251 = stdlib.div(v3196, v3197);
+          const v6252 = stdlib.gt(v6251, v3198);
+          const v6254 = v6252 ? v3198 : v6251;
+          v6249 = v6254;
+          }
+        const v6255 = stdlib.mul(v3197, v6249);
+        const v6256 = stdlib.div(v3196, v6255);
+        const v6257 = stdlib.ge(v6256, v3193);
+        let v6258;
+        let v6260;
+        if (v6217) {
+          v6260 = v3198;
+          }
+        else {
+          const v6262 = stdlib.div(v3196, v3197);
+          const v6263 = stdlib.gt(v6262, v3198);
+          const v6265 = v6263 ? v3198 : v6262;
+          v6260 = v6265;
+          }
+        const v6266 = stdlib.mul(v3197, v6260);
+        const v6267 = stdlib.sub(v3196, v6266);
+        const v6268 = stdlib.eq(v6267, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+        const v6269 = v6215 ? true : v6268;
+        if (v6269) {
+          v6258 = v3191;
+          }
+        else {
+          let v6270;
+          if (v6217) {
+            v6270 = v3198;
             }
           else {
-            const v7590 = stdlib.div(v3560, v3561);
-            const v7591 = stdlib.gt(v7590, v3562);
-            const v7593 = v7591 ? v3562 : v7590;
-            v7588 = v7593;
+            const v6272 = stdlib.div(v3196, v3197);
+            const v6273 = stdlib.gt(v6272, v3198);
+            const v6275 = v6273 ? v3198 : v6272;
+            v6270 = v6275;
             }
-          const v7594 = stdlib.mul(v3561, v7588);
-          const v7595 = stdlib.sub(v3560, v7594);
-          const v7596 = stdlib.div(v7595, v3559);
-          const v7597 = v7587 ? v7596 : v3555;
-          v7566 = v7597;
+          const v6276 = stdlib.mul(v3197, v6270);
+          const v6277 = stdlib.sub(v3196, v6276);
+          const v6278 = stdlib.div(v6277, v3195);
+          const v6279 = stdlib.gt(v6278, v3191);
+          let v6280;
+          if (v6217) {
+            v6280 = v3198;
+            }
+          else {
+            const v6282 = stdlib.div(v3196, v3197);
+            const v6283 = stdlib.gt(v6282, v3198);
+            const v6285 = v6283 ? v3198 : v6282;
+            v6280 = v6285;
+            }
+          const v6286 = stdlib.mul(v3197, v6280);
+          const v6287 = stdlib.sub(v3196, v6286);
+          const v6288 = stdlib.div(v6287, v3195);
+          const v6289 = v6279 ? v6288 : v3191;
+          v6258 = v6289;
           }
-        const v7598 = stdlib.div(v7344, v7566);
-        const v7599 = stdlib.gt(v7598, stdlib.checkedBigNumberify('./index.rsh:417:115:decimal', stdlib.UInt_max, '0'));
-        const v7600 = v7565 ? v7599 : false;
-        const v7602 = stdlib.ge(v3572, v7554);
-        const v7603 = v7600 ? v7602 : false;
-        const v7608 = stdlib.mul(v7556, v3558);
-        const v7609 = stdlib.div(v7608, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-        const v7612 = stdlib.mul(v7556, v3552);
-        const v7613 = stdlib.div(v7612, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-        const v7614 = stdlib.add(v7609, v7613);
-        const v7615 = stdlib.eq(v7556, v7614);
-        const v7616 = v7603 ? v7615 : false;
-        stdlib.assert(v7616, {
-          at: './index.rsh:416:14:application',
-          fs: ['at ./index.rsh:413:23:application call to [unknown function] (defined at: ./index.rsh:413:23:function exp)'],
+        const v6290 = stdlib.div(v6064, v6258);
+        const v6291 = stdlib.gt(v6290, stdlib.checkedBigNumberify('./index.rsh:362:115:decimal', stdlib.UInt_max, '0'));
+        const v6292 = v6257 ? v6291 : false;
+        const v6294 = stdlib.ge(v3208, v6246);
+        const v6295 = v6292 ? v6294 : false;
+        const v6300 = stdlib.mul(v6248, v3194);
+        const v6301 = stdlib.div(v6300, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+        const v6304 = stdlib.mul(v6248, v3189);
+        const v6305 = stdlib.div(v6304, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+        const v6306 = stdlib.add(v6301, v6305);
+        const v6307 = stdlib.eq(v6248, v6306);
+        const v6308 = v6295 ? v6307 : false;
+        stdlib.assert(v6308, {
+          at: './index.rsh:361:14:application',
+          fs: ['at ./index.rsh:358:23:application call to [unknown function] (defined at: ./index.rsh:358:23:function exp)'],
           msg: null,
           who: 'Admin'
           });
-        const v7617 = stdlib.sub(v7554, v7556);
-        const v7621 = stdlib.sub(v3572, v7617);
+        const v6309 = stdlib.sub(v6246, v6248);
+        const v6313 = stdlib.sub(v3208, v6309);
         ;
-        const v7622 = true;
-        await txn3.getOutput('Claimant_burnReserve', 'v7622', ctc12, v7622);
-        const v7629 = stdlib.sub(v3559, v7344);
-        const v7630 = stdlib.sub(v3560, v7554);
-        const v7635 = stdlib.add(v7630, v7609);
-        const v7640 = stdlib.add(v3551, v7613);
-        const cv3551 = v7640;
-        const cv3552 = v3552;
-        const cv3554 = v3554;
-        const cv3555 = v3555;
-        const cv3556 = v3563;
-        const cv3557 = v3557;
-        const cv3558 = v3558;
-        const cv3559 = v7629;
-        const cv3560 = v7635;
-        const cv3561 = v3561;
-        const cv3562 = v3562;
-        const cv3563 = v3556;
-        const cv3564 = v3564;
-        const cv3565 = v4302;
-        const cv3571 = v7447;
-        const cv3572 = v7621;
+        const v6314 = true;
+        await txn3.getOutput('Claimant_burnReserve', 'v6314', ctc12, v6314);
+        const v6321 = stdlib.sub(v3195, v6064);
+        const v6322 = stdlib.sub(v3196, v6246);
+        const v6327 = stdlib.add(v6322, v6301);
+        const v6332 = stdlib.add(v3188, v6305);
+        const cv3188 = v6332;
+        const cv3189 = v3189;
+        const cv3190 = v3190;
+        const cv3191 = v3191;
+        const cv3192 = v3199;
+        const cv3193 = v3193;
+        const cv3194 = v3194;
+        const cv3195 = v6321;
+        const cv3196 = v6327;
+        const cv3197 = v3197;
+        const cv3198 = v3198;
+        const cv3199 = v3192;
+        const cv3200 = v3200;
+        const cv3201 = v3894;
+        const cv3207 = v6167;
+        const cv3208 = v6313;
         
-        v3551 = cv3551;
-        v3552 = cv3552;
-        v3554 = cv3554;
-        v3555 = cv3555;
-        v3556 = cv3556;
-        v3557 = cv3557;
-        v3558 = cv3558;
-        v3559 = cv3559;
-        v3560 = cv3560;
-        v3561 = cv3561;
-        v3562 = cv3562;
-        v3563 = cv3563;
-        v3564 = cv3564;
-        v3565 = cv3565;
-        v3571 = cv3571;
-        v3572 = cv3572;
+        v3188 = cv3188;
+        v3189 = cv3189;
+        v3190 = cv3190;
+        v3191 = cv3191;
+        v3192 = cv3192;
+        v3193 = cv3193;
+        v3194 = cv3194;
+        v3195 = cv3195;
+        v3196 = cv3196;
+        v3197 = cv3197;
+        v3198 = cv3198;
+        v3199 = cv3199;
+        v3200 = cv3200;
+        v3201 = cv3201;
+        v3207 = cv3207;
+        v3208 = cv3208;
         
         continue;
         break;
         }
       case 'Claimant_burnStable0_192': {
-        const v8044 = v4301[1];
+        const v6736 = v3893[1];
         undefined /* setApiDetails */;
-        const v8103 = v8044[stdlib.checkedBigNumberify('./index.rsh:381:9:spread', stdlib.UInt_max, '0')];
+        const v6785 = v6736[stdlib.checkedBigNumberify('./index.rsh:327:9:spread', stdlib.UInt_max, '0')];
         ;
-        const v8178 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v8179 = v8178[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v8180 = stdlib.add(v8179, v8103);
-        const v8183 = v8178[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v8184 = v8178[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v8185 = [v8180, v8183, v8184];
-        const v8186 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v8185);
+        const v6860 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v6861 = v6860[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v6862 = stdlib.add(v6861, v6785);
+        const v6865 = v6860[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v6866 = v6860[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v6867 = [v6862, v6865, v6866];
+        const v6868 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v6867);
         ;
-        const v8187 = v8186[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v8188 = v8187[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v8192 = v8187[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v8193 = v8187[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v8194 = [v8188, v8192, v8193];
-        const v8195 = stdlib.Array_set(v8186, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v8194);
+        const v6869 = v6868[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v6870 = v6869[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v6874 = v6869[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v6875 = v6869[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v6876 = [v6870, v6874, v6875];
+        const v6877 = stdlib.Array_set(v6868, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v6876);
         ;
-        let v8392;
-        const v8393 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-        if (v8393) {
-          v8392 = v3562;
+        let v7046;
+        const v7047 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+        if (v7047) {
+          v7046 = v3198;
           }
         else {
-          const v8394 = stdlib.div(v3560, v3561);
-          const v8395 = stdlib.gt(v8394, v3562);
-          const v8397 = v8395 ? v3562 : v8394;
-          v8392 = v8397;
+          const v7048 = stdlib.div(v3196, v3197);
+          const v7049 = stdlib.gt(v7048, v3198);
+          const v7051 = v7049 ? v3198 : v7048;
+          v7046 = v7051;
           }
-        const v8398 = stdlib.div(v8103, v8392);
-        const v8400 = stdlib.ge(v3572, v8398);
-        const v8401 = stdlib.mul(v8398, v3564);
-        const v8402 = stdlib.div(v8401, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-        const v8405 = stdlib.mul(v8402, v3558);
-        const v8406 = stdlib.div(v8405, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-        let v8407;
-        if (v8393) {
-          v8407 = v3562;
+        const v7052 = stdlib.div(v6785, v7046);
+        const v7054 = stdlib.ge(v3208, v7052);
+        const v7055 = stdlib.mul(v7052, v3200);
+        const v7056 = stdlib.div(v7055, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+        const v7059 = stdlib.mul(v7056, v3194);
+        const v7060 = stdlib.div(v7059, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+        let v7061;
+        if (v7047) {
+          v7061 = v3198;
           }
         else {
-          const v8409 = stdlib.div(v3560, v3561);
-          const v8410 = stdlib.gt(v8409, v3562);
-          const v8412 = v8410 ? v3562 : v8409;
-          v8407 = v8412;
+          const v7063 = stdlib.div(v3196, v3197);
+          const v7064 = stdlib.gt(v7063, v3198);
+          const v7066 = v7064 ? v3198 : v7063;
+          v7061 = v7066;
           }
-        const v8413 = stdlib.div(v8103, v8407);
-        const v8414 = stdlib.mul(v8413, v3564);
-        const v8415 = stdlib.div(v8414, stdlib.checkedBigNumberify('./index.rsh:172:31:decimal', stdlib.UInt_max, '100'));
-        const v8416 = stdlib.mul(v8415, v3552);
-        const v8417 = stdlib.div(v8416, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-        const v8418 = stdlib.add(v8406, v8417);
-        const v8419 = stdlib.eq(v8402, v8418);
-        const v8420 = v8400 ? v8419 : false;
-        stdlib.assert(v8420, {
-          at: './index.rsh:387:14:application',
-          fs: ['at ./index.rsh:385:23:application call to [unknown function] (defined at: ./index.rsh:385:23:function exp)'],
+        const v7067 = stdlib.div(v6785, v7061);
+        const v7068 = stdlib.mul(v7067, v3200);
+        const v7069 = stdlib.div(v7068, stdlib.checkedBigNumberify('./index.rsh:159:31:decimal', stdlib.UInt_max, '100'));
+        const v7070 = stdlib.mul(v7069, v3189);
+        const v7071 = stdlib.div(v7070, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+        const v7072 = stdlib.add(v7060, v7071);
+        const v7073 = stdlib.eq(v7056, v7072);
+        const v7074 = v7054 ? v7073 : false;
+        stdlib.assert(v7074, {
+          at: './index.rsh:333:14:application',
+          fs: ['at ./index.rsh:331:23:application call to [unknown function] (defined at: ./index.rsh:331:23:function exp)'],
           msg: null,
           who: 'Admin'
           });
-        const v8423 = stdlib.sub(v8398, v8402);
-        const v8427 = stdlib.sub(v3572, v8423);
+        const v7077 = stdlib.sub(v7052, v7056);
+        const v7081 = stdlib.sub(v3208, v7077);
         ;
-        const v8428 = true;
-        await txn3.getOutput('Claimant_burnStable', 'v8428', ctc12, v8428);
-        const v8435 = stdlib.sub(v3561, v8103);
-        let v8436;
-        if (v8393) {
-          v8436 = v3562;
+        const v7082 = true;
+        await txn3.getOutput('Claimant_burnStable', 'v7082', ctc12, v7082);
+        const v7089 = stdlib.sub(v3197, v6785);
+        let v7090;
+        if (v7047) {
+          v7090 = v3198;
           }
         else {
-          const v8438 = stdlib.div(v3560, v3561);
-          const v8439 = stdlib.gt(v8438, v3562);
-          const v8441 = v8439 ? v3562 : v8438;
-          v8436 = v8441;
+          const v7092 = stdlib.div(v3196, v3197);
+          const v7093 = stdlib.gt(v7092, v3198);
+          const v7095 = v7093 ? v3198 : v7092;
+          v7090 = v7095;
           }
-        const v8442 = stdlib.div(v8103, v8436);
-        const v8443 = stdlib.sub(v3560, v8442);
-        let v8444;
-        if (v8393) {
-          v8444 = v3562;
-          }
-        else {
-          const v8446 = stdlib.div(v3560, v3561);
-          const v8447 = stdlib.gt(v8446, v3562);
-          const v8449 = v8447 ? v3562 : v8446;
-          v8444 = v8449;
-          }
-        const v8450 = stdlib.div(v8103, v8444);
-        const v8451 = stdlib.mul(v8450, v3564);
-        const v8452 = stdlib.div(v8451, stdlib.checkedBigNumberify('./index.rsh:172:31:decimal', stdlib.UInt_max, '100'));
-        const v8453 = stdlib.mul(v8452, v3558);
-        const v8454 = stdlib.div(v8453, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-        const v8455 = stdlib.add(v8443, v8454);
-        let v8456;
-        if (v8393) {
-          v8456 = v3562;
+        const v7096 = stdlib.div(v6785, v7090);
+        const v7097 = stdlib.sub(v3196, v7096);
+        let v7098;
+        if (v7047) {
+          v7098 = v3198;
           }
         else {
-          const v8458 = stdlib.div(v3560, v3561);
-          const v8459 = stdlib.gt(v8458, v3562);
-          const v8461 = v8459 ? v3562 : v8458;
-          v8456 = v8461;
+          const v7100 = stdlib.div(v3196, v3197);
+          const v7101 = stdlib.gt(v7100, v3198);
+          const v7103 = v7101 ? v3198 : v7100;
+          v7098 = v7103;
           }
-        const v8462 = stdlib.div(v8103, v8456);
-        const v8463 = stdlib.mul(v8462, v3564);
-        const v8464 = stdlib.div(v8463, stdlib.checkedBigNumberify('./index.rsh:172:31:decimal', stdlib.UInt_max, '100'));
-        const v8465 = stdlib.mul(v8464, v3552);
-        const v8466 = stdlib.div(v8465, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-        const v8467 = stdlib.add(v3551, v8466);
-        const cv3551 = v8467;
-        const cv3552 = v3552;
-        const cv3554 = v3554;
-        const cv3555 = v3555;
-        const cv3556 = v3563;
-        const cv3557 = v3557;
-        const cv3558 = v3558;
-        const cv3559 = v3559;
-        const cv3560 = v8455;
-        const cv3561 = v8435;
-        const cv3562 = v3562;
-        const cv3563 = v3556;
-        const cv3564 = v3564;
-        const cv3565 = v4302;
-        const cv3571 = v8195;
-        const cv3572 = v8427;
+        const v7104 = stdlib.div(v6785, v7098);
+        const v7105 = stdlib.mul(v7104, v3200);
+        const v7106 = stdlib.div(v7105, stdlib.checkedBigNumberify('./index.rsh:159:31:decimal', stdlib.UInt_max, '100'));
+        const v7107 = stdlib.mul(v7106, v3194);
+        const v7108 = stdlib.div(v7107, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+        const v7109 = stdlib.add(v7097, v7108);
+        let v7110;
+        if (v7047) {
+          v7110 = v3198;
+          }
+        else {
+          const v7112 = stdlib.div(v3196, v3197);
+          const v7113 = stdlib.gt(v7112, v3198);
+          const v7115 = v7113 ? v3198 : v7112;
+          v7110 = v7115;
+          }
+        const v7116 = stdlib.div(v6785, v7110);
+        const v7117 = stdlib.mul(v7116, v3200);
+        const v7118 = stdlib.div(v7117, stdlib.checkedBigNumberify('./index.rsh:159:31:decimal', stdlib.UInt_max, '100'));
+        const v7119 = stdlib.mul(v7118, v3189);
+        const v7120 = stdlib.div(v7119, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+        const v7121 = stdlib.add(v3188, v7120);
+        const cv3188 = v7121;
+        const cv3189 = v3189;
+        const cv3190 = v3190;
+        const cv3191 = v3191;
+        const cv3192 = v3199;
+        const cv3193 = v3193;
+        const cv3194 = v3194;
+        const cv3195 = v3195;
+        const cv3196 = v7109;
+        const cv3197 = v7089;
+        const cv3198 = v3198;
+        const cv3199 = v3192;
+        const cv3200 = v3200;
+        const cv3201 = v3894;
+        const cv3207 = v6877;
+        const cv3208 = v7081;
         
-        v3551 = cv3551;
-        v3552 = cv3552;
-        v3554 = cv3554;
-        v3555 = cv3555;
-        v3556 = cv3556;
-        v3557 = cv3557;
-        v3558 = cv3558;
-        v3559 = cv3559;
-        v3560 = cv3560;
-        v3561 = cv3561;
-        v3562 = cv3562;
-        v3563 = cv3563;
-        v3564 = cv3564;
-        v3565 = cv3565;
-        v3571 = cv3571;
-        v3572 = cv3572;
+        v3188 = cv3188;
+        v3189 = cv3189;
+        v3190 = cv3190;
+        v3191 = cv3191;
+        v3192 = cv3192;
+        v3193 = cv3193;
+        v3194 = cv3194;
+        v3195 = cv3195;
+        v3196 = cv3196;
+        v3197 = cv3197;
+        v3198 = cv3198;
+        v3199 = cv3199;
+        v3200 = cv3200;
+        v3201 = cv3201;
+        v3207 = cv3207;
+        v3208 = cv3208;
         
         continue;
         break;
         }
       case 'Claimant_mintFirstStable0_192': {
-        const v8792 = v4301[1];
+        const v7446 = v3893[1];
         undefined /* setApiDetails */;
-        const v8862 = v8792[stdlib.checkedBigNumberify('./index.rsh:269:9:spread', stdlib.UInt_max, '0')];
-        const v8863 = stdlib.mul(v8862, v3564);
-        const v8864 = stdlib.div(v8863, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-        const v8865 = stdlib.add(v8862, v8864);
-        const v8925 = stdlib.add(v3572, v8865);
+        const v7506 = v7446[stdlib.checkedBigNumberify('./index.rsh:249:9:spread', stdlib.UInt_max, '0')];
+        const v7507 = stdlib.mul(v7506, v3200);
+        const v7508 = stdlib.div(v7507, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+        const v7509 = stdlib.add(v7506, v7508);
+        const v7569 = stdlib.add(v3208, v7509);
         ;
-        const v8926 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v8927 = v8926[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v8931 = v8926[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v8932 = v8926[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v8933 = [v8927, v8931, v8932];
-        const v8934 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v8933);
+        const v7570 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v7571 = v7570[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v7575 = v7570[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v7576 = v7570[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v7577 = [v7571, v7575, v7576];
+        const v7578 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v7577);
         ;
-        const v8935 = v8934[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v8936 = v8935[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v8940 = v8935[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v8941 = v8935[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v8942 = [v8936, v8940, v8941];
-        const v8943 = stdlib.Array_set(v8934, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v8942);
+        const v7579 = v7578[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v7580 = v7579[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v7584 = v7579[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v7585 = v7579[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v7586 = [v7580, v7584, v7585];
+        const v7587 = stdlib.Array_set(v7578, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v7586);
         ;
-        const v9219 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:275:38:decimal', stdlib.UInt_max, '0'));
-        let v9220;
-        if (v9219) {
-          v9220 = v3562;
+        const v7835 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:255:38:decimal', stdlib.UInt_max, '0'));
+        let v7836;
+        if (v7835) {
+          v7836 = v3198;
           }
         else {
-          const v9222 = stdlib.div(v3560, v3561);
-          const v9223 = stdlib.gt(v9222, v3562);
-          const v9225 = v9223 ? v3562 : v9222;
-          v9220 = v9225;
+          const v7838 = stdlib.div(v3196, v3197);
+          const v7839 = stdlib.gt(v7838, v3198);
+          const v7841 = v7839 ? v3198 : v7838;
+          v7836 = v7841;
           }
-        const v9226 = stdlib.div(v8862, v9220);
-        const v9227 = v8943[stdlib.checkedBigNumberify('./index.rsh:276:91:application', stdlib.UInt_max, '1')];
-        const v9228 = v9227[stdlib.checkedBigNumberify('./index.rsh:276:91:application', stdlib.UInt_max, '0')];
-        const v9229 = stdlib.le(v9226, v9228);
-        const v9230 = v9219 ? v9229 : false;
-        const v9235 = stdlib.mul(v8864, v3558);
-        const v9236 = stdlib.div(v9235, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-        const v9239 = stdlib.mul(v8864, v3552);
-        const v9240 = stdlib.div(v9239, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-        const v9241 = stdlib.add(v9236, v9240);
-        const v9242 = stdlib.eq(v8864, v9241);
-        const v9243 = v9230 ? v9242 : false;
-        stdlib.assert(v9243, {
-          at: './index.rsh:275:16:application',
-          fs: ['at ./index.rsh:274:23:application call to [unknown function] (defined at: ./index.rsh:274:23:function exp)'],
+        const v7842 = stdlib.div(v7506, v7836);
+        const v7843 = v7587[stdlib.checkedBigNumberify('./index.rsh:256:91:application', stdlib.UInt_max, '1')];
+        const v7844 = v7843[stdlib.checkedBigNumberify('./index.rsh:256:91:application', stdlib.UInt_max, '0')];
+        const v7845 = stdlib.le(v7842, v7844);
+        const v7846 = v7835 ? v7845 : false;
+        const v7851 = stdlib.mul(v7508, v3194);
+        const v7852 = stdlib.div(v7851, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+        const v7855 = stdlib.mul(v7508, v3189);
+        const v7856 = stdlib.div(v7855, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+        const v7857 = stdlib.add(v7852, v7856);
+        const v7858 = stdlib.eq(v7508, v7857);
+        const v7859 = v7846 ? v7858 : false;
+        stdlib.assert(v7859, {
+          at: './index.rsh:255:16:application',
+          fs: ['at ./index.rsh:254:23:application call to [unknown function] (defined at: ./index.rsh:254:23:function exp)'],
           msg: null,
           who: 'Admin'
           });
-        const v9244 = stdlib.div(v8862, v3562);
-        const v9250 = stdlib.sub(v9228, v9244);
-        const v9253 = v9227[stdlib.checkedBigNumberify('./index.rsh:278:72:application', stdlib.UInt_max, '1')];
-        const v9254 = v9227[stdlib.checkedBigNumberify('./index.rsh:278:72:application', stdlib.UInt_max, '2')];
-        const v9255 = [v9250, v9253, v9254];
-        const v9256 = stdlib.Array_set(v8943, stdlib.checkedBigNumberify('./index.rsh:278:72:application', stdlib.UInt_max, '1'), v9255);
+        const v7860 = stdlib.div(v7506, v3198);
+        const v7866 = stdlib.sub(v7844, v7860);
+        const v7869 = v7843[stdlib.checkedBigNumberify('./index.rsh:258:72:application', stdlib.UInt_max, '1')];
+        const v7870 = v7843[stdlib.checkedBigNumberify('./index.rsh:258:72:application', stdlib.UInt_max, '2')];
+        const v7871 = [v7866, v7869, v7870];
+        const v7872 = stdlib.Array_set(v7587, stdlib.checkedBigNumberify('./index.rsh:258:72:application', stdlib.UInt_max, '1'), v7871);
         ;
-        const v9257 = true;
-        await txn3.getOutput('Claimant_mintFirstStable', 'v9257', ctc12, v9257);
-        const v9265 = stdlib.add(v3561, v9244);
-        const v9266 = stdlib.add(v3560, v8862);
-        const v9271 = stdlib.add(v9266, v9236);
-        const v9276 = stdlib.add(v3551, v9240);
-        const cv3551 = v9276;
-        const cv3552 = v3552;
-        const cv3554 = v3554;
-        const cv3555 = v3555;
-        const cv3556 = v3563;
-        const cv3557 = v3557;
-        const cv3558 = v3558;
-        const cv3559 = v3559;
-        const cv3560 = v9271;
-        const cv3561 = v9265;
-        const cv3562 = v3562;
-        const cv3563 = v3556;
-        const cv3564 = v3564;
-        const cv3565 = v4302;
-        const cv3571 = v9256;
-        const cv3572 = v8925;
+        const v7873 = true;
+        await txn3.getOutput('Claimant_mintFirstStable', 'v7873', ctc12, v7873);
+        const v7881 = stdlib.add(v3197, v7860);
+        const v7882 = stdlib.add(v3196, v7506);
+        const v7887 = stdlib.add(v7882, v7852);
+        const v7892 = stdlib.add(v3188, v7856);
+        const cv3188 = v7892;
+        const cv3189 = v3189;
+        const cv3190 = v3190;
+        const cv3191 = v3191;
+        const cv3192 = v3199;
+        const cv3193 = v3193;
+        const cv3194 = v3194;
+        const cv3195 = v3195;
+        const cv3196 = v7887;
+        const cv3197 = v7881;
+        const cv3198 = v3198;
+        const cv3199 = v3192;
+        const cv3200 = v3200;
+        const cv3201 = v3894;
+        const cv3207 = v7872;
+        const cv3208 = v7569;
         
-        v3551 = cv3551;
-        v3552 = cv3552;
-        v3554 = cv3554;
-        v3555 = cv3555;
-        v3556 = cv3556;
-        v3557 = cv3557;
-        v3558 = cv3558;
-        v3559 = cv3559;
-        v3560 = cv3560;
-        v3561 = cv3561;
-        v3562 = cv3562;
-        v3563 = cv3563;
-        v3564 = cv3564;
-        v3565 = cv3565;
-        v3571 = cv3571;
-        v3572 = cv3572;
+        v3188 = cv3188;
+        v3189 = cv3189;
+        v3190 = cv3190;
+        v3191 = cv3191;
+        v3192 = cv3192;
+        v3193 = cv3193;
+        v3194 = cv3194;
+        v3195 = cv3195;
+        v3196 = cv3196;
+        v3197 = cv3197;
+        v3198 = cv3198;
+        v3199 = cv3199;
+        v3200 = cv3200;
+        v3201 = cv3201;
+        v3207 = cv3207;
+        v3208 = cv3208;
         
         continue;
         break;
         }
       case 'Claimant_mintReserve0_192': {
-        const v9540 = v4301[1];
+        const v8156 = v3893[1];
         undefined /* setApiDetails */;
-        const v9624 = v9540[stdlib.checkedBigNumberify('./index.rsh:355:9:spread', stdlib.UInt_max, '0')];
-        const v9625 = stdlib.mul(v9624, v3564);
-        const v9626 = stdlib.div(v9625, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-        const v9627 = stdlib.add(v9624, v9626);
-        const v9673 = stdlib.add(v3572, v9627);
+        const v8230 = v8156[stdlib.checkedBigNumberify('./index.rsh:302:9:spread', stdlib.UInt_max, '0')];
+        const v8231 = stdlib.mul(v8230, v3200);
+        const v8232 = stdlib.div(v8231, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+        const v8233 = stdlib.add(v8230, v8232);
+        const v8279 = stdlib.add(v3208, v8233);
         ;
-        const v9674 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v9675 = v9674[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v9679 = v9674[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v9680 = v9674[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v9681 = [v9675, v9679, v9680];
-        const v9682 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v9681);
+        const v8280 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v8281 = v8280[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v8285 = v8280[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v8286 = v8280[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v8287 = [v8281, v8285, v8286];
+        const v8288 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v8287);
         ;
-        const v9683 = v9682[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v9684 = v9683[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v9688 = v9683[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v9689 = v9683[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v9690 = [v9684, v9688, v9689];
-        const v9691 = stdlib.Array_set(v9682, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v9690);
+        const v8289 = v8288[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v8290 = v8289[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v8294 = v8289[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v8295 = v8289[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v8296 = [v8290, v8294, v8295];
+        const v8297 = stdlib.Array_set(v8288, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v8296);
         ;
-        const v10030 = stdlib.mul(v9626, v3558);
-        const v10031 = stdlib.div(v10030, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-        const v10032 = stdlib.add(v3560, v10031);
-        let v10033;
-        const v10034 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-        if (v10034) {
-          v10033 = v3562;
+        const v8608 = stdlib.mul(v8232, v3194);
+        const v8609 = stdlib.div(v8608, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+        const v8610 = stdlib.add(v3196, v8609);
+        let v8611;
+        const v8612 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+        if (v8612) {
+          v8611 = v3198;
           }
         else {
-          const v10035 = stdlib.div(v10032, v3561);
-          const v10036 = stdlib.gt(v10035, v3562);
-          const v10038 = v10036 ? v3562 : v10035;
-          v10033 = v10038;
+          const v8613 = stdlib.div(v8610, v3197);
+          const v8614 = stdlib.gt(v8613, v3198);
+          const v8616 = v8614 ? v3198 : v8613;
+          v8611 = v8616;
           }
-        const v10039 = stdlib.mul(v3561, v10033);
-        const v10040 = stdlib.div(v10032, v10039);
-        const v10041 = stdlib.le(v10040, v3554);
-        const v10042 = stdlib.lt(v3561, v3563);
-        const v10043 = v10041 ? true : v10042;
-        let v10044;
-        const v10045 = stdlib.eq(v3559, stdlib.checkedBigNumberify('./index.rsh:163:23:decimal', stdlib.UInt_max, '0'));
-        let v10046;
-        if (v10034) {
-          v10046 = v3562;
-          }
-        else {
-          const v10048 = stdlib.div(v3560, v3561);
-          const v10049 = stdlib.gt(v10048, v3562);
-          const v10051 = v10049 ? v3562 : v10048;
-          v10046 = v10051;
-          }
-        const v10052 = stdlib.mul(v3561, v10046);
-        const v10053 = stdlib.sub(v3560, v10052);
-        const v10054 = stdlib.eq(v10053, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-        const v10055 = v10045 ? true : v10054;
-        if (v10055) {
-          v10044 = v3555;
+        const v8617 = stdlib.mul(v3197, v8611);
+        const v8618 = stdlib.div(v8610, v8617);
+        const v8619 = stdlib.le(v8618, v3190);
+        const v8620 = stdlib.lt(v3197, v3199);
+        const v8621 = v8619 ? true : v8620;
+        let v8622;
+        const v8623 = stdlib.eq(v3195, stdlib.checkedBigNumberify('./index.rsh:151:23:decimal', stdlib.UInt_max, '0'));
+        let v8624;
+        if (v8612) {
+          v8624 = v3198;
           }
         else {
-          let v10056;
-          if (v10034) {
-            v10056 = v3562;
+          const v8626 = stdlib.div(v3196, v3197);
+          const v8627 = stdlib.gt(v8626, v3198);
+          const v8629 = v8627 ? v3198 : v8626;
+          v8624 = v8629;
+          }
+        const v8630 = stdlib.mul(v3197, v8624);
+        const v8631 = stdlib.sub(v3196, v8630);
+        const v8632 = stdlib.eq(v8631, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+        const v8633 = v8623 ? true : v8632;
+        if (v8633) {
+          v8622 = v3191;
+          }
+        else {
+          let v8634;
+          if (v8612) {
+            v8634 = v3198;
             }
           else {
-            const v10058 = stdlib.div(v3560, v3561);
-            const v10059 = stdlib.gt(v10058, v3562);
-            const v10061 = v10059 ? v3562 : v10058;
-            v10056 = v10061;
+            const v8636 = stdlib.div(v3196, v3197);
+            const v8637 = stdlib.gt(v8636, v3198);
+            const v8639 = v8637 ? v3198 : v8636;
+            v8634 = v8639;
             }
-          const v10062 = stdlib.mul(v3561, v10056);
-          const v10063 = stdlib.sub(v3560, v10062);
-          const v10064 = stdlib.div(v10063, v3559);
-          const v10065 = stdlib.gt(v10064, v3555);
-          let v10066;
-          if (v10034) {
-            v10066 = v3562;
+          const v8640 = stdlib.mul(v3197, v8634);
+          const v8641 = stdlib.sub(v3196, v8640);
+          const v8642 = stdlib.div(v8641, v3195);
+          const v8643 = stdlib.gt(v8642, v3191);
+          let v8644;
+          if (v8612) {
+            v8644 = v3198;
             }
           else {
-            const v10068 = stdlib.div(v3560, v3561);
-            const v10069 = stdlib.gt(v10068, v3562);
-            const v10071 = v10069 ? v3562 : v10068;
-            v10066 = v10071;
+            const v8646 = stdlib.div(v3196, v3197);
+            const v8647 = stdlib.gt(v8646, v3198);
+            const v8649 = v8647 ? v3198 : v8646;
+            v8644 = v8649;
             }
-          const v10072 = stdlib.mul(v3561, v10066);
-          const v10073 = stdlib.sub(v3560, v10072);
-          const v10074 = stdlib.div(v10073, v3559);
-          const v10075 = v10065 ? v10074 : v3555;
-          v10044 = v10075;
+          const v8650 = stdlib.mul(v3197, v8644);
+          const v8651 = stdlib.sub(v3196, v8650);
+          const v8652 = stdlib.div(v8651, v3195);
+          const v8653 = v8643 ? v8652 : v3191;
+          v8622 = v8653;
           }
-        const v10076 = stdlib.div(v9624, v10044);
-        const v10077 = v9691[stdlib.checkedBigNumberify('./index.rsh:362:122:application', stdlib.UInt_max, '0')];
-        const v10078 = v10077[stdlib.checkedBigNumberify('./index.rsh:362:122:application', stdlib.UInt_max, '0')];
-        const v10079 = stdlib.le(v10076, v10078);
-        const v10080 = v10043 ? v10079 : false;
-        const v10089 = stdlib.mul(v9626, v3552);
-        const v10090 = stdlib.div(v10089, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-        const v10091 = stdlib.add(v10031, v10090);
-        const v10092 = stdlib.eq(v9626, v10091);
-        const v10093 = v10080 ? v10092 : false;
-        stdlib.assert(v10093, {
-          at: './index.rsh:361:14:application',
-          fs: ['at ./index.rsh:360:21:application call to [unknown function] (defined at: ./index.rsh:360:21:function exp)'],
+        const v8654 = stdlib.div(v8230, v8622);
+        const v8655 = v8297[stdlib.checkedBigNumberify('./index.rsh:309:122:application', stdlib.UInt_max, '0')];
+        const v8656 = v8655[stdlib.checkedBigNumberify('./index.rsh:309:122:application', stdlib.UInt_max, '0')];
+        const v8657 = stdlib.le(v8654, v8656);
+        const v8658 = v8621 ? v8657 : false;
+        const v8667 = stdlib.mul(v8232, v3189);
+        const v8668 = stdlib.div(v8667, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+        const v8669 = stdlib.add(v8609, v8668);
+        const v8670 = stdlib.eq(v8232, v8669);
+        const v8671 = v8658 ? v8670 : false;
+        stdlib.assert(v8671, {
+          at: './index.rsh:308:14:application',
+          fs: ['at ./index.rsh:307:21:application call to [unknown function] (defined at: ./index.rsh:307:21:function exp)'],
           msg: null,
           who: 'Admin'
           });
-        let v10094;
-        let v10096;
-        if (v10034) {
-          v10096 = v3562;
+        let v8672;
+        let v8674;
+        if (v8612) {
+          v8674 = v3198;
           }
         else {
-          const v10098 = stdlib.div(v3560, v3561);
-          const v10099 = stdlib.gt(v10098, v3562);
-          const v10101 = v10099 ? v3562 : v10098;
-          v10096 = v10101;
+          const v8676 = stdlib.div(v3196, v3197);
+          const v8677 = stdlib.gt(v8676, v3198);
+          const v8679 = v8677 ? v3198 : v8676;
+          v8674 = v8679;
           }
-        const v10102 = stdlib.mul(v3561, v10096);
-        const v10103 = stdlib.sub(v3560, v10102);
-        const v10104 = stdlib.eq(v10103, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-        const v10105 = v10045 ? true : v10104;
-        if (v10105) {
-          v10094 = v3555;
+        const v8680 = stdlib.mul(v3197, v8674);
+        const v8681 = stdlib.sub(v3196, v8680);
+        const v8682 = stdlib.eq(v8681, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+        const v8683 = v8623 ? true : v8682;
+        if (v8683) {
+          v8672 = v3191;
           }
         else {
-          let v10106;
-          if (v10034) {
-            v10106 = v3562;
+          let v8684;
+          if (v8612) {
+            v8684 = v3198;
             }
           else {
-            const v10108 = stdlib.div(v3560, v3561);
-            const v10109 = stdlib.gt(v10108, v3562);
-            const v10111 = v10109 ? v3562 : v10108;
-            v10106 = v10111;
+            const v8686 = stdlib.div(v3196, v3197);
+            const v8687 = stdlib.gt(v8686, v3198);
+            const v8689 = v8687 ? v3198 : v8686;
+            v8684 = v8689;
             }
-          const v10112 = stdlib.mul(v3561, v10106);
-          const v10113 = stdlib.sub(v3560, v10112);
-          const v10114 = stdlib.div(v10113, v3559);
-          const v10115 = stdlib.gt(v10114, v3555);
-          let v10116;
-          if (v10034) {
-            v10116 = v3562;
+          const v8690 = stdlib.mul(v3197, v8684);
+          const v8691 = stdlib.sub(v3196, v8690);
+          const v8692 = stdlib.div(v8691, v3195);
+          const v8693 = stdlib.gt(v8692, v3191);
+          let v8694;
+          if (v8612) {
+            v8694 = v3198;
             }
           else {
-            const v10118 = stdlib.div(v3560, v3561);
-            const v10119 = stdlib.gt(v10118, v3562);
-            const v10121 = v10119 ? v3562 : v10118;
-            v10116 = v10121;
+            const v8696 = stdlib.div(v3196, v3197);
+            const v8697 = stdlib.gt(v8696, v3198);
+            const v8699 = v8697 ? v3198 : v8696;
+            v8694 = v8699;
             }
-          const v10122 = stdlib.mul(v3561, v10116);
-          const v10123 = stdlib.sub(v3560, v10122);
-          const v10124 = stdlib.div(v10123, v3559);
-          const v10125 = v10115 ? v10124 : v3555;
-          v10094 = v10125;
+          const v8700 = stdlib.mul(v3197, v8694);
+          const v8701 = stdlib.sub(v3196, v8700);
+          const v8702 = stdlib.div(v8701, v3195);
+          const v8703 = v8693 ? v8702 : v3191;
+          v8672 = v8703;
           }
-        const v10126 = stdlib.div(v9624, v10094);
-        const v10132 = stdlib.sub(v10078, v10126);
-        const v10135 = v10077[stdlib.checkedBigNumberify('./index.rsh:364:145:application', stdlib.UInt_max, '1')];
-        const v10136 = v10077[stdlib.checkedBigNumberify('./index.rsh:364:145:application', stdlib.UInt_max, '2')];
-        const v10137 = [v10132, v10135, v10136];
-        const v10138 = stdlib.Array_set(v9691, stdlib.checkedBigNumberify('./index.rsh:364:145:application', stdlib.UInt_max, '0'), v10137);
+        const v8704 = stdlib.div(v8230, v8672);
+        const v8710 = stdlib.sub(v8656, v8704);
+        const v8713 = v8655[stdlib.checkedBigNumberify('./index.rsh:311:145:application', stdlib.UInt_max, '1')];
+        const v8714 = v8655[stdlib.checkedBigNumberify('./index.rsh:311:145:application', stdlib.UInt_max, '2')];
+        const v8715 = [v8710, v8713, v8714];
+        const v8716 = stdlib.Array_set(v8297, stdlib.checkedBigNumberify('./index.rsh:311:145:application', stdlib.UInt_max, '0'), v8715);
         ;
-        const v10139 = true;
-        await txn3.getOutput('Claimant_mintReserve', 'v10139', ctc12, v10139);
-        let v10146;
-        let v10148;
-        if (v10034) {
-          v10148 = v3562;
+        const v8717 = true;
+        await txn3.getOutput('Claimant_mintReserve', 'v8717', ctc12, v8717);
+        let v8724;
+        let v8726;
+        if (v8612) {
+          v8726 = v3198;
           }
         else {
-          const v10150 = stdlib.div(v3560, v3561);
-          const v10151 = stdlib.gt(v10150, v3562);
-          const v10153 = v10151 ? v3562 : v10150;
-          v10148 = v10153;
+          const v8728 = stdlib.div(v3196, v3197);
+          const v8729 = stdlib.gt(v8728, v3198);
+          const v8731 = v8729 ? v3198 : v8728;
+          v8726 = v8731;
           }
-        const v10154 = stdlib.mul(v3561, v10148);
-        const v10155 = stdlib.sub(v3560, v10154);
-        const v10156 = stdlib.eq(v10155, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-        const v10157 = v10045 ? true : v10156;
-        if (v10157) {
-          v10146 = v3555;
+        const v8732 = stdlib.mul(v3197, v8726);
+        const v8733 = stdlib.sub(v3196, v8732);
+        const v8734 = stdlib.eq(v8733, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+        const v8735 = v8623 ? true : v8734;
+        if (v8735) {
+          v8724 = v3191;
           }
         else {
-          let v10158;
-          if (v10034) {
-            v10158 = v3562;
+          let v8736;
+          if (v8612) {
+            v8736 = v3198;
             }
           else {
-            const v10160 = stdlib.div(v3560, v3561);
-            const v10161 = stdlib.gt(v10160, v3562);
-            const v10163 = v10161 ? v3562 : v10160;
-            v10158 = v10163;
+            const v8738 = stdlib.div(v3196, v3197);
+            const v8739 = stdlib.gt(v8738, v3198);
+            const v8741 = v8739 ? v3198 : v8738;
+            v8736 = v8741;
             }
-          const v10164 = stdlib.mul(v3561, v10158);
-          const v10165 = stdlib.sub(v3560, v10164);
-          const v10166 = stdlib.div(v10165, v3559);
-          const v10167 = stdlib.gt(v10166, v3555);
-          let v10168;
-          if (v10034) {
-            v10168 = v3562;
+          const v8742 = stdlib.mul(v3197, v8736);
+          const v8743 = stdlib.sub(v3196, v8742);
+          const v8744 = stdlib.div(v8743, v3195);
+          const v8745 = stdlib.gt(v8744, v3191);
+          let v8746;
+          if (v8612) {
+            v8746 = v3198;
             }
           else {
-            const v10170 = stdlib.div(v3560, v3561);
-            const v10171 = stdlib.gt(v10170, v3562);
-            const v10173 = v10171 ? v3562 : v10170;
-            v10168 = v10173;
+            const v8748 = stdlib.div(v3196, v3197);
+            const v8749 = stdlib.gt(v8748, v3198);
+            const v8751 = v8749 ? v3198 : v8748;
+            v8746 = v8751;
             }
-          const v10174 = stdlib.mul(v3561, v10168);
-          const v10175 = stdlib.sub(v3560, v10174);
-          const v10176 = stdlib.div(v10175, v3559);
-          const v10177 = v10167 ? v10176 : v3555;
-          v10146 = v10177;
+          const v8752 = stdlib.mul(v3197, v8746);
+          const v8753 = stdlib.sub(v3196, v8752);
+          const v8754 = stdlib.div(v8753, v3195);
+          const v8755 = v8745 ? v8754 : v3191;
+          v8724 = v8755;
           }
-        const v10178 = stdlib.div(v9624, v10146);
-        const v10179 = stdlib.add(v3559, v10178);
-        const v10180 = stdlib.add(v3560, v9624);
-        const v10185 = stdlib.add(v10180, v10031);
-        const v10190 = stdlib.add(v3551, v10090);
-        const cv3551 = v10190;
-        const cv3552 = v3552;
-        const cv3554 = v3554;
-        const cv3555 = v3555;
-        const cv3556 = v3563;
-        const cv3557 = v3557;
-        const cv3558 = v3558;
-        const cv3559 = v10179;
-        const cv3560 = v10185;
-        const cv3561 = v3561;
-        const cv3562 = v3562;
-        const cv3563 = v3556;
-        const cv3564 = v3564;
-        const cv3565 = v4302;
-        const cv3571 = v10138;
-        const cv3572 = v9673;
+        const v8756 = stdlib.div(v8230, v8724);
+        const v8757 = stdlib.add(v3195, v8756);
+        const v8758 = stdlib.add(v3196, v8230);
+        const v8763 = stdlib.add(v8758, v8609);
+        const v8768 = stdlib.add(v3188, v8668);
+        const cv3188 = v8768;
+        const cv3189 = v3189;
+        const cv3190 = v3190;
+        const cv3191 = v3191;
+        const cv3192 = v3199;
+        const cv3193 = v3193;
+        const cv3194 = v3194;
+        const cv3195 = v8757;
+        const cv3196 = v8763;
+        const cv3197 = v3197;
+        const cv3198 = v3198;
+        const cv3199 = v3192;
+        const cv3200 = v3200;
+        const cv3201 = v3894;
+        const cv3207 = v8716;
+        const cv3208 = v8279;
         
-        v3551 = cv3551;
-        v3552 = cv3552;
-        v3554 = cv3554;
-        v3555 = cv3555;
-        v3556 = cv3556;
-        v3557 = cv3557;
-        v3558 = cv3558;
-        v3559 = cv3559;
-        v3560 = cv3560;
-        v3561 = cv3561;
-        v3562 = cv3562;
-        v3563 = cv3563;
-        v3564 = cv3564;
-        v3565 = cv3565;
-        v3571 = cv3571;
-        v3572 = cv3572;
+        v3188 = cv3188;
+        v3189 = cv3189;
+        v3190 = cv3190;
+        v3191 = cv3191;
+        v3192 = cv3192;
+        v3193 = cv3193;
+        v3194 = cv3194;
+        v3195 = cv3195;
+        v3196 = cv3196;
+        v3197 = cv3197;
+        v3198 = cv3198;
+        v3199 = cv3199;
+        v3200 = cv3200;
+        v3201 = cv3201;
+        v3207 = cv3207;
+        v3208 = cv3208;
         
         continue;
         break;
         }
       case 'Claimant_mintStable0_192': {
-        const v10288 = v4301[1];
+        const v8866 = v3893[1];
         undefined /* setApiDetails */;
-        const v10386 = v10288[stdlib.checkedBigNumberify('./index.rsh:326:9:spread', stdlib.UInt_max, '0')];
-        const v10387 = stdlib.mul(v10386, v3564);
-        const v10388 = stdlib.div(v10387, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-        const v10389 = stdlib.add(v10386, v10388);
-        const v10421 = stdlib.add(v3572, v10389);
+        const v8954 = v8866[stdlib.checkedBigNumberify('./index.rsh:274:9:spread', stdlib.UInt_max, '0')];
+        const v8955 = stdlib.mul(v8954, v3200);
+        const v8956 = stdlib.div(v8955, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+        const v8957 = stdlib.add(v8954, v8956);
+        const v8989 = stdlib.add(v3208, v8957);
         ;
-        const v10422 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v10423 = v10422[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v10427 = v10422[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v10428 = v10422[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v10429 = [v10423, v10427, v10428];
-        const v10430 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v10429);
+        const v8990 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v8991 = v8990[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v8995 = v8990[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v8996 = v8990[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v8997 = [v8991, v8995, v8996];
+        const v8998 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v8997);
         ;
-        const v10431 = v10430[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v10432 = v10431[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-        const v10436 = v10431[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-        const v10437 = v10431[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-        const v10438 = [v10432, v10436, v10437];
-        const v10439 = stdlib.Array_set(v10430, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v10438);
+        const v8999 = v8998[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v9000 = v8999[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+        const v9004 = v8999[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+        const v9005 = v8999[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+        const v9006 = [v9000, v9004, v9005];
+        const v9007 = stdlib.Array_set(v8998, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v9006);
         ;
-        let v10942;
-        const v10943 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-        if (v10943) {
-          v10942 = v3562;
+        let v9482;
+        const v9483 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+        if (v9483) {
+          v9482 = v3198;
           }
         else {
-          const v10944 = stdlib.div(v3560, v3561);
-          const v10945 = stdlib.gt(v10944, v3562);
-          const v10947 = v10945 ? v3562 : v10944;
-          v10942 = v10947;
+          const v9484 = stdlib.div(v3196, v3197);
+          const v9485 = stdlib.gt(v9484, v3198);
+          const v9487 = v9485 ? v3198 : v9484;
+          v9482 = v9487;
           }
-        const v10948 = stdlib.mul(v3561, v10942);
-        const v10949 = stdlib.div(v3560, v10948);
-        const v10950 = stdlib.ge(v10949, v3557);
-        const v10953 = stdlib.mul(v10388, v3558);
-        const v10954 = stdlib.div(v10953, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-        const v10955 = stdlib.add(v3560, v10954);
-        let v10956;
-        if (v10943) {
-          v10956 = v3562;
-          }
-        else {
-          const v10958 = stdlib.div(v10955, v3561);
-          const v10959 = stdlib.gt(v10958, v3562);
-          const v10961 = v10959 ? v3562 : v10958;
-          v10956 = v10961;
-          }
-        const v10962 = stdlib.mul(v3561, v10956);
-        const v10963 = stdlib.div(v10955, v10962);
-        const v10964 = stdlib.ge(v10963, v3557);
-        const v10965 = v10950 ? v10964 : false;
-        let v10966;
-        if (v10943) {
-          v10966 = v3562;
+        const v9488 = stdlib.mul(v3197, v9482);
+        const v9489 = stdlib.div(v3196, v9488);
+        const v9490 = stdlib.ge(v9489, v3193);
+        const v9493 = stdlib.mul(v8956, v3194);
+        const v9494 = stdlib.div(v9493, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+        const v9495 = stdlib.add(v3196, v9494);
+        let v9496;
+        if (v9483) {
+          v9496 = v3198;
           }
         else {
-          const v10968 = stdlib.div(v3560, v3561);
-          const v10969 = stdlib.gt(v10968, v3562);
-          const v10971 = v10969 ? v3562 : v10968;
-          v10966 = v10971;
+          const v9498 = stdlib.div(v9495, v3197);
+          const v9499 = stdlib.gt(v9498, v3198);
+          const v9501 = v9499 ? v3198 : v9498;
+          v9496 = v9501;
           }
-        const v10972 = stdlib.div(v10386, v10966);
-        const v10973 = v10439[stdlib.checkedBigNumberify('./index.rsh:335:91:application', stdlib.UInt_max, '1')];
-        const v10974 = v10973[stdlib.checkedBigNumberify('./index.rsh:335:91:application', stdlib.UInt_max, '0')];
-        const v10975 = stdlib.le(v10972, v10974);
-        const v10976 = v10965 ? v10975 : false;
-        const v10985 = stdlib.mul(v10388, v3552);
-        const v10986 = stdlib.div(v10985, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-        const v10987 = stdlib.add(v10954, v10986);
-        const v10988 = stdlib.eq(v10388, v10987);
-        const v10989 = v10976 ? v10988 : false;
-        stdlib.assert(v10989, {
-          at: './index.rsh:333:16:application',
-          fs: ['at ./index.rsh:332:23:application call to [unknown function] (defined at: ./index.rsh:332:23:function exp)'],
+        const v9502 = stdlib.mul(v3197, v9496);
+        const v9503 = stdlib.div(v9495, v9502);
+        const v9504 = stdlib.ge(v9503, v3193);
+        const v9505 = v9490 ? v9504 : false;
+        let v9506;
+        if (v9483) {
+          v9506 = v3198;
+          }
+        else {
+          const v9508 = stdlib.div(v3196, v3197);
+          const v9509 = stdlib.gt(v9508, v3198);
+          const v9511 = v9509 ? v3198 : v9508;
+          v9506 = v9511;
+          }
+        const v9512 = stdlib.div(v8954, v9506);
+        const v9513 = v9007[stdlib.checkedBigNumberify('./index.rsh:283:91:application', stdlib.UInt_max, '1')];
+        const v9514 = v9513[stdlib.checkedBigNumberify('./index.rsh:283:91:application', stdlib.UInt_max, '0')];
+        const v9515 = stdlib.le(v9512, v9514);
+        const v9516 = v9505 ? v9515 : false;
+        const v9525 = stdlib.mul(v8956, v3189);
+        const v9526 = stdlib.div(v9525, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+        const v9527 = stdlib.add(v9494, v9526);
+        const v9528 = stdlib.eq(v8956, v9527);
+        const v9529 = v9516 ? v9528 : false;
+        stdlib.assert(v9529, {
+          at: './index.rsh:281:16:application',
+          fs: ['at ./index.rsh:280:23:application call to [unknown function] (defined at: ./index.rsh:280:23:function exp)'],
           msg: null,
           who: 'Admin'
           });
-        let v10990;
-        if (v10943) {
-          v10990 = v3562;
+        let v9530;
+        if (v9483) {
+          v9530 = v3198;
           }
         else {
-          const v10992 = stdlib.div(v3560, v3561);
-          const v10993 = stdlib.gt(v10992, v3562);
-          const v10995 = v10993 ? v3562 : v10992;
-          v10990 = v10995;
+          const v9532 = stdlib.div(v3196, v3197);
+          const v9533 = stdlib.gt(v9532, v3198);
+          const v9535 = v9533 ? v3198 : v9532;
+          v9530 = v9535;
           }
-        const v10996 = stdlib.div(v10386, v10990);
-        const v11002 = stdlib.sub(v10974, v10996);
-        const v11005 = v10973[stdlib.checkedBigNumberify('./index.rsh:338:54:application', stdlib.UInt_max, '1')];
-        const v11006 = v10973[stdlib.checkedBigNumberify('./index.rsh:338:54:application', stdlib.UInt_max, '2')];
-        const v11007 = [v11002, v11005, v11006];
-        const v11008 = stdlib.Array_set(v10439, stdlib.checkedBigNumberify('./index.rsh:338:54:application', stdlib.UInt_max, '1'), v11007);
+        const v9536 = stdlib.div(v8954, v9530);
+        const v9542 = stdlib.sub(v9514, v9536);
+        const v9545 = v9513[stdlib.checkedBigNumberify('./index.rsh:286:54:application', stdlib.UInt_max, '1')];
+        const v9546 = v9513[stdlib.checkedBigNumberify('./index.rsh:286:54:application', stdlib.UInt_max, '2')];
+        const v9547 = [v9542, v9545, v9546];
+        const v9548 = stdlib.Array_set(v9007, stdlib.checkedBigNumberify('./index.rsh:286:54:application', stdlib.UInt_max, '1'), v9547);
         ;
-        const v11009 = true;
-        await txn3.getOutput('Claimant_mintStable', 'v11009', ctc12, v11009);
-        let v11016;
-        if (v10943) {
-          v11016 = v3562;
+        const v9549 = true;
+        await txn3.getOutput('Claimant_mintStable', 'v9549', ctc12, v9549);
+        let v9556;
+        if (v9483) {
+          v9556 = v3198;
           }
         else {
-          const v11018 = stdlib.div(v3560, v3561);
-          const v11019 = stdlib.gt(v11018, v3562);
-          const v11021 = v11019 ? v3562 : v11018;
-          v11016 = v11021;
+          const v9558 = stdlib.div(v3196, v3197);
+          const v9559 = stdlib.gt(v9558, v3198);
+          const v9561 = v9559 ? v3198 : v9558;
+          v9556 = v9561;
           }
-        const v11022 = stdlib.div(v10386, v11016);
-        const v11023 = stdlib.add(v3561, v11022);
-        const v11024 = stdlib.add(v3560, v10386);
-        const v11029 = stdlib.add(v11024, v10954);
-        const v11034 = stdlib.add(v3551, v10986);
-        const cv3551 = v11034;
-        const cv3552 = v3552;
-        const cv3554 = v3554;
-        const cv3555 = v3555;
-        const cv3556 = v3563;
-        const cv3557 = v3557;
-        const cv3558 = v3558;
-        const cv3559 = v3559;
-        const cv3560 = v11029;
-        const cv3561 = v11023;
-        const cv3562 = v3562;
-        const cv3563 = v3556;
-        const cv3564 = v3564;
-        const cv3565 = v4302;
-        const cv3571 = v11008;
-        const cv3572 = v10421;
+        const v9562 = stdlib.div(v8954, v9556);
+        const v9563 = stdlib.add(v3197, v9562);
+        const v9564 = stdlib.add(v3196, v8954);
+        const v9569 = stdlib.add(v9564, v9494);
+        const v9574 = stdlib.add(v3188, v9526);
+        const cv3188 = v9574;
+        const cv3189 = v3189;
+        const cv3190 = v3190;
+        const cv3191 = v3191;
+        const cv3192 = v3199;
+        const cv3193 = v3193;
+        const cv3194 = v3194;
+        const cv3195 = v3195;
+        const cv3196 = v9569;
+        const cv3197 = v9563;
+        const cv3198 = v3198;
+        const cv3199 = v3192;
+        const cv3200 = v3200;
+        const cv3201 = v3894;
+        const cv3207 = v9548;
+        const cv3208 = v8989;
         
-        v3551 = cv3551;
-        v3552 = cv3552;
-        v3554 = cv3554;
-        v3555 = cv3555;
-        v3556 = cv3556;
-        v3557 = cv3557;
-        v3558 = cv3558;
-        v3559 = cv3559;
-        v3560 = cv3560;
-        v3561 = cv3561;
-        v3562 = cv3562;
-        v3563 = cv3563;
-        v3564 = cv3564;
-        v3565 = cv3565;
-        v3571 = cv3571;
-        v3572 = cv3572;
+        v3188 = cv3188;
+        v3189 = cv3189;
+        v3190 = cv3190;
+        v3191 = cv3191;
+        v3192 = cv3192;
+        v3193 = cv3193;
+        v3194 = cv3194;
+        v3195 = cv3195;
+        v3196 = cv3196;
+        v3197 = cv3197;
+        v3198 = cv3198;
+        v3199 = cv3199;
+        v3200 = cv3200;
+        v3201 = cv3201;
+        v3207 = cv3207;
+        v3208 = cv3208;
         
         continue;
         break;
@@ -1606,17 +1534,16 @@ export async function _AdminAPI_claimAdminFee4(ctcTop, interact) {
   const ctc = ctcTop._initialize();
   const stdlib = ctc.stdlib;
   const ctc0 = stdlib.T_Address;
-  const ctc1 = stdlib.T_UInt;
-  const ctc2 = stdlib.T_Token;
+  const ctc1 = stdlib.T_Token;
+  const ctc2 = stdlib.T_UInt;
   const ctc3 = stdlib.T_Bool;
-  const ctc4 = stdlib.T_Tuple([ctc1, ctc1, ctc3]);
+  const ctc4 = stdlib.T_Tuple([ctc2, ctc2, ctc3]);
   const ctc5 = stdlib.T_Array(ctc4, stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '2'));
   const ctc6 = stdlib.T_Tuple([]);
-  const ctc7 = stdlib.T_Tuple([ctc1, ctc1]);
-  const ctc8 = stdlib.T_Tuple([ctc1]);
+  const ctc7 = stdlib.T_Tuple([ctc2, ctc2]);
+  const ctc8 = stdlib.T_Tuple([ctc2]);
   const ctc9 = stdlib.T_Data({
     AdminAPI_claimAdminFee0_192: ctc6,
-    AdminAPI_closeBank0_192: ctc6,
     AdminAPI_setAdminFee0_192: ctc7,
     AdminAPI_updatePrice0_192: ctc8,
     Claimant_burnReserve0_192: ctc8,
@@ -1628,126 +1555,121 @@ export async function _AdminAPI_claimAdminFee4(ctcTop, interact) {
   const ctc10 = stdlib.T_Null;
   
   
-  const [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1]);
-  const v3621 = ctc.selfAddress();
-  const v3623 = stdlib.protect(ctc6, await interact.in(), {
+  const [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2]);
+  const v3257 = ctc.selfAddress();
+  const v3259 = stdlib.protect(ctc6, await interact.in(), {
     at: './index.rsh:1:23:application',
-    fs: ['at ./index.rsh:248:10:application call to [unknown function] (defined at: ./index.rsh:248:10:function exp)', 'at ./index.rsh:118:17:application call to "runAdminAPI_claimAdminFee0_192" (defined at: ./index.rsh:247:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+    fs: ['at ./index.rsh:229:10:application call to [unknown function] (defined at: ./index.rsh:229:10:function exp)', 'at ./index.rsh:109:17:application call to "runAdminAPI_claimAdminFee0_192" (defined at: ./index.rsh:228:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: 'in',
     who: 'AdminAPI_claimAdminFee'
     });
-  const v3624 = stdlib.addressEq(v3621, v3445);
-  stdlib.assert(v3624, {
-    at: './index.rsh:248:19:application',
-    fs: ['at ./index.rsh:248:10:application call to [unknown function] (defined at: ./index.rsh:248:10:function exp)', 'at ./index.rsh:248:10:application call to [unknown function] (defined at: ./index.rsh:248:10:function exp)', 'at ./index.rsh:118:17:application call to "runAdminAPI_claimAdminFee0_192" (defined at: ./index.rsh:247:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+  const v3260 = stdlib.addressEq(v3257, v3080);
+  stdlib.assert(v3260, {
+    at: './index.rsh:229:19:application',
+    fs: ['at ./index.rsh:229:10:application call to [unknown function] (defined at: ./index.rsh:229:10:function exp)', 'at ./index.rsh:229:10:application call to [unknown function] (defined at: ./index.rsh:229:10:function exp)', 'at ./index.rsh:109:17:application call to "runAdminAPI_claimAdminFee0_192" (defined at: ./index.rsh:228:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: null,
     who: 'AdminAPI_claimAdminFee'
     });
-  const v3627 = ['AdminAPI_claimAdminFee0_192', v3623];
+  const v3263 = ['AdminAPI_claimAdminFee0_192', v3259];
   
   const txn1 = await (ctc.sendrecv({
-    args: [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572, v3627],
+    args: [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208, v3263],
     evt_cnt: 1,
     funcNum: 3,
     lct: stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '0'),
     onlyIf: true,
     out_tys: [ctc9],
-    pay: [stdlib.checkedBigNumberify('./index.rsh:249:14:decimal', stdlib.UInt_max, '0'), [[stdlib.checkedBigNumberify('./index.rsh:249:18:decimal', stdlib.UInt_max, '0'), v3511], [stdlib.checkedBigNumberify('./index.rsh:249:41:decimal', stdlib.UInt_max, '0'), v3476]]],
+    pay: [stdlib.checkedBigNumberify('./index.rsh:230:14:decimal', stdlib.UInt_max, '0'), [[stdlib.checkedBigNumberify('./index.rsh:230:18:decimal', stdlib.UInt_max, '0'), v3146], [stdlib.checkedBigNumberify('./index.rsh:230:41:decimal', stdlib.UInt_max, '0'), v3110]]],
     sim_p: (async (txn1) => {
       const sim_r = { txns: [], mapRefs: [], maps: [] };
       let sim_txn_ctr = stdlib.UInt_max;
       const getSimTokCtr = () => { sim_txn_ctr = sim_txn_ctr.sub(1); return sim_txn_ctr; };
       
       
-      const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
+      const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
       
-      switch (v4301[0]) {
+      switch (v3893[0]) {
         case 'AdminAPI_claimAdminFee0_192': {
-          const v4304 = v4301[1];
+          const v3896 = v3893[1];
           sim_r.txns.push({
             kind: 'api',
             who: "AdminAPI_claimAdminFee"
             });
           ;
-          const v4438 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v4439 = v4438[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v4443 = v4438[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v4444 = v4438[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v4445 = [v4439, v4443, v4444];
-          const v4446 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v4445);
+          const v4020 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v4021 = v4020[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v4025 = v4020[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v4026 = v4020[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v4027 = [v4021, v4025, v4026];
+          const v4028 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v4027);
           ;
-          const v4447 = v4446[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v4448 = v4447[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v4452 = v4447[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v4453 = v4447[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v4454 = [v4448, v4452, v4453];
-          const v4455 = stdlib.Array_set(v4446, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v4454);
+          const v4029 = v4028[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v4030 = v4029[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v4034 = v4029[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v4035 = v4029[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v4036 = [v4030, v4034, v4035];
+          const v4037 = stdlib.Array_set(v4028, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v4036);
           ;
-          const v4461 = stdlib.sub(v3572, v3551);
+          const v4043 = stdlib.sub(v3208, v3188);
           sim_r.txns.push({
             kind: 'from',
-            to: v3445,
+            to: v3080,
             tok: undefined /* Nothing */
             });
-          const v4462 = true;
-          const v4463 = await txn1.getOutput('AdminAPI_claimAdminFee', 'v4462', ctc3, v4462);
+          const v4044 = true;
+          const v4045 = await txn1.getOutput('AdminAPI_claimAdminFee', 'v4044', ctc3, v4044);
           
-          const v24814 = stdlib.checkedBigNumberify('./index.rsh:261:11:decimal', stdlib.UInt_max, '0');
-          const v24815 = v3552;
-          const v24816 = v3554;
-          const v24817 = v3555;
-          const v24818 = v3556;
-          const v24819 = v3557;
-          const v24820 = v3558;
-          const v24821 = v3559;
-          const v24822 = v3560;
-          const v24823 = v3561;
-          const v24824 = v3562;
-          const v24825 = v3563;
-          const v24826 = v3564;
-          const v24828 = v4455;
-          const v24829 = v4461;
+          const v20116 = stdlib.checkedBigNumberify('./index.rsh:241:11:decimal', stdlib.UInt_max, '0');
+          const v20117 = v3189;
+          const v20118 = v3190;
+          const v20119 = v3191;
+          const v20120 = v3192;
+          const v20121 = v3193;
+          const v20122 = v3194;
+          const v20123 = v3195;
+          const v20124 = v3196;
+          const v20125 = v3197;
+          const v20126 = v3198;
+          const v20127 = v3199;
+          const v20128 = v3200;
+          const v20130 = v4037;
+          const v20131 = v4043;
           sim_r.isHalt = false;
           
           break;
           }
-        case 'AdminAPI_closeBank0_192': {
-          const v5052 = v4301[1];
-          
-          break;
-          }
         case 'AdminAPI_setAdminFee0_192': {
-          const v5800 = v4301[1];
+          const v4606 = v3893[1];
           
           break;
           }
         case 'AdminAPI_updatePrice0_192': {
-          const v6548 = v4301[1];
+          const v5316 = v3893[1];
           
           break;
           }
         case 'Claimant_burnReserve0_192': {
-          const v7296 = v4301[1];
+          const v6026 = v3893[1];
           
           break;
           }
         case 'Claimant_burnStable0_192': {
-          const v8044 = v4301[1];
+          const v6736 = v3893[1];
           
           break;
           }
         case 'Claimant_mintFirstStable0_192': {
-          const v8792 = v4301[1];
+          const v7446 = v3893[1];
           
           break;
           }
         case 'Claimant_mintReserve0_192': {
-          const v9540 = v4301[1];
+          const v8156 = v3893[1];
           
           break;
           }
         case 'Claimant_mintStable0_192': {
-          const v10288 = v4301[1];
+          const v8866 = v3893[1];
           
           break;
           }
@@ -1756,44 +1678,44 @@ export async function _AdminAPI_claimAdminFee4(ctcTop, interact) {
       }),
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1, ctc9],
+    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2, ctc9],
     waitIfNotPresent: false
     }));
-  const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
-  switch (v4301[0]) {
+  const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
+  switch (v3893[0]) {
     case 'AdminAPI_claimAdminFee0_192': {
-      const v4304 = v4301[1];
+      const v3896 = v3893[1];
       undefined /* setApiDetails */;
       ;
-      const v4438 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v4439 = v4438[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v4443 = v4438[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v4444 = v4438[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v4445 = [v4439, v4443, v4444];
-      const v4446 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v4445);
+      const v4020 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v4021 = v4020[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v4025 = v4020[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v4026 = v4020[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v4027 = [v4021, v4025, v4026];
+      const v4028 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v4027);
       ;
-      const v4447 = v4446[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v4448 = v4447[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v4452 = v4447[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v4453 = v4447[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v4454 = [v4448, v4452, v4453];
-      const v4455 = stdlib.Array_set(v4446, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v4454);
+      const v4029 = v4028[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v4030 = v4029[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v4034 = v4029[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v4035 = v4029[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v4036 = [v4030, v4034, v4035];
+      const v4037 = stdlib.Array_set(v4028, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v4036);
       ;
-      const v4457 = stdlib.addressEq(v4300, v3445);
-      stdlib.assert(v4457, {
-        at: './index.rsh:251:16:application',
-        fs: ['at ./index.rsh:250:11:application call to [unknown function] (defined at: ./index.rsh:250:11:function exp)'],
+      const v4039 = stdlib.addressEq(v3892, v3080);
+      stdlib.assert(v4039, {
+        at: './index.rsh:232:16:application',
+        fs: ['at ./index.rsh:231:11:application call to [unknown function] (defined at: ./index.rsh:231:11:function exp)'],
         msg: null,
         who: 'AdminAPI_claimAdminFee'
         });
-      const v4461 = stdlib.sub(v3572, v3551);
+      const v4043 = stdlib.sub(v3208, v3188);
       ;
-      const v4462 = true;
-      const v4463 = await txn1.getOutput('AdminAPI_claimAdminFee', 'v4462', ctc3, v4462);
-      if (v2094) {
-        stdlib.protect(ctc10, await interact.out(v4304, v4463), {
-          at: './index.rsh:247:10:application',
-          fs: ['at ./index.rsh:247:10:application call to [unknown function] (defined at: ./index.rsh:247:10:function exp)', 'at ./index.rsh:253:10:application call to "k" (defined at: ./index.rsh:250:11:function exp)', 'at ./index.rsh:250:11:application call to [unknown function] (defined at: ./index.rsh:250:11:function exp)'],
+      const v4044 = true;
+      const v4045 = await txn1.getOutput('AdminAPI_claimAdminFee', 'v4044', ctc3, v4044);
+      if (v1894) {
+        stdlib.protect(ctc10, await interact.out(v3896, v4045), {
+          at: './index.rsh:228:10:application',
+          fs: ['at ./index.rsh:228:10:application call to [unknown function] (defined at: ./index.rsh:228:10:function exp)', 'at ./index.rsh:234:10:application call to "k" (defined at: ./index.rsh:231:11:function exp)', 'at ./index.rsh:231:11:application call to [unknown function] (defined at: ./index.rsh:231:11:function exp)'],
           msg: 'out',
           who: 'AdminAPI_claimAdminFee'
           });
@@ -1801,344 +1723,57 @@ export async function _AdminAPI_claimAdminFee4(ctcTop, interact) {
       else {
         }
       
-      const v24814 = stdlib.checkedBigNumberify('./index.rsh:261:11:decimal', stdlib.UInt_max, '0');
-      const v24815 = v3552;
-      const v24816 = v3554;
-      const v24817 = v3555;
-      const v24818 = v3556;
-      const v24819 = v3557;
-      const v24820 = v3558;
-      const v24821 = v3559;
-      const v24822 = v3560;
-      const v24823 = v3561;
-      const v24824 = v3562;
-      const v24825 = v3563;
-      const v24826 = v3564;
-      const v24828 = v4455;
-      const v24829 = v4461;
-      return;
-      
-      break;
-      }
-    case 'AdminAPI_closeBank0_192': {
-      const v5052 = v4301[1];
-      return;
-      break;
-      }
-    case 'AdminAPI_setAdminFee0_192': {
-      const v5800 = v4301[1];
-      return;
-      break;
-      }
-    case 'AdminAPI_updatePrice0_192': {
-      const v6548 = v4301[1];
-      return;
-      break;
-      }
-    case 'Claimant_burnReserve0_192': {
-      const v7296 = v4301[1];
-      return;
-      break;
-      }
-    case 'Claimant_burnStable0_192': {
-      const v8044 = v4301[1];
-      return;
-      break;
-      }
-    case 'Claimant_mintFirstStable0_192': {
-      const v8792 = v4301[1];
-      return;
-      break;
-      }
-    case 'Claimant_mintReserve0_192': {
-      const v9540 = v4301[1];
-      return;
-      break;
-      }
-    case 'Claimant_mintStable0_192': {
-      const v10288 = v4301[1];
-      return;
-      break;
-      }
-    }
-  
-  
-  };
-export async function _AdminAPI_closeBank4(ctcTop, interact) {
-  if (typeof(ctcTop) !== 'object' || ctcTop._initialize === undefined) {
-    return Promise.reject(new Error(`The backend for _AdminAPI_closeBank4 expects to receive a contract as its first argument.`));}
-  if (typeof(interact) !== 'object') {
-    return Promise.reject(new Error(`The backend for _AdminAPI_closeBank4 expects to receive an interact object as its second argument.`));}
-  const ctc = ctcTop._initialize();
-  const stdlib = ctc.stdlib;
-  const ctc0 = stdlib.T_Address;
-  const ctc1 = stdlib.T_UInt;
-  const ctc2 = stdlib.T_Token;
-  const ctc3 = stdlib.T_Bool;
-  const ctc4 = stdlib.T_Tuple([ctc1, ctc1, ctc3]);
-  const ctc5 = stdlib.T_Array(ctc4, stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '2'));
-  const ctc6 = stdlib.T_Tuple([]);
-  const ctc7 = stdlib.T_Tuple([ctc1, ctc1]);
-  const ctc8 = stdlib.T_Tuple([ctc1]);
-  const ctc9 = stdlib.T_Data({
-    AdminAPI_claimAdminFee0_192: ctc6,
-    AdminAPI_closeBank0_192: ctc6,
-    AdminAPI_setAdminFee0_192: ctc7,
-    AdminAPI_updatePrice0_192: ctc8,
-    Claimant_burnReserve0_192: ctc8,
-    Claimant_burnStable0_192: ctc8,
-    Claimant_mintFirstStable0_192: ctc8,
-    Claimant_mintReserve0_192: ctc8,
-    Claimant_mintStable0_192: ctc8
-    });
-  const ctc10 = stdlib.T_Null;
-  
-  
-  const [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1]);
-  const v3658 = ctc.selfAddress();
-  const v3660 = stdlib.protect(ctc6, await interact.in(), {
-    at: './index.rsh:1:23:application',
-    fs: ['at ./index.rsh:296:10:application call to [unknown function] (defined at: ./index.rsh:296:10:function exp)', 'at ./index.rsh:118:17:application call to "runAdminAPI_closeBank0_192" (defined at: ./index.rsh:295:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
-    msg: 'in',
-    who: 'AdminAPI_closeBank'
-    });
-  const v3661 = stdlib.addressEq(v3658, v3445);
-  const v3662 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:297:33:decimal', stdlib.UInt_max, '0'));
-  const v3663 = v3661 ? v3662 : false;
-  const v3664 = stdlib.eq(v3559, stdlib.checkedBigNumberify('./index.rsh:298:34:decimal', stdlib.UInt_max, '0'));
-  const v3665 = v3663 ? v3664 : false;
-  const v3666 = v3571[stdlib.checkedBigNumberify('./index.rsh:299:19:application', stdlib.UInt_max, '1')];
-  const v3667 = v3666[stdlib.checkedBigNumberify('./index.rsh:299:19:application', stdlib.UInt_max, '0')];
-  const v3668 = stdlib.eq(v3667, v3462);
-  const v3669 = v3665 ? v3668 : false;
-  const v3670 = v3571[stdlib.checkedBigNumberify('./index.rsh:300:19:application', stdlib.UInt_max, '0')];
-  const v3671 = v3670[stdlib.checkedBigNumberify('./index.rsh:300:19:application', stdlib.UInt_max, '0')];
-  const v3672 = stdlib.eq(v3671, v3460);
-  const v3673 = v3669 ? v3672 : false;
-  stdlib.assert(v3673, {
-    at: './index.rsh:296:19:application',
-    fs: ['at ./index.rsh:296:10:application call to [unknown function] (defined at: ./index.rsh:296:10:function exp)', 'at ./index.rsh:296:10:application call to [unknown function] (defined at: ./index.rsh:296:10:function exp)', 'at ./index.rsh:118:17:application call to "runAdminAPI_closeBank0_192" (defined at: ./index.rsh:295:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
-    msg: null,
-    who: 'AdminAPI_closeBank'
-    });
-  const v3676 = ['AdminAPI_closeBank0_192', v3660];
-  
-  const txn1 = await (ctc.sendrecv({
-    args: [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572, v3676],
-    evt_cnt: 1,
-    funcNum: 3,
-    lct: stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '0'),
-    onlyIf: true,
-    out_tys: [ctc9],
-    pay: [stdlib.checkedBigNumberify('./index.rsh:301:14:decimal', stdlib.UInt_max, '0'), [[stdlib.checkedBigNumberify('./index.rsh:301:18:decimal', stdlib.UInt_max, '0'), v3511], [stdlib.checkedBigNumberify('./index.rsh:301:41:decimal', stdlib.UInt_max, '0'), v3476]]],
-    sim_p: (async (txn1) => {
-      const sim_r = { txns: [], mapRefs: [], maps: [] };
-      let sim_txn_ctr = stdlib.UInt_max;
-      const getSimTokCtr = () => { sim_txn_ctr = sim_txn_ctr.sub(1); return sim_txn_ctr; };
-      
-      
-      const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
-      
-      switch (v4301[0]) {
-        case 'AdminAPI_claimAdminFee0_192': {
-          const v4304 = v4301[1];
-          
-          break;
-          }
-        case 'AdminAPI_closeBank0_192': {
-          const v5052 = v4301[1];
-          sim_r.txns.push({
-            kind: 'api',
-            who: "AdminAPI_closeBank"
-            });
-          ;
-          const v5186 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v5187 = v5186[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v5191 = v5186[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v5192 = v5186[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v5193 = [v5187, v5191, v5192];
-          const v5194 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v5193);
-          ;
-          const v5195 = v5194[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v5196 = v5195[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v5200 = v5195[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v5201 = v5195[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v5202 = [v5196, v5200, v5201];
-          const v5203 = stdlib.Array_set(v5194, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v5202);
-          ;
-          const v5238 = true;
-          const v5239 = await txn1.getOutput('AdminAPI_closeBank', 'v5238', ctc3, v5238);
-          
-          const v24974 = v3551;
-          const v24975 = v3552;
-          const v24976 = v3554;
-          const v24977 = v3555;
-          const v24978 = v3556;
-          const v24979 = v3557;
-          const v24980 = v3558;
-          const v24981 = v3559;
-          const v24982 = v3560;
-          const v24983 = v3561;
-          const v24984 = v3562;
-          const v24985 = v3563;
-          const v24986 = v3564;
-          const v24988 = v5203;
-          const v24989 = v3572;
-          sim_r.isHalt = false;
-          
-          break;
-          }
-        case 'AdminAPI_setAdminFee0_192': {
-          const v5800 = v4301[1];
-          
-          break;
-          }
-        case 'AdminAPI_updatePrice0_192': {
-          const v6548 = v4301[1];
-          
-          break;
-          }
-        case 'Claimant_burnReserve0_192': {
-          const v7296 = v4301[1];
-          
-          break;
-          }
-        case 'Claimant_burnStable0_192': {
-          const v8044 = v4301[1];
-          
-          break;
-          }
-        case 'Claimant_mintFirstStable0_192': {
-          const v8792 = v4301[1];
-          
-          break;
-          }
-        case 'Claimant_mintReserve0_192': {
-          const v9540 = v4301[1];
-          
-          break;
-          }
-        case 'Claimant_mintStable0_192': {
-          const v10288 = v4301[1];
-          
-          break;
-          }
-        }
-      return sim_r;
-      }),
-    soloSend: false,
-    timeoutAt: undefined /* mto */,
-    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1, ctc9],
-    waitIfNotPresent: false
-    }));
-  const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
-  switch (v4301[0]) {
-    case 'AdminAPI_claimAdminFee0_192': {
-      const v4304 = v4301[1];
-      return;
-      break;
-      }
-    case 'AdminAPI_closeBank0_192': {
-      const v5052 = v4301[1];
-      undefined /* setApiDetails */;
-      ;
-      const v5186 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v5187 = v5186[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v5191 = v5186[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v5192 = v5186[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v5193 = [v5187, v5191, v5192];
-      const v5194 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v5193);
-      ;
-      const v5195 = v5194[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v5196 = v5195[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v5200 = v5195[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v5201 = v5195[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v5202 = [v5196, v5200, v5201];
-      const v5203 = stdlib.Array_set(v5194, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v5202);
-      ;
-      const v5218 = stdlib.addressEq(v4300, v3445);
-      const v5219 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:304:35:decimal', stdlib.UInt_max, '0'));
-      const v5220 = v5218 ? v5219 : false;
-      const v5221 = stdlib.eq(v3559, stdlib.checkedBigNumberify('./index.rsh:305:36:decimal', stdlib.UInt_max, '0'));
-      const v5222 = v5220 ? v5221 : false;
-      const v5223 = v5203[stdlib.checkedBigNumberify('./index.rsh:306:21:application', stdlib.UInt_max, '1')];
-      const v5224 = v5223[stdlib.checkedBigNumberify('./index.rsh:306:21:application', stdlib.UInt_max, '0')];
-      const v5225 = stdlib.eq(v5224, v3462);
-      const v5226 = v5222 ? v5225 : false;
-      const v5227 = v5203[stdlib.checkedBigNumberify('./index.rsh:307:21:application', stdlib.UInt_max, '0')];
-      const v5228 = v5227[stdlib.checkedBigNumberify('./index.rsh:307:21:application', stdlib.UInt_max, '0')];
-      const v5229 = stdlib.eq(v5228, v3460);
-      const v5230 = v5226 ? v5229 : false;
-      stdlib.assert(v5230, {
-        at: './index.rsh:303:16:application',
-        fs: ['at ./index.rsh:302:11:application call to [unknown function] (defined at: ./index.rsh:302:11:function exp)'],
-        msg: null,
-        who: 'AdminAPI_closeBank'
-        });
-      const v5238 = true;
-      const v5239 = await txn1.getOutput('AdminAPI_closeBank', 'v5238', ctc3, v5238);
-      if (v2094) {
-        stdlib.protect(ctc10, await interact.out(v5052, v5239), {
-          at: './index.rsh:295:10:application',
-          fs: ['at ./index.rsh:295:10:application call to [unknown function] (defined at: ./index.rsh:295:10:function exp)', 'at ./index.rsh:310:10:application call to "k" (defined at: ./index.rsh:302:11:function exp)', 'at ./index.rsh:302:11:application call to [unknown function] (defined at: ./index.rsh:302:11:function exp)'],
-          msg: 'out',
-          who: 'AdminAPI_closeBank'
-          });
-        }
-      else {
-        }
-      
-      const v24974 = v3551;
-      const v24975 = v3552;
-      const v24976 = v3554;
-      const v24977 = v3555;
-      const v24978 = v3556;
-      const v24979 = v3557;
-      const v24980 = v3558;
-      const v24981 = v3559;
-      const v24982 = v3560;
-      const v24983 = v3561;
-      const v24984 = v3562;
-      const v24985 = v3563;
-      const v24986 = v3564;
-      const v24988 = v5203;
-      const v24989 = v3572;
+      const v20116 = stdlib.checkedBigNumberify('./index.rsh:241:11:decimal', stdlib.UInt_max, '0');
+      const v20117 = v3189;
+      const v20118 = v3190;
+      const v20119 = v3191;
+      const v20120 = v3192;
+      const v20121 = v3193;
+      const v20122 = v3194;
+      const v20123 = v3195;
+      const v20124 = v3196;
+      const v20125 = v3197;
+      const v20126 = v3198;
+      const v20127 = v3199;
+      const v20128 = v3200;
+      const v20130 = v4037;
+      const v20131 = v4043;
       return;
       
       break;
       }
     case 'AdminAPI_setAdminFee0_192': {
-      const v5800 = v4301[1];
+      const v4606 = v3893[1];
       return;
       break;
       }
     case 'AdminAPI_updatePrice0_192': {
-      const v6548 = v4301[1];
+      const v5316 = v3893[1];
       return;
       break;
       }
     case 'Claimant_burnReserve0_192': {
-      const v7296 = v4301[1];
+      const v6026 = v3893[1];
       return;
       break;
       }
     case 'Claimant_burnStable0_192': {
-      const v8044 = v4301[1];
+      const v6736 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintFirstStable0_192': {
-      const v8792 = v4301[1];
+      const v7446 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintReserve0_192': {
-      const v9540 = v4301[1];
+      const v8156 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintStable0_192': {
-      const v10288 = v4301[1];
+      const v8866 = v3893[1];
       return;
       break;
       }
@@ -2154,17 +1789,16 @@ export async function _AdminAPI_setAdminFee4(ctcTop, interact) {
   const ctc = ctcTop._initialize();
   const stdlib = ctc.stdlib;
   const ctc0 = stdlib.T_Address;
-  const ctc1 = stdlib.T_UInt;
-  const ctc2 = stdlib.T_Token;
+  const ctc1 = stdlib.T_Token;
+  const ctc2 = stdlib.T_UInt;
   const ctc3 = stdlib.T_Bool;
-  const ctc4 = stdlib.T_Tuple([ctc1, ctc1, ctc3]);
+  const ctc4 = stdlib.T_Tuple([ctc2, ctc2, ctc3]);
   const ctc5 = stdlib.T_Array(ctc4, stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '2'));
-  const ctc6 = stdlib.T_Tuple([ctc1, ctc1]);
+  const ctc6 = stdlib.T_Tuple([ctc2, ctc2]);
   const ctc7 = stdlib.T_Tuple([]);
-  const ctc8 = stdlib.T_Tuple([ctc1]);
+  const ctc8 = stdlib.T_Tuple([ctc2]);
   const ctc9 = stdlib.T_Data({
     AdminAPI_claimAdminFee0_192: ctc7,
-    AdminAPI_closeBank0_192: ctc7,
     AdminAPI_setAdminFee0_192: ctc6,
     AdminAPI_updatePrice0_192: ctc8,
     Claimant_burnReserve0_192: ctc8,
@@ -2176,130 +1810,125 @@ export async function _AdminAPI_setAdminFee4(ctcTop, interact) {
   const ctc10 = stdlib.T_Null;
   
   
-  const [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1]);
-  const v3608 = stdlib.protect(ctc6, await interact.in(), {
+  const [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2]);
+  const v3244 = stdlib.protect(ctc6, await interact.in(), {
     at: './index.rsh:1:23:application',
-    fs: ['at ./index.rsh:226:37:application call to [unknown function] (defined at: ./index.rsh:226:37:function exp)', 'at ./index.rsh:118:17:application call to "runAdminAPI_setAdminFee0_192" (defined at: ./index.rsh:225:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+    fs: ['at ./index.rsh:208:37:application call to [unknown function] (defined at: ./index.rsh:208:37:function exp)', 'at ./index.rsh:109:17:application call to "runAdminAPI_setAdminFee0_192" (defined at: ./index.rsh:207:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: 'in',
     who: 'AdminAPI_setAdminFee'
     });
-  const v3609 = v3608[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '0')];
-  const v3610 = v3608[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '1')];
-  const v3613 = stdlib.add(v3609, v3610);
-  const v3614 = stdlib.eq(v3613, stdlib.checkedBigNumberify('./index.rsh:226:79:decimal', stdlib.UInt_max, '100'));
-  stdlib.assert(v3614, {
-    at: './index.rsh:226:46:application',
-    fs: ['at ./index.rsh:226:37:application call to [unknown function] (defined at: ./index.rsh:226:37:function exp)', 'at ./index.rsh:226:37:application call to [unknown function] (defined at: ./index.rsh:226:37:function exp)', 'at ./index.rsh:118:17:application call to "runAdminAPI_setAdminFee0_192" (defined at: ./index.rsh:225:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+  const v3245 = v3244[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '0')];
+  const v3246 = v3244[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '1')];
+  const v3249 = stdlib.add(v3245, v3246);
+  const v3250 = stdlib.eq(v3249, stdlib.checkedBigNumberify('./index.rsh:208:79:decimal', stdlib.UInt_max, '100'));
+  stdlib.assert(v3250, {
+    at: './index.rsh:208:46:application',
+    fs: ['at ./index.rsh:208:37:application call to [unknown function] (defined at: ./index.rsh:208:37:function exp)', 'at ./index.rsh:208:37:application call to [unknown function] (defined at: ./index.rsh:208:37:function exp)', 'at ./index.rsh:109:17:application call to "runAdminAPI_setAdminFee0_192" (defined at: ./index.rsh:207:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: null,
     who: 'AdminAPI_setAdminFee'
     });
-  const v3619 = ['AdminAPI_setAdminFee0_192', v3608];
+  const v3255 = ['AdminAPI_setAdminFee0_192', v3244];
   
   const txn1 = await (ctc.sendrecv({
-    args: [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572, v3619],
+    args: [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208, v3255],
     evt_cnt: 1,
     funcNum: 3,
     lct: stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '0'),
     onlyIf: true,
     out_tys: [ctc9],
-    pay: [stdlib.checkedBigNumberify('./index.rsh:227:18:decimal', stdlib.UInt_max, '0'), [[stdlib.checkedBigNumberify('./index.rsh:227:22:decimal', stdlib.UInt_max, '0'), v3511], [stdlib.checkedBigNumberify('./index.rsh:227:45:decimal', stdlib.UInt_max, '0'), v3476]]],
+    pay: [stdlib.checkedBigNumberify('./index.rsh:209:18:decimal', stdlib.UInt_max, '0'), [[stdlib.checkedBigNumberify('./index.rsh:209:22:decimal', stdlib.UInt_max, '0'), v3146], [stdlib.checkedBigNumberify('./index.rsh:209:45:decimal', stdlib.UInt_max, '0'), v3110]]],
     sim_p: (async (txn1) => {
       const sim_r = { txns: [], mapRefs: [], maps: [] };
       let sim_txn_ctr = stdlib.UInt_max;
       const getSimTokCtr = () => { sim_txn_ctr = sim_txn_ctr.sub(1); return sim_txn_ctr; };
       
       
-      const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
+      const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
       
-      switch (v4301[0]) {
+      switch (v3893[0]) {
         case 'AdminAPI_claimAdminFee0_192': {
-          const v4304 = v4301[1];
-          
-          break;
-          }
-        case 'AdminAPI_closeBank0_192': {
-          const v5052 = v4301[1];
+          const v3896 = v3893[1];
           
           break;
           }
         case 'AdminAPI_setAdminFee0_192': {
-          const v5800 = v4301[1];
+          const v4606 = v3893[1];
           sim_r.txns.push({
             kind: 'api',
             who: "AdminAPI_setAdminFee"
             });
           ;
-          const v5934 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v5935 = v5934[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v5939 = v5934[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v5940 = v5934[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v5941 = [v5935, v5939, v5940];
-          const v5942 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v5941);
+          const v4730 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v4731 = v4730[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v4735 = v4730[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v4736 = v4730[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v4737 = [v4731, v4735, v4736];
+          const v4738 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v4737);
           ;
-          const v5943 = v5942[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v5944 = v5943[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v5948 = v5943[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v5949 = v5943[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v5950 = [v5944, v5948, v5949];
-          const v5951 = stdlib.Array_set(v5942, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v5950);
+          const v4739 = v4738[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v4740 = v4739[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v4744 = v4739[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v4745 = v4739[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v4746 = [v4740, v4744, v4745];
+          const v4747 = stdlib.Array_set(v4738, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v4746);
           ;
-          const v5994 = v5800[stdlib.checkedBigNumberify('./index.rsh:225:9:spread', stdlib.UInt_max, '0')];
-          const v5995 = v5800[stdlib.checkedBigNumberify('./index.rsh:225:9:spread', stdlib.UInt_max, '1')];
-          const v6001 = stdlib.sub(v3572, v3551);
+          const v4762 = v4606[stdlib.checkedBigNumberify('./index.rsh:207:9:spread', stdlib.UInt_max, '0')];
+          const v4763 = v4606[stdlib.checkedBigNumberify('./index.rsh:207:9:spread', stdlib.UInt_max, '1')];
+          const v4769 = stdlib.sub(v3208, v3188);
           sim_r.txns.push({
             kind: 'from',
-            to: v3445,
+            to: v3080,
             tok: undefined /* Nothing */
             });
-          const v6002 = true;
-          const v6003 = await txn1.getOutput('AdminAPI_setAdminFee', 'v6002', ctc3, v6002);
+          const v4770 = true;
+          const v4771 = await txn1.getOutput('AdminAPI_setAdminFee', 'v4770', ctc3, v4770);
           
-          const v25134 = stdlib.checkedBigNumberify('./index.rsh:239:11:decimal', stdlib.UInt_max, '0');
-          const v25135 = v5994;
-          const v25136 = v3554;
-          const v25137 = v3555;
-          const v25138 = v3556;
-          const v25139 = v3557;
-          const v25140 = v5995;
-          const v25141 = v3559;
-          const v25142 = v3560;
-          const v25143 = v3561;
-          const v25144 = v3562;
-          const v25145 = v3563;
-          const v25146 = v3564;
-          const v25148 = v5951;
-          const v25149 = v6001;
+          const v20260 = stdlib.checkedBigNumberify('./index.rsh:220:11:decimal', stdlib.UInt_max, '0');
+          const v20261 = v4762;
+          const v20262 = v3190;
+          const v20263 = v3191;
+          const v20264 = v3192;
+          const v20265 = v3193;
+          const v20266 = v4763;
+          const v20267 = v3195;
+          const v20268 = v3196;
+          const v20269 = v3197;
+          const v20270 = v3198;
+          const v20271 = v3199;
+          const v20272 = v3200;
+          const v20274 = v4747;
+          const v20275 = v4769;
           sim_r.isHalt = false;
           
           break;
           }
         case 'AdminAPI_updatePrice0_192': {
-          const v6548 = v4301[1];
+          const v5316 = v3893[1];
           
           break;
           }
         case 'Claimant_burnReserve0_192': {
-          const v7296 = v4301[1];
+          const v6026 = v3893[1];
           
           break;
           }
         case 'Claimant_burnStable0_192': {
-          const v8044 = v4301[1];
+          const v6736 = v3893[1];
           
           break;
           }
         case 'Claimant_mintFirstStable0_192': {
-          const v8792 = v4301[1];
+          const v7446 = v3893[1];
           
           break;
           }
         case 'Claimant_mintReserve0_192': {
-          const v9540 = v4301[1];
+          const v8156 = v3893[1];
           
           break;
           }
         case 'Claimant_mintStable0_192': {
-          const v10288 = v4301[1];
+          const v8866 = v3893[1];
           
           break;
           }
@@ -2308,57 +1937,52 @@ export async function _AdminAPI_setAdminFee4(ctcTop, interact) {
       }),
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1, ctc9],
+    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2, ctc9],
     waitIfNotPresent: false
     }));
-  const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
-  switch (v4301[0]) {
+  const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
+  switch (v3893[0]) {
     case 'AdminAPI_claimAdminFee0_192': {
-      const v4304 = v4301[1];
-      return;
-      break;
-      }
-    case 'AdminAPI_closeBank0_192': {
-      const v5052 = v4301[1];
+      const v3896 = v3893[1];
       return;
       break;
       }
     case 'AdminAPI_setAdminFee0_192': {
-      const v5800 = v4301[1];
+      const v4606 = v3893[1];
       undefined /* setApiDetails */;
       ;
-      const v5934 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v5935 = v5934[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v5939 = v5934[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v5940 = v5934[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v5941 = [v5935, v5939, v5940];
-      const v5942 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v5941);
+      const v4730 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v4731 = v4730[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v4735 = v4730[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v4736 = v4730[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v4737 = [v4731, v4735, v4736];
+      const v4738 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v4737);
       ;
-      const v5943 = v5942[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v5944 = v5943[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v5948 = v5943[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v5949 = v5943[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v5950 = [v5944, v5948, v5949];
-      const v5951 = stdlib.Array_set(v5942, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v5950);
+      const v4739 = v4738[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v4740 = v4739[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v4744 = v4739[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v4745 = v4739[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v4746 = [v4740, v4744, v4745];
+      const v4747 = stdlib.Array_set(v4738, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v4746);
       ;
-      const v5994 = v5800[stdlib.checkedBigNumberify('./index.rsh:225:9:spread', stdlib.UInt_max, '0')];
-      const v5995 = v5800[stdlib.checkedBigNumberify('./index.rsh:225:9:spread', stdlib.UInt_max, '1')];
-      const v5996 = stdlib.add(v5994, v5995);
-      const v5997 = stdlib.eq(v5996, stdlib.checkedBigNumberify('./index.rsh:229:49:decimal', stdlib.UInt_max, '100'));
-      stdlib.assert(v5997, {
-        at: './index.rsh:229:16:application',
-        fs: ['at ./index.rsh:228:40:application call to [unknown function] (defined at: ./index.rsh:228:40:function exp)'],
+      const v4762 = v4606[stdlib.checkedBigNumberify('./index.rsh:207:9:spread', stdlib.UInt_max, '0')];
+      const v4763 = v4606[stdlib.checkedBigNumberify('./index.rsh:207:9:spread', stdlib.UInt_max, '1')];
+      const v4764 = stdlib.add(v4762, v4763);
+      const v4765 = stdlib.eq(v4764, stdlib.checkedBigNumberify('./index.rsh:211:49:decimal', stdlib.UInt_max, '100'));
+      stdlib.assert(v4765, {
+        at: './index.rsh:211:16:application',
+        fs: ['at ./index.rsh:210:40:application call to [unknown function] (defined at: ./index.rsh:210:40:function exp)'],
         msg: null,
         who: 'AdminAPI_setAdminFee'
         });
-      const v6001 = stdlib.sub(v3572, v3551);
+      const v4769 = stdlib.sub(v3208, v3188);
       ;
-      const v6002 = true;
-      const v6003 = await txn1.getOutput('AdminAPI_setAdminFee', 'v6002', ctc3, v6002);
-      if (v2094) {
-        stdlib.protect(ctc10, await interact.out(v5800, v6003), {
-          at: './index.rsh:225:10:application',
-          fs: ['at ./index.rsh:225:10:application call to [unknown function] (defined at: ./index.rsh:225:10:function exp)', 'at ./index.rsh:231:10:application call to "k" (defined at: ./index.rsh:228:40:function exp)', 'at ./index.rsh:228:40:application call to [unknown function] (defined at: ./index.rsh:228:40:function exp)'],
+      const v4770 = true;
+      const v4771 = await txn1.getOutput('AdminAPI_setAdminFee', 'v4770', ctc3, v4770);
+      if (v1894) {
+        stdlib.protect(ctc10, await interact.out(v4606, v4771), {
+          at: './index.rsh:207:10:application',
+          fs: ['at ./index.rsh:207:10:application call to [unknown function] (defined at: ./index.rsh:207:10:function exp)', 'at ./index.rsh:213:10:application call to "k" (defined at: ./index.rsh:210:40:function exp)', 'at ./index.rsh:210:40:application call to [unknown function] (defined at: ./index.rsh:210:40:function exp)'],
           msg: 'out',
           who: 'AdminAPI_setAdminFee'
           });
@@ -2366,52 +1990,52 @@ export async function _AdminAPI_setAdminFee4(ctcTop, interact) {
       else {
         }
       
-      const v25134 = stdlib.checkedBigNumberify('./index.rsh:239:11:decimal', stdlib.UInt_max, '0');
-      const v25135 = v5994;
-      const v25136 = v3554;
-      const v25137 = v3555;
-      const v25138 = v3556;
-      const v25139 = v3557;
-      const v25140 = v5995;
-      const v25141 = v3559;
-      const v25142 = v3560;
-      const v25143 = v3561;
-      const v25144 = v3562;
-      const v25145 = v3563;
-      const v25146 = v3564;
-      const v25148 = v5951;
-      const v25149 = v6001;
+      const v20260 = stdlib.checkedBigNumberify('./index.rsh:220:11:decimal', stdlib.UInt_max, '0');
+      const v20261 = v4762;
+      const v20262 = v3190;
+      const v20263 = v3191;
+      const v20264 = v3192;
+      const v20265 = v3193;
+      const v20266 = v4763;
+      const v20267 = v3195;
+      const v20268 = v3196;
+      const v20269 = v3197;
+      const v20270 = v3198;
+      const v20271 = v3199;
+      const v20272 = v3200;
+      const v20274 = v4747;
+      const v20275 = v4769;
       return;
       
       break;
       }
     case 'AdminAPI_updatePrice0_192': {
-      const v6548 = v4301[1];
+      const v5316 = v3893[1];
       return;
       break;
       }
     case 'Claimant_burnReserve0_192': {
-      const v7296 = v4301[1];
+      const v6026 = v3893[1];
       return;
       break;
       }
     case 'Claimant_burnStable0_192': {
-      const v8044 = v4301[1];
+      const v6736 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintFirstStable0_192': {
-      const v8792 = v4301[1];
+      const v7446 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintReserve0_192': {
-      const v9540 = v4301[1];
+      const v8156 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintStable0_192': {
-      const v10288 = v4301[1];
+      const v8866 = v3893[1];
       return;
       break;
       }
@@ -2427,17 +2051,16 @@ export async function _AdminAPI_updatePrice4(ctcTop, interact) {
   const ctc = ctcTop._initialize();
   const stdlib = ctc.stdlib;
   const ctc0 = stdlib.T_Address;
-  const ctc1 = stdlib.T_UInt;
-  const ctc2 = stdlib.T_Token;
+  const ctc1 = stdlib.T_Token;
+  const ctc2 = stdlib.T_UInt;
   const ctc3 = stdlib.T_Bool;
-  const ctc4 = stdlib.T_Tuple([ctc1, ctc1, ctc3]);
+  const ctc4 = stdlib.T_Tuple([ctc2, ctc2, ctc3]);
   const ctc5 = stdlib.T_Array(ctc4, stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '2'));
-  const ctc6 = stdlib.T_Tuple([ctc1]);
+  const ctc6 = stdlib.T_Tuple([ctc2]);
   const ctc7 = stdlib.T_Tuple([]);
-  const ctc8 = stdlib.T_Tuple([ctc1, ctc1]);
+  const ctc8 = stdlib.T_Tuple([ctc2, ctc2]);
   const ctc9 = stdlib.T_Data({
     AdminAPI_claimAdminFee0_192: ctc7,
-    AdminAPI_closeBank0_192: ctc7,
     AdminAPI_setAdminFee0_192: ctc8,
     AdminAPI_updatePrice0_192: ctc6,
     Claimant_burnReserve0_192: ctc6,
@@ -2449,124 +2072,119 @@ export async function _AdminAPI_updatePrice4(ctcTop, interact) {
   const ctc10 = stdlib.T_Null;
   
   
-  const [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1]);
-  const v3593 = ctc.selfAddress();
-  const v3595 = stdlib.protect(ctc6, await interact.in(), {
+  const [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2]);
+  const v3229 = ctc.selfAddress();
+  const v3231 = stdlib.protect(ctc6, await interact.in(), {
     at: './index.rsh:1:23:application',
-    fs: ['at ./index.rsh:205:15:application call to [unknown function] (defined at: ./index.rsh:205:15:function exp)', 'at ./index.rsh:118:17:application call to "runAdminAPI_updatePrice0_192" (defined at: ./index.rsh:204:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+    fs: ['at ./index.rsh:188:15:application call to [unknown function] (defined at: ./index.rsh:188:15:function exp)', 'at ./index.rsh:109:17:application call to "runAdminAPI_updatePrice0_192" (defined at: ./index.rsh:187:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: 'in',
     who: 'AdminAPI_updatePrice'
     });
-  const v3596 = v3595[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '0')];
-  const v3598 = stdlib.gt(v3596, stdlib.checkedBigNumberify('./index.rsh:205:33:decimal', stdlib.UInt_max, '0'));
-  const v3599 = stdlib.addressEq(v3593, v3445);
-  const v3600 = v3598 ? v3599 : false;
-  stdlib.assert(v3600, {
-    at: './index.rsh:205:24:application',
-    fs: ['at ./index.rsh:205:15:application call to [unknown function] (defined at: ./index.rsh:205:15:function exp)', 'at ./index.rsh:205:15:application call to [unknown function] (defined at: ./index.rsh:205:15:function exp)', 'at ./index.rsh:118:17:application call to "runAdminAPI_updatePrice0_192" (defined at: ./index.rsh:204:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+  const v3232 = v3231[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '0')];
+  const v3234 = stdlib.gt(v3232, stdlib.checkedBigNumberify('./index.rsh:188:33:decimal', stdlib.UInt_max, '0'));
+  const v3235 = stdlib.addressEq(v3229, v3080);
+  const v3236 = v3234 ? v3235 : false;
+  stdlib.assert(v3236, {
+    at: './index.rsh:188:24:application',
+    fs: ['at ./index.rsh:188:15:application call to [unknown function] (defined at: ./index.rsh:188:15:function exp)', 'at ./index.rsh:188:15:application call to [unknown function] (defined at: ./index.rsh:188:15:function exp)', 'at ./index.rsh:109:17:application call to "runAdminAPI_updatePrice0_192" (defined at: ./index.rsh:187:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: null,
     who: 'AdminAPI_updatePrice'
     });
-  const v3604 = ['AdminAPI_updatePrice0_192', v3595];
+  const v3240 = ['AdminAPI_updatePrice0_192', v3231];
   
   const txn1 = await (ctc.sendrecv({
-    args: [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572, v3604],
+    args: [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208, v3240],
     evt_cnt: 1,
     funcNum: 3,
     lct: stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '0'),
     onlyIf: true,
     out_tys: [ctc9],
-    pay: [stdlib.checkedBigNumberify('./index.rsh:206:15:decimal', stdlib.UInt_max, '0'), [[stdlib.checkedBigNumberify('./index.rsh:206:19:decimal', stdlib.UInt_max, '0'), v3511], [stdlib.checkedBigNumberify('./index.rsh:206:42:decimal', stdlib.UInt_max, '0'), v3476]]],
+    pay: [stdlib.checkedBigNumberify('./index.rsh:189:15:decimal', stdlib.UInt_max, '0'), [[stdlib.checkedBigNumberify('./index.rsh:189:19:decimal', stdlib.UInt_max, '0'), v3146], [stdlib.checkedBigNumberify('./index.rsh:189:42:decimal', stdlib.UInt_max, '0'), v3110]]],
     sim_p: (async (txn1) => {
       const sim_r = { txns: [], mapRefs: [], maps: [] };
       let sim_txn_ctr = stdlib.UInt_max;
       const getSimTokCtr = () => { sim_txn_ctr = sim_txn_ctr.sub(1); return sim_txn_ctr; };
       
       
-      const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
+      const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
       
-      switch (v4301[0]) {
+      switch (v3893[0]) {
         case 'AdminAPI_claimAdminFee0_192': {
-          const v4304 = v4301[1];
-          
-          break;
-          }
-        case 'AdminAPI_closeBank0_192': {
-          const v5052 = v4301[1];
+          const v3896 = v3893[1];
           
           break;
           }
         case 'AdminAPI_setAdminFee0_192': {
-          const v5800 = v4301[1];
+          const v4606 = v3893[1];
           
           break;
           }
         case 'AdminAPI_updatePrice0_192': {
-          const v6548 = v4301[1];
+          const v5316 = v3893[1];
           sim_r.txns.push({
             kind: 'api',
             who: "AdminAPI_updatePrice"
             });
           ;
-          const v6682 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v6683 = v6682[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v6687 = v6682[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v6688 = v6682[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v6689 = [v6683, v6687, v6688];
-          const v6690 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v6689);
+          const v5440 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v5441 = v5440[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v5445 = v5440[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v5446 = v5440[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v5447 = [v5441, v5445, v5446];
+          const v5448 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v5447);
           ;
-          const v6691 = v6690[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v6692 = v6691[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v6696 = v6691[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v6697 = v6691[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v6698 = [v6692, v6696, v6697];
-          const v6699 = stdlib.Array_set(v6690, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v6698);
+          const v5449 = v5448[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v5450 = v5449[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v5454 = v5449[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v5455 = v5449[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v5456 = [v5450, v5454, v5455];
+          const v5457 = stdlib.Array_set(v5448, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v5456);
           ;
-          const v6760 = v6548[stdlib.checkedBigNumberify('./index.rsh:204:9:spread', stdlib.UInt_max, '0')];
-          const v6764 = true;
-          const v6765 = await txn1.getOutput('AdminAPI_updatePrice', 'v6764', ctc3, v6764);
+          const v5490 = v5316[stdlib.checkedBigNumberify('./index.rsh:187:9:spread', stdlib.UInt_max, '0')];
+          const v5494 = true;
+          const v5495 = await txn1.getOutput('AdminAPI_updatePrice', 'v5494', ctc3, v5494);
           
-          const v25294 = v3551;
-          const v25295 = v3552;
-          const v25296 = v3554;
-          const v25297 = v3555;
-          const v25298 = v3563;
-          const v25299 = v3557;
-          const v25300 = v3558;
-          const v25301 = v3559;
-          const v25302 = v3560;
-          const v25303 = v3561;
-          const v25304 = v6760;
-          const v25305 = v6760;
-          const v25306 = v3564;
-          const v25308 = v6699;
-          const v25309 = v3572;
+          const v20404 = v3188;
+          const v20405 = v3189;
+          const v20406 = v3190;
+          const v20407 = v3191;
+          const v20408 = v3199;
+          const v20409 = v3193;
+          const v20410 = v3194;
+          const v20411 = v3195;
+          const v20412 = v3196;
+          const v20413 = v3197;
+          const v20414 = v5490;
+          const v20415 = v5490;
+          const v20416 = v3200;
+          const v20418 = v5457;
+          const v20419 = v3208;
           sim_r.isHalt = false;
           
           break;
           }
         case 'Claimant_burnReserve0_192': {
-          const v7296 = v4301[1];
+          const v6026 = v3893[1];
           
           break;
           }
         case 'Claimant_burnStable0_192': {
-          const v8044 = v4301[1];
+          const v6736 = v3893[1];
           
           break;
           }
         case 'Claimant_mintFirstStable0_192': {
-          const v8792 = v4301[1];
+          const v7446 = v3893[1];
           
           break;
           }
         case 'Claimant_mintReserve0_192': {
-          const v9540 = v4301[1];
+          const v8156 = v3893[1];
           
           break;
           }
         case 'Claimant_mintStable0_192': {
-          const v10288 = v4301[1];
+          const v8866 = v3893[1];
           
           break;
           }
@@ -2575,60 +2193,55 @@ export async function _AdminAPI_updatePrice4(ctcTop, interact) {
       }),
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1, ctc9],
+    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2, ctc9],
     waitIfNotPresent: false
     }));
-  const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
-  switch (v4301[0]) {
+  const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
+  switch (v3893[0]) {
     case 'AdminAPI_claimAdminFee0_192': {
-      const v4304 = v4301[1];
-      return;
-      break;
-      }
-    case 'AdminAPI_closeBank0_192': {
-      const v5052 = v4301[1];
+      const v3896 = v3893[1];
       return;
       break;
       }
     case 'AdminAPI_setAdminFee0_192': {
-      const v5800 = v4301[1];
+      const v4606 = v3893[1];
       return;
       break;
       }
     case 'AdminAPI_updatePrice0_192': {
-      const v6548 = v4301[1];
+      const v5316 = v3893[1];
       undefined /* setApiDetails */;
       ;
-      const v6682 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v6683 = v6682[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v6687 = v6682[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v6688 = v6682[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v6689 = [v6683, v6687, v6688];
-      const v6690 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v6689);
+      const v5440 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v5441 = v5440[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v5445 = v5440[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v5446 = v5440[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v5447 = [v5441, v5445, v5446];
+      const v5448 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v5447);
       ;
-      const v6691 = v6690[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v6692 = v6691[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v6696 = v6691[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v6697 = v6691[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v6698 = [v6692, v6696, v6697];
-      const v6699 = stdlib.Array_set(v6690, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v6698);
+      const v5449 = v5448[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v5450 = v5449[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v5454 = v5449[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v5455 = v5449[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v5456 = [v5450, v5454, v5455];
+      const v5457 = stdlib.Array_set(v5448, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v5456);
       ;
-      const v6760 = v6548[stdlib.checkedBigNumberify('./index.rsh:204:9:spread', stdlib.UInt_max, '0')];
-      const v6761 = stdlib.gt(v6760, stdlib.checkedBigNumberify('./index.rsh:208:25:decimal', stdlib.UInt_max, '0'));
-      const v6762 = stdlib.addressEq(v4300, v3445);
-      const v6763 = v6761 ? v6762 : false;
-      stdlib.assert(v6763, {
-        at: './index.rsh:208:16:application',
-        fs: ['at ./index.rsh:207:18:application call to [unknown function] (defined at: ./index.rsh:207:18:function exp)'],
+      const v5490 = v5316[stdlib.checkedBigNumberify('./index.rsh:187:9:spread', stdlib.UInt_max, '0')];
+      const v5491 = stdlib.gt(v5490, stdlib.checkedBigNumberify('./index.rsh:191:25:decimal', stdlib.UInt_max, '0'));
+      const v5492 = stdlib.addressEq(v3892, v3080);
+      const v5493 = v5491 ? v5492 : false;
+      stdlib.assert(v5493, {
+        at: './index.rsh:191:16:application',
+        fs: ['at ./index.rsh:190:18:application call to [unknown function] (defined at: ./index.rsh:190:18:function exp)'],
         msg: null,
         who: 'AdminAPI_updatePrice'
         });
-      const v6764 = true;
-      const v6765 = await txn1.getOutput('AdminAPI_updatePrice', 'v6764', ctc3, v6764);
-      if (v2094) {
-        stdlib.protect(ctc10, await interact.out(v6548, v6765), {
-          at: './index.rsh:204:10:application',
-          fs: ['at ./index.rsh:204:10:application call to [unknown function] (defined at: ./index.rsh:204:10:function exp)', 'at ./index.rsh:209:10:application call to "k" (defined at: ./index.rsh:207:18:function exp)', 'at ./index.rsh:207:18:application call to [unknown function] (defined at: ./index.rsh:207:18:function exp)'],
+      const v5494 = true;
+      const v5495 = await txn1.getOutput('AdminAPI_updatePrice', 'v5494', ctc3, v5494);
+      if (v1894) {
+        stdlib.protect(ctc10, await interact.out(v5316, v5495), {
+          at: './index.rsh:187:10:application',
+          fs: ['at ./index.rsh:187:10:application call to [unknown function] (defined at: ./index.rsh:187:10:function exp)', 'at ./index.rsh:192:10:application call to "k" (defined at: ./index.rsh:190:18:function exp)', 'at ./index.rsh:190:18:application call to [unknown function] (defined at: ./index.rsh:190:18:function exp)'],
           msg: 'out',
           who: 'AdminAPI_updatePrice'
           });
@@ -2636,47 +2249,47 @@ export async function _AdminAPI_updatePrice4(ctcTop, interact) {
       else {
         }
       
-      const v25294 = v3551;
-      const v25295 = v3552;
-      const v25296 = v3554;
-      const v25297 = v3555;
-      const v25298 = v3563;
-      const v25299 = v3557;
-      const v25300 = v3558;
-      const v25301 = v3559;
-      const v25302 = v3560;
-      const v25303 = v3561;
-      const v25304 = v6760;
-      const v25305 = v6760;
-      const v25306 = v3564;
-      const v25308 = v6699;
-      const v25309 = v3572;
+      const v20404 = v3188;
+      const v20405 = v3189;
+      const v20406 = v3190;
+      const v20407 = v3191;
+      const v20408 = v3199;
+      const v20409 = v3193;
+      const v20410 = v3194;
+      const v20411 = v3195;
+      const v20412 = v3196;
+      const v20413 = v3197;
+      const v20414 = v5490;
+      const v20415 = v5490;
+      const v20416 = v3200;
+      const v20418 = v5457;
+      const v20419 = v3208;
       return;
       
       break;
       }
     case 'Claimant_burnReserve0_192': {
-      const v7296 = v4301[1];
+      const v6026 = v3893[1];
       return;
       break;
       }
     case 'Claimant_burnStable0_192': {
-      const v8044 = v4301[1];
+      const v6736 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintFirstStable0_192': {
-      const v8792 = v4301[1];
+      const v7446 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintReserve0_192': {
-      const v9540 = v4301[1];
+      const v8156 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintStable0_192': {
-      const v10288 = v4301[1];
+      const v8866 = v3893[1];
       return;
       break;
       }
@@ -2692,17 +2305,16 @@ export async function _Claimant_burnReserve4(ctcTop, interact) {
   const ctc = ctcTop._initialize();
   const stdlib = ctc.stdlib;
   const ctc0 = stdlib.T_Address;
-  const ctc1 = stdlib.T_UInt;
-  const ctc2 = stdlib.T_Token;
+  const ctc1 = stdlib.T_Token;
+  const ctc2 = stdlib.T_UInt;
   const ctc3 = stdlib.T_Bool;
-  const ctc4 = stdlib.T_Tuple([ctc1, ctc1, ctc3]);
+  const ctc4 = stdlib.T_Tuple([ctc2, ctc2, ctc3]);
   const ctc5 = stdlib.T_Array(ctc4, stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '2'));
-  const ctc6 = stdlib.T_Tuple([ctc1]);
+  const ctc6 = stdlib.T_Tuple([ctc2]);
   const ctc7 = stdlib.T_Tuple([]);
-  const ctc8 = stdlib.T_Tuple([ctc1, ctc1]);
+  const ctc8 = stdlib.T_Tuple([ctc2, ctc2]);
   const ctc9 = stdlib.T_Data({
     AdminAPI_claimAdminFee0_192: ctc7,
-    AdminAPI_closeBank0_192: ctc7,
     AdminAPI_setAdminFee0_192: ctc8,
     AdminAPI_updatePrice0_192: ctc6,
     Claimant_burnReserve0_192: ctc6,
@@ -2714,476 +2326,471 @@ export async function _Claimant_burnReserve4(ctcTop, interact) {
   const ctc10 = stdlib.T_Null;
   
   
-  const [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1]);
-  const v3867 = stdlib.protect(ctc6, await interact.in(), {
+  const [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2]);
+  const v3483 = stdlib.protect(ctc6, await interact.in(), {
     at: './index.rsh:1:23:application',
-    fs: ['at ./index.rsh:407:20:application call to [unknown function] (defined at: ./index.rsh:407:20:function exp)', 'at ./index.rsh:118:17:application call to "runClaimant_burnReserve0_192" (defined at: ./index.rsh:406:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+    fs: ['at ./index.rsh:352:20:application call to [unknown function] (defined at: ./index.rsh:352:20:function exp)', 'at ./index.rsh:109:17:application call to "runClaimant_burnReserve0_192" (defined at: ./index.rsh:351:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: 'in',
     who: 'Claimant_burnReserve'
     });
-  const v3868 = v3867[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '0')];
-  let v3870;
-  const v3871 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-  if (v3871) {
-    v3870 = v3562;
+  const v3484 = v3483[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '0')];
+  let v3486;
+  const v3487 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+  if (v3487) {
+    v3486 = v3198;
     }
   else {
-    const v3872 = stdlib.div(v3560, v3561);
-    const v3873 = stdlib.gt(v3872, v3562);
-    const v3875 = v3873 ? v3562 : v3872;
-    v3870 = v3875;
+    const v3488 = stdlib.div(v3196, v3197);
+    const v3489 = stdlib.gt(v3488, v3198);
+    const v3491 = v3489 ? v3198 : v3488;
+    v3486 = v3491;
     }
-  const v3876 = stdlib.mul(v3561, v3870);
-  const v3877 = stdlib.div(v3560, v3876);
-  const v3878 = stdlib.ge(v3877, v3557);
-  let v3879;
-  const v3880 = stdlib.eq(v3559, stdlib.checkedBigNumberify('./index.rsh:163:23:decimal', stdlib.UInt_max, '0'));
-  let v3881;
-  if (v3871) {
-    v3881 = v3562;
-    }
-  else {
-    const v3883 = stdlib.div(v3560, v3561);
-    const v3884 = stdlib.gt(v3883, v3562);
-    const v3886 = v3884 ? v3562 : v3883;
-    v3881 = v3886;
-    }
-  const v3887 = stdlib.mul(v3561, v3881);
-  const v3888 = stdlib.sub(v3560, v3887);
-  const v3889 = stdlib.eq(v3888, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-  const v3890 = v3880 ? true : v3889;
-  if (v3890) {
-    v3879 = v3555;
+  const v3492 = stdlib.mul(v3197, v3486);
+  const v3493 = stdlib.div(v3196, v3492);
+  const v3494 = stdlib.ge(v3493, v3193);
+  let v3495;
+  const v3496 = stdlib.eq(v3195, stdlib.checkedBigNumberify('./index.rsh:151:23:decimal', stdlib.UInt_max, '0'));
+  let v3497;
+  if (v3487) {
+    v3497 = v3198;
     }
   else {
-    let v3891;
-    if (v3871) {
-      v3891 = v3562;
+    const v3499 = stdlib.div(v3196, v3197);
+    const v3500 = stdlib.gt(v3499, v3198);
+    const v3502 = v3500 ? v3198 : v3499;
+    v3497 = v3502;
+    }
+  const v3503 = stdlib.mul(v3197, v3497);
+  const v3504 = stdlib.sub(v3196, v3503);
+  const v3505 = stdlib.eq(v3504, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+  const v3506 = v3496 ? true : v3505;
+  if (v3506) {
+    v3495 = v3191;
+    }
+  else {
+    let v3507;
+    if (v3487) {
+      v3507 = v3198;
       }
     else {
-      const v3893 = stdlib.div(v3560, v3561);
-      const v3894 = stdlib.gt(v3893, v3562);
-      const v3896 = v3894 ? v3562 : v3893;
-      v3891 = v3896;
+      const v3509 = stdlib.div(v3196, v3197);
+      const v3510 = stdlib.gt(v3509, v3198);
+      const v3512 = v3510 ? v3198 : v3509;
+      v3507 = v3512;
       }
-    const v3897 = stdlib.mul(v3561, v3891);
-    const v3898 = stdlib.sub(v3560, v3897);
-    const v3899 = stdlib.div(v3898, v3559);
-    const v3900 = stdlib.gt(v3899, v3555);
-    let v3901;
-    if (v3871) {
-      v3901 = v3562;
+    const v3513 = stdlib.mul(v3197, v3507);
+    const v3514 = stdlib.sub(v3196, v3513);
+    const v3515 = stdlib.div(v3514, v3195);
+    const v3516 = stdlib.gt(v3515, v3191);
+    let v3517;
+    if (v3487) {
+      v3517 = v3198;
       }
     else {
-      const v3903 = stdlib.div(v3560, v3561);
-      const v3904 = stdlib.gt(v3903, v3562);
-      const v3906 = v3904 ? v3562 : v3903;
-      v3901 = v3906;
+      const v3519 = stdlib.div(v3196, v3197);
+      const v3520 = stdlib.gt(v3519, v3198);
+      const v3522 = v3520 ? v3198 : v3519;
+      v3517 = v3522;
       }
-    const v3907 = stdlib.mul(v3561, v3901);
-    const v3908 = stdlib.sub(v3560, v3907);
-    const v3909 = stdlib.div(v3908, v3559);
-    const v3910 = v3900 ? v3909 : v3555;
-    v3879 = v3910;
+    const v3523 = stdlib.mul(v3197, v3517);
+    const v3524 = stdlib.sub(v3196, v3523);
+    const v3525 = stdlib.div(v3524, v3195);
+    const v3526 = v3516 ? v3525 : v3191;
+    v3495 = v3526;
     }
-  const v3911 = stdlib.div(v3868, v3879);
-  const v3912 = stdlib.gt(v3911, stdlib.checkedBigNumberify('./index.rsh:408:113:decimal', stdlib.UInt_max, '0'));
-  const v3913 = v3878 ? v3912 : false;
-  let v3915;
-  let v3917;
-  if (v3871) {
-    v3917 = v3562;
+  const v3527 = stdlib.div(v3484, v3495);
+  const v3528 = stdlib.gt(v3527, stdlib.checkedBigNumberify('./index.rsh:353:113:decimal', stdlib.UInt_max, '0'));
+  const v3529 = v3494 ? v3528 : false;
+  let v3531;
+  let v3533;
+  if (v3487) {
+    v3533 = v3198;
     }
   else {
-    const v3919 = stdlib.div(v3560, v3561);
-    const v3920 = stdlib.gt(v3919, v3562);
-    const v3922 = v3920 ? v3562 : v3919;
-    v3917 = v3922;
+    const v3535 = stdlib.div(v3196, v3197);
+    const v3536 = stdlib.gt(v3535, v3198);
+    const v3538 = v3536 ? v3198 : v3535;
+    v3533 = v3538;
     }
-  const v3923 = stdlib.mul(v3561, v3917);
-  const v3924 = stdlib.sub(v3560, v3923);
-  const v3925 = stdlib.eq(v3924, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-  const v3926 = v3880 ? true : v3925;
-  if (v3926) {
-    v3915 = v3555;
-    }
-  else {
-    let v3927;
-    if (v3871) {
-      v3927 = v3562;
-      }
-    else {
-      const v3929 = stdlib.div(v3560, v3561);
-      const v3930 = stdlib.gt(v3929, v3562);
-      const v3932 = v3930 ? v3562 : v3929;
-      v3927 = v3932;
-      }
-    const v3933 = stdlib.mul(v3561, v3927);
-    const v3934 = stdlib.sub(v3560, v3933);
-    const v3935 = stdlib.div(v3934, v3559);
-    const v3936 = stdlib.gt(v3935, v3555);
-    let v3937;
-    if (v3871) {
-      v3937 = v3562;
-      }
-    else {
-      const v3939 = stdlib.div(v3560, v3561);
-      const v3940 = stdlib.gt(v3939, v3562);
-      const v3942 = v3940 ? v3562 : v3939;
-      v3937 = v3942;
-      }
-    const v3943 = stdlib.mul(v3561, v3937);
-    const v3944 = stdlib.sub(v3560, v3943);
-    const v3945 = stdlib.div(v3944, v3559);
-    const v3946 = v3936 ? v3945 : v3555;
-    v3915 = v3946;
-    }
-  const v3947 = stdlib.div(v3868, v3915);
-  const v3948 = stdlib.ge(v3572, v3947);
-  const v3949 = v3913 ? v3948 : false;
-  let v3950;
-  let v3952;
-  if (v3871) {
-    v3952 = v3562;
+  const v3539 = stdlib.mul(v3197, v3533);
+  const v3540 = stdlib.sub(v3196, v3539);
+  const v3541 = stdlib.eq(v3540, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+  const v3542 = v3496 ? true : v3541;
+  if (v3542) {
+    v3531 = v3191;
     }
   else {
-    const v3954 = stdlib.div(v3560, v3561);
-    const v3955 = stdlib.gt(v3954, v3562);
-    const v3957 = v3955 ? v3562 : v3954;
-    v3952 = v3957;
+    let v3543;
+    if (v3487) {
+      v3543 = v3198;
+      }
+    else {
+      const v3545 = stdlib.div(v3196, v3197);
+      const v3546 = stdlib.gt(v3545, v3198);
+      const v3548 = v3546 ? v3198 : v3545;
+      v3543 = v3548;
+      }
+    const v3549 = stdlib.mul(v3197, v3543);
+    const v3550 = stdlib.sub(v3196, v3549);
+    const v3551 = stdlib.div(v3550, v3195);
+    const v3552 = stdlib.gt(v3551, v3191);
+    let v3553;
+    if (v3487) {
+      v3553 = v3198;
+      }
+    else {
+      const v3555 = stdlib.div(v3196, v3197);
+      const v3556 = stdlib.gt(v3555, v3198);
+      const v3558 = v3556 ? v3198 : v3555;
+      v3553 = v3558;
+      }
+    const v3559 = stdlib.mul(v3197, v3553);
+    const v3560 = stdlib.sub(v3196, v3559);
+    const v3561 = stdlib.div(v3560, v3195);
+    const v3562 = v3552 ? v3561 : v3191;
+    v3531 = v3562;
     }
-  const v3958 = stdlib.mul(v3561, v3952);
-  const v3959 = stdlib.sub(v3560, v3958);
-  const v3960 = stdlib.eq(v3959, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-  const v3961 = v3880 ? true : v3960;
-  if (v3961) {
-    v3950 = v3555;
+  const v3563 = stdlib.div(v3484, v3531);
+  const v3564 = stdlib.ge(v3208, v3563);
+  const v3565 = v3529 ? v3564 : false;
+  let v3566;
+  let v3568;
+  if (v3487) {
+    v3568 = v3198;
     }
   else {
-    let v3962;
-    if (v3871) {
-      v3962 = v3562;
-      }
-    else {
-      const v3964 = stdlib.div(v3560, v3561);
-      const v3965 = stdlib.gt(v3964, v3562);
-      const v3967 = v3965 ? v3562 : v3964;
-      v3962 = v3967;
-      }
-    const v3968 = stdlib.mul(v3561, v3962);
-    const v3969 = stdlib.sub(v3560, v3968);
-    const v3970 = stdlib.div(v3969, v3559);
-    const v3971 = stdlib.gt(v3970, v3555);
-    let v3972;
-    if (v3871) {
-      v3972 = v3562;
-      }
-    else {
-      const v3974 = stdlib.div(v3560, v3561);
-      const v3975 = stdlib.gt(v3974, v3562);
-      const v3977 = v3975 ? v3562 : v3974;
-      v3972 = v3977;
-      }
-    const v3978 = stdlib.mul(v3561, v3972);
-    const v3979 = stdlib.sub(v3560, v3978);
-    const v3980 = stdlib.div(v3979, v3559);
-    const v3981 = v3971 ? v3980 : v3555;
-    v3950 = v3981;
+    const v3570 = stdlib.div(v3196, v3197);
+    const v3571 = stdlib.gt(v3570, v3198);
+    const v3573 = v3571 ? v3198 : v3570;
+    v3568 = v3573;
     }
-  const v3982 = stdlib.div(v3868, v3950);
-  const v3983 = stdlib.mul(v3982, v3564);
-  const v3984 = stdlib.div(v3983, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-  let v3985;
-  let v3987;
-  if (v3871) {
-    v3987 = v3562;
+  const v3574 = stdlib.mul(v3197, v3568);
+  const v3575 = stdlib.sub(v3196, v3574);
+  const v3576 = stdlib.eq(v3575, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+  const v3577 = v3496 ? true : v3576;
+  if (v3577) {
+    v3566 = v3191;
     }
   else {
-    const v3989 = stdlib.div(v3560, v3561);
-    const v3990 = stdlib.gt(v3989, v3562);
-    const v3992 = v3990 ? v3562 : v3989;
-    v3987 = v3992;
+    let v3578;
+    if (v3487) {
+      v3578 = v3198;
+      }
+    else {
+      const v3580 = stdlib.div(v3196, v3197);
+      const v3581 = stdlib.gt(v3580, v3198);
+      const v3583 = v3581 ? v3198 : v3580;
+      v3578 = v3583;
+      }
+    const v3584 = stdlib.mul(v3197, v3578);
+    const v3585 = stdlib.sub(v3196, v3584);
+    const v3586 = stdlib.div(v3585, v3195);
+    const v3587 = stdlib.gt(v3586, v3191);
+    let v3588;
+    if (v3487) {
+      v3588 = v3198;
+      }
+    else {
+      const v3590 = stdlib.div(v3196, v3197);
+      const v3591 = stdlib.gt(v3590, v3198);
+      const v3593 = v3591 ? v3198 : v3590;
+      v3588 = v3593;
+      }
+    const v3594 = stdlib.mul(v3197, v3588);
+    const v3595 = stdlib.sub(v3196, v3594);
+    const v3596 = stdlib.div(v3595, v3195);
+    const v3597 = v3587 ? v3596 : v3191;
+    v3566 = v3597;
     }
-  const v3993 = stdlib.mul(v3561, v3987);
-  const v3994 = stdlib.sub(v3560, v3993);
-  const v3995 = stdlib.eq(v3994, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-  const v3996 = v3880 ? true : v3995;
-  if (v3996) {
-    v3985 = v3555;
+  const v3598 = stdlib.div(v3484, v3566);
+  const v3599 = stdlib.mul(v3598, v3200);
+  const v3600 = stdlib.div(v3599, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+  let v3601;
+  let v3603;
+  if (v3487) {
+    v3603 = v3198;
     }
   else {
-    let v3997;
-    if (v3871) {
-      v3997 = v3562;
-      }
-    else {
-      const v3999 = stdlib.div(v3560, v3561);
-      const v4000 = stdlib.gt(v3999, v3562);
-      const v4002 = v4000 ? v3562 : v3999;
-      v3997 = v4002;
-      }
-    const v4003 = stdlib.mul(v3561, v3997);
-    const v4004 = stdlib.sub(v3560, v4003);
-    const v4005 = stdlib.div(v4004, v3559);
-    const v4006 = stdlib.gt(v4005, v3555);
-    let v4007;
-    if (v3871) {
-      v4007 = v3562;
-      }
-    else {
-      const v4009 = stdlib.div(v3560, v3561);
-      const v4010 = stdlib.gt(v4009, v3562);
-      const v4012 = v4010 ? v3562 : v4009;
-      v4007 = v4012;
-      }
-    const v4013 = stdlib.mul(v3561, v4007);
-    const v4014 = stdlib.sub(v3560, v4013);
-    const v4015 = stdlib.div(v4014, v3559);
-    const v4016 = v4006 ? v4015 : v3555;
-    v3985 = v4016;
+    const v3605 = stdlib.div(v3196, v3197);
+    const v3606 = stdlib.gt(v3605, v3198);
+    const v3608 = v3606 ? v3198 : v3605;
+    v3603 = v3608;
     }
-  const v4017 = stdlib.div(v3868, v3985);
-  const v4018 = stdlib.mul(v4017, v3564);
-  const v4019 = stdlib.div(v4018, stdlib.checkedBigNumberify('./index.rsh:172:31:decimal', stdlib.UInt_max, '100'));
-  const v4020 = stdlib.mul(v4019, v3558);
-  const v4021 = stdlib.div(v4020, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-  let v4022;
-  let v4024;
-  if (v3871) {
-    v4024 = v3562;
+  const v3609 = stdlib.mul(v3197, v3603);
+  const v3610 = stdlib.sub(v3196, v3609);
+  const v3611 = stdlib.eq(v3610, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+  const v3612 = v3496 ? true : v3611;
+  if (v3612) {
+    v3601 = v3191;
     }
   else {
-    const v4026 = stdlib.div(v3560, v3561);
-    const v4027 = stdlib.gt(v4026, v3562);
-    const v4029 = v4027 ? v3562 : v4026;
-    v4024 = v4029;
+    let v3613;
+    if (v3487) {
+      v3613 = v3198;
+      }
+    else {
+      const v3615 = stdlib.div(v3196, v3197);
+      const v3616 = stdlib.gt(v3615, v3198);
+      const v3618 = v3616 ? v3198 : v3615;
+      v3613 = v3618;
+      }
+    const v3619 = stdlib.mul(v3197, v3613);
+    const v3620 = stdlib.sub(v3196, v3619);
+    const v3621 = stdlib.div(v3620, v3195);
+    const v3622 = stdlib.gt(v3621, v3191);
+    let v3623;
+    if (v3487) {
+      v3623 = v3198;
+      }
+    else {
+      const v3625 = stdlib.div(v3196, v3197);
+      const v3626 = stdlib.gt(v3625, v3198);
+      const v3628 = v3626 ? v3198 : v3625;
+      v3623 = v3628;
+      }
+    const v3629 = stdlib.mul(v3197, v3623);
+    const v3630 = stdlib.sub(v3196, v3629);
+    const v3631 = stdlib.div(v3630, v3195);
+    const v3632 = v3622 ? v3631 : v3191;
+    v3601 = v3632;
     }
-  const v4030 = stdlib.mul(v3561, v4024);
-  const v4031 = stdlib.sub(v3560, v4030);
-  const v4032 = stdlib.eq(v4031, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-  const v4033 = v3880 ? true : v4032;
-  if (v4033) {
-    v4022 = v3555;
+  const v3633 = stdlib.div(v3484, v3601);
+  const v3634 = stdlib.mul(v3633, v3200);
+  const v3635 = stdlib.div(v3634, stdlib.checkedBigNumberify('./index.rsh:159:31:decimal', stdlib.UInt_max, '100'));
+  const v3636 = stdlib.mul(v3635, v3194);
+  const v3637 = stdlib.div(v3636, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+  let v3638;
+  let v3640;
+  if (v3487) {
+    v3640 = v3198;
     }
   else {
-    let v4034;
-    if (v3871) {
-      v4034 = v3562;
-      }
-    else {
-      const v4036 = stdlib.div(v3560, v3561);
-      const v4037 = stdlib.gt(v4036, v3562);
-      const v4039 = v4037 ? v3562 : v4036;
-      v4034 = v4039;
-      }
-    const v4040 = stdlib.mul(v3561, v4034);
-    const v4041 = stdlib.sub(v3560, v4040);
-    const v4042 = stdlib.div(v4041, v3559);
-    const v4043 = stdlib.gt(v4042, v3555);
-    let v4044;
-    if (v3871) {
-      v4044 = v3562;
-      }
-    else {
-      const v4046 = stdlib.div(v3560, v3561);
-      const v4047 = stdlib.gt(v4046, v3562);
-      const v4049 = v4047 ? v3562 : v4046;
-      v4044 = v4049;
-      }
-    const v4050 = stdlib.mul(v3561, v4044);
-    const v4051 = stdlib.sub(v3560, v4050);
-    const v4052 = stdlib.div(v4051, v3559);
-    const v4053 = v4043 ? v4052 : v3555;
-    v4022 = v4053;
+    const v3642 = stdlib.div(v3196, v3197);
+    const v3643 = stdlib.gt(v3642, v3198);
+    const v3645 = v3643 ? v3198 : v3642;
+    v3640 = v3645;
     }
-  const v4054 = stdlib.div(v3868, v4022);
-  const v4055 = stdlib.mul(v4054, v3564);
-  const v4056 = stdlib.div(v4055, stdlib.checkedBigNumberify('./index.rsh:172:31:decimal', stdlib.UInt_max, '100'));
-  const v4057 = stdlib.mul(v4056, v3552);
-  const v4058 = stdlib.div(v4057, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-  const v4059 = stdlib.add(v4021, v4058);
-  const v4060 = stdlib.eq(v3984, v4059);
-  const v4061 = v3949 ? v4060 : false;
-  stdlib.assert(v4061, {
-    at: './index.rsh:407:29:application',
-    fs: ['at ./index.rsh:407:20:application call to [unknown function] (defined at: ./index.rsh:407:20:function exp)', 'at ./index.rsh:407:20:application call to [unknown function] (defined at: ./index.rsh:407:20:function exp)', 'at ./index.rsh:118:17:application call to "runClaimant_burnReserve0_192" (defined at: ./index.rsh:406:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+  const v3646 = stdlib.mul(v3197, v3640);
+  const v3647 = stdlib.sub(v3196, v3646);
+  const v3648 = stdlib.eq(v3647, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+  const v3649 = v3496 ? true : v3648;
+  if (v3649) {
+    v3638 = v3191;
+    }
+  else {
+    let v3650;
+    if (v3487) {
+      v3650 = v3198;
+      }
+    else {
+      const v3652 = stdlib.div(v3196, v3197);
+      const v3653 = stdlib.gt(v3652, v3198);
+      const v3655 = v3653 ? v3198 : v3652;
+      v3650 = v3655;
+      }
+    const v3656 = stdlib.mul(v3197, v3650);
+    const v3657 = stdlib.sub(v3196, v3656);
+    const v3658 = stdlib.div(v3657, v3195);
+    const v3659 = stdlib.gt(v3658, v3191);
+    let v3660;
+    if (v3487) {
+      v3660 = v3198;
+      }
+    else {
+      const v3662 = stdlib.div(v3196, v3197);
+      const v3663 = stdlib.gt(v3662, v3198);
+      const v3665 = v3663 ? v3198 : v3662;
+      v3660 = v3665;
+      }
+    const v3666 = stdlib.mul(v3197, v3660);
+    const v3667 = stdlib.sub(v3196, v3666);
+    const v3668 = stdlib.div(v3667, v3195);
+    const v3669 = v3659 ? v3668 : v3191;
+    v3638 = v3669;
+    }
+  const v3670 = stdlib.div(v3484, v3638);
+  const v3671 = stdlib.mul(v3670, v3200);
+  const v3672 = stdlib.div(v3671, stdlib.checkedBigNumberify('./index.rsh:159:31:decimal', stdlib.UInt_max, '100'));
+  const v3673 = stdlib.mul(v3672, v3189);
+  const v3674 = stdlib.div(v3673, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+  const v3675 = stdlib.add(v3637, v3674);
+  const v3676 = stdlib.eq(v3600, v3675);
+  const v3677 = v3565 ? v3676 : false;
+  stdlib.assert(v3677, {
+    at: './index.rsh:352:29:application',
+    fs: ['at ./index.rsh:352:20:application call to [unknown function] (defined at: ./index.rsh:352:20:function exp)', 'at ./index.rsh:352:20:application call to [unknown function] (defined at: ./index.rsh:352:20:function exp)', 'at ./index.rsh:109:17:application call to "runClaimant_burnReserve0_192" (defined at: ./index.rsh:351:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: null,
     who: 'Claimant_burnReserve'
     });
-  const v4065 = ['Claimant_burnReserve0_192', v3867];
+  const v3681 = ['Claimant_burnReserve0_192', v3483];
   
   const txn1 = await (ctc.sendrecv({
-    args: [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572, v4065],
+    args: [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208, v3681],
     evt_cnt: 1,
     funcNum: 3,
     lct: stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '0'),
     onlyIf: true,
     out_tys: [ctc9],
-    pay: [stdlib.checkedBigNumberify('./index.rsh:412:24:decimal', stdlib.UInt_max, '0'), [[stdlib.checkedBigNumberify('./index.rsh:412:28:decimal', stdlib.UInt_max, '0'), v3511], [v3868, v3476]]],
+    pay: [stdlib.checkedBigNumberify('./index.rsh:357:24:decimal', stdlib.UInt_max, '0'), [[stdlib.checkedBigNumberify('./index.rsh:357:28:decimal', stdlib.UInt_max, '0'), v3146], [v3484, v3110]]],
     sim_p: (async (txn1) => {
       const sim_r = { txns: [], mapRefs: [], maps: [] };
       let sim_txn_ctr = stdlib.UInt_max;
       const getSimTokCtr = () => { sim_txn_ctr = sim_txn_ctr.sub(1); return sim_txn_ctr; };
       
       
-      const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
+      const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
       
-      switch (v4301[0]) {
+      switch (v3893[0]) {
         case 'AdminAPI_claimAdminFee0_192': {
-          const v4304 = v4301[1];
-          
-          break;
-          }
-        case 'AdminAPI_closeBank0_192': {
-          const v5052 = v4301[1];
+          const v3896 = v3893[1];
           
           break;
           }
         case 'AdminAPI_setAdminFee0_192': {
-          const v5800 = v4301[1];
+          const v4606 = v3893[1];
           
           break;
           }
         case 'AdminAPI_updatePrice0_192': {
-          const v6548 = v4301[1];
+          const v5316 = v3893[1];
           
           break;
           }
         case 'Claimant_burnReserve0_192': {
-          const v7296 = v4301[1];
+          const v6026 = v3893[1];
           sim_r.txns.push({
             kind: 'api',
             who: "Claimant_burnReserve"
             });
-          const v7344 = v7296[stdlib.checkedBigNumberify('./index.rsh:406:9:spread', stdlib.UInt_max, '0')];
+          const v6064 = v6026[stdlib.checkedBigNumberify('./index.rsh:351:9:spread', stdlib.UInt_max, '0')];
           ;
-          const v7430 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v7431 = v7430[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v7435 = v7430[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v7436 = v7430[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v7437 = [v7431, v7435, v7436];
-          const v7438 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v7437);
+          const v6150 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v6151 = v6150[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v6155 = v6150[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v6156 = v6150[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v6157 = [v6151, v6155, v6156];
+          const v6158 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v6157);
           ;
-          const v7439 = v7438[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v7440 = v7439[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v7441 = stdlib.add(v7440, v7344);
-          const v7444 = v7439[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v7445 = v7439[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v7446 = [v7441, v7444, v7445];
-          const v7447 = stdlib.Array_set(v7438, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v7446);
+          const v6159 = v6158[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v6160 = v6159[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v6161 = stdlib.add(v6160, v6064);
+          const v6164 = v6159[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v6165 = v6159[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v6166 = [v6161, v6164, v6165];
+          const v6167 = stdlib.Array_set(v6158, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v6166);
           sim_r.txns.push({
-            amt: v7344,
+            amt: v6064,
             kind: 'to',
-            tok: v3476
+            tok: v3110
             });
-          let v7522;
-          const v7523 = stdlib.eq(v3559, stdlib.checkedBigNumberify('./index.rsh:163:23:decimal', stdlib.UInt_max, '0'));
-          let v7524;
-          const v7525 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-          if (v7525) {
-            v7524 = v3562;
+          let v6214;
+          const v6215 = stdlib.eq(v3195, stdlib.checkedBigNumberify('./index.rsh:151:23:decimal', stdlib.UInt_max, '0'));
+          let v6216;
+          const v6217 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+          if (v6217) {
+            v6216 = v3198;
             }
           else {
-            const v7526 = stdlib.div(v3560, v3561);
-            const v7527 = stdlib.gt(v7526, v3562);
-            const v7529 = v7527 ? v3562 : v7526;
-            v7524 = v7529;
+            const v6218 = stdlib.div(v3196, v3197);
+            const v6219 = stdlib.gt(v6218, v3198);
+            const v6221 = v6219 ? v3198 : v6218;
+            v6216 = v6221;
             }
-          const v7530 = stdlib.mul(v3561, v7524);
-          const v7531 = stdlib.sub(v3560, v7530);
-          const v7532 = stdlib.eq(v7531, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-          const v7533 = v7523 ? true : v7532;
-          if (v7533) {
-            v7522 = v3555;
+          const v6222 = stdlib.mul(v3197, v6216);
+          const v6223 = stdlib.sub(v3196, v6222);
+          const v6224 = stdlib.eq(v6223, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+          const v6225 = v6215 ? true : v6224;
+          if (v6225) {
+            v6214 = v3191;
             }
           else {
-            let v7534;
-            if (v7525) {
-              v7534 = v3562;
+            let v6226;
+            if (v6217) {
+              v6226 = v3198;
               }
             else {
-              const v7536 = stdlib.div(v3560, v3561);
-              const v7537 = stdlib.gt(v7536, v3562);
-              const v7539 = v7537 ? v3562 : v7536;
-              v7534 = v7539;
+              const v6228 = stdlib.div(v3196, v3197);
+              const v6229 = stdlib.gt(v6228, v3198);
+              const v6231 = v6229 ? v3198 : v6228;
+              v6226 = v6231;
               }
-            const v7540 = stdlib.mul(v3561, v7534);
-            const v7541 = stdlib.sub(v3560, v7540);
-            const v7542 = stdlib.div(v7541, v3559);
-            const v7543 = stdlib.gt(v7542, v3555);
-            let v7544;
-            if (v7525) {
-              v7544 = v3562;
+            const v6232 = stdlib.mul(v3197, v6226);
+            const v6233 = stdlib.sub(v3196, v6232);
+            const v6234 = stdlib.div(v6233, v3195);
+            const v6235 = stdlib.gt(v6234, v3191);
+            let v6236;
+            if (v6217) {
+              v6236 = v3198;
               }
             else {
-              const v7546 = stdlib.div(v3560, v3561);
-              const v7547 = stdlib.gt(v7546, v3562);
-              const v7549 = v7547 ? v3562 : v7546;
-              v7544 = v7549;
+              const v6238 = stdlib.div(v3196, v3197);
+              const v6239 = stdlib.gt(v6238, v3198);
+              const v6241 = v6239 ? v3198 : v6238;
+              v6236 = v6241;
               }
-            const v7550 = stdlib.mul(v3561, v7544);
-            const v7551 = stdlib.sub(v3560, v7550);
-            const v7552 = stdlib.div(v7551, v3559);
-            const v7553 = v7543 ? v7552 : v3555;
-            v7522 = v7553;
+            const v6242 = stdlib.mul(v3197, v6236);
+            const v6243 = stdlib.sub(v3196, v6242);
+            const v6244 = stdlib.div(v6243, v3195);
+            const v6245 = v6235 ? v6244 : v3191;
+            v6214 = v6245;
             }
-          const v7554 = stdlib.div(v7344, v7522);
-          const v7555 = stdlib.mul(v7554, v3564);
-          const v7556 = stdlib.div(v7555, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-          const v7608 = stdlib.mul(v7556, v3558);
-          const v7609 = stdlib.div(v7608, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-          const v7612 = stdlib.mul(v7556, v3552);
-          const v7613 = stdlib.div(v7612, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-          const v7617 = stdlib.sub(v7554, v7556);
-          const v7621 = stdlib.sub(v3572, v7617);
+          const v6246 = stdlib.div(v6064, v6214);
+          const v6247 = stdlib.mul(v6246, v3200);
+          const v6248 = stdlib.div(v6247, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+          const v6300 = stdlib.mul(v6248, v3194);
+          const v6301 = stdlib.div(v6300, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+          const v6304 = stdlib.mul(v6248, v3189);
+          const v6305 = stdlib.div(v6304, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+          const v6309 = stdlib.sub(v6246, v6248);
+          const v6313 = stdlib.sub(v3208, v6309);
           sim_r.txns.push({
             kind: 'from',
-            to: v4300,
+            to: v3892,
             tok: undefined /* Nothing */
             });
-          const v7622 = true;
-          const v7623 = await txn1.getOutput('Claimant_burnReserve', 'v7622', ctc3, v7622);
+          const v6314 = true;
+          const v6315 = await txn1.getOutput('Claimant_burnReserve', 'v6314', ctc3, v6314);
           
-          const v7629 = stdlib.sub(v3559, v7344);
-          const v7630 = stdlib.sub(v3560, v7554);
-          const v7635 = stdlib.add(v7630, v7609);
-          const v7640 = stdlib.add(v3551, v7613);
-          const v25454 = v7640;
-          const v25455 = v3552;
-          const v25456 = v3554;
-          const v25457 = v3555;
-          const v25458 = v3563;
-          const v25459 = v3557;
-          const v25460 = v3558;
-          const v25461 = v7629;
-          const v25462 = v7635;
-          const v25463 = v3561;
-          const v25464 = v3562;
-          const v25465 = v3556;
-          const v25466 = v3564;
-          const v25468 = v7447;
-          const v25469 = v7621;
+          const v6321 = stdlib.sub(v3195, v6064);
+          const v6322 = stdlib.sub(v3196, v6246);
+          const v6327 = stdlib.add(v6322, v6301);
+          const v6332 = stdlib.add(v3188, v6305);
+          const v20548 = v6332;
+          const v20549 = v3189;
+          const v20550 = v3190;
+          const v20551 = v3191;
+          const v20552 = v3199;
+          const v20553 = v3193;
+          const v20554 = v3194;
+          const v20555 = v6321;
+          const v20556 = v6327;
+          const v20557 = v3197;
+          const v20558 = v3198;
+          const v20559 = v3192;
+          const v20560 = v3200;
+          const v20562 = v6167;
+          const v20563 = v6313;
           sim_r.isHalt = false;
           
           break;
           }
         case 'Claimant_burnStable0_192': {
-          const v8044 = v4301[1];
+          const v6736 = v3893[1];
           
           break;
           }
         case 'Claimant_mintFirstStable0_192': {
-          const v8792 = v4301[1];
+          const v7446 = v3893[1];
           
           break;
           }
         case 'Claimant_mintReserve0_192': {
-          const v9540 = v4301[1];
+          const v8156 = v3893[1];
           
           break;
           }
         case 'Claimant_mintStable0_192': {
-          const v10288 = v4301[1];
+          const v8866 = v3893[1];
           
           break;
           }
@@ -3192,194 +2799,189 @@ export async function _Claimant_burnReserve4(ctcTop, interact) {
       }),
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1, ctc9],
+    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2, ctc9],
     waitIfNotPresent: false
     }));
-  const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
-  switch (v4301[0]) {
+  const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
+  switch (v3893[0]) {
     case 'AdminAPI_claimAdminFee0_192': {
-      const v4304 = v4301[1];
-      return;
-      break;
-      }
-    case 'AdminAPI_closeBank0_192': {
-      const v5052 = v4301[1];
+      const v3896 = v3893[1];
       return;
       break;
       }
     case 'AdminAPI_setAdminFee0_192': {
-      const v5800 = v4301[1];
+      const v4606 = v3893[1];
       return;
       break;
       }
     case 'AdminAPI_updatePrice0_192': {
-      const v6548 = v4301[1];
+      const v5316 = v3893[1];
       return;
       break;
       }
     case 'Claimant_burnReserve0_192': {
-      const v7296 = v4301[1];
+      const v6026 = v3893[1];
       undefined /* setApiDetails */;
-      const v7344 = v7296[stdlib.checkedBigNumberify('./index.rsh:406:9:spread', stdlib.UInt_max, '0')];
+      const v6064 = v6026[stdlib.checkedBigNumberify('./index.rsh:351:9:spread', stdlib.UInt_max, '0')];
       ;
-      const v7430 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v7431 = v7430[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v7435 = v7430[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v7436 = v7430[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v7437 = [v7431, v7435, v7436];
-      const v7438 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v7437);
+      const v6150 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v6151 = v6150[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v6155 = v6150[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v6156 = v6150[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v6157 = [v6151, v6155, v6156];
+      const v6158 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v6157);
       ;
-      const v7439 = v7438[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v7440 = v7439[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v7441 = stdlib.add(v7440, v7344);
-      const v7444 = v7439[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v7445 = v7439[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v7446 = [v7441, v7444, v7445];
-      const v7447 = stdlib.Array_set(v7438, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v7446);
+      const v6159 = v6158[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v6160 = v6159[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v6161 = stdlib.add(v6160, v6064);
+      const v6164 = v6159[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v6165 = v6159[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v6166 = [v6161, v6164, v6165];
+      const v6167 = stdlib.Array_set(v6158, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v6166);
       ;
-      let v7522;
-      const v7523 = stdlib.eq(v3559, stdlib.checkedBigNumberify('./index.rsh:163:23:decimal', stdlib.UInt_max, '0'));
-      let v7524;
-      const v7525 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-      if (v7525) {
-        v7524 = v3562;
+      let v6214;
+      const v6215 = stdlib.eq(v3195, stdlib.checkedBigNumberify('./index.rsh:151:23:decimal', stdlib.UInt_max, '0'));
+      let v6216;
+      const v6217 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+      if (v6217) {
+        v6216 = v3198;
         }
       else {
-        const v7526 = stdlib.div(v3560, v3561);
-        const v7527 = stdlib.gt(v7526, v3562);
-        const v7529 = v7527 ? v3562 : v7526;
-        v7524 = v7529;
+        const v6218 = stdlib.div(v3196, v3197);
+        const v6219 = stdlib.gt(v6218, v3198);
+        const v6221 = v6219 ? v3198 : v6218;
+        v6216 = v6221;
         }
-      const v7530 = stdlib.mul(v3561, v7524);
-      const v7531 = stdlib.sub(v3560, v7530);
-      const v7532 = stdlib.eq(v7531, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-      const v7533 = v7523 ? true : v7532;
-      if (v7533) {
-        v7522 = v3555;
+      const v6222 = stdlib.mul(v3197, v6216);
+      const v6223 = stdlib.sub(v3196, v6222);
+      const v6224 = stdlib.eq(v6223, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+      const v6225 = v6215 ? true : v6224;
+      if (v6225) {
+        v6214 = v3191;
         }
       else {
-        let v7534;
-        if (v7525) {
-          v7534 = v3562;
+        let v6226;
+        if (v6217) {
+          v6226 = v3198;
           }
         else {
-          const v7536 = stdlib.div(v3560, v3561);
-          const v7537 = stdlib.gt(v7536, v3562);
-          const v7539 = v7537 ? v3562 : v7536;
-          v7534 = v7539;
+          const v6228 = stdlib.div(v3196, v3197);
+          const v6229 = stdlib.gt(v6228, v3198);
+          const v6231 = v6229 ? v3198 : v6228;
+          v6226 = v6231;
           }
-        const v7540 = stdlib.mul(v3561, v7534);
-        const v7541 = stdlib.sub(v3560, v7540);
-        const v7542 = stdlib.div(v7541, v3559);
-        const v7543 = stdlib.gt(v7542, v3555);
-        let v7544;
-        if (v7525) {
-          v7544 = v3562;
-          }
-        else {
-          const v7546 = stdlib.div(v3560, v3561);
-          const v7547 = stdlib.gt(v7546, v3562);
-          const v7549 = v7547 ? v3562 : v7546;
-          v7544 = v7549;
-          }
-        const v7550 = stdlib.mul(v3561, v7544);
-        const v7551 = stdlib.sub(v3560, v7550);
-        const v7552 = stdlib.div(v7551, v3559);
-        const v7553 = v7543 ? v7552 : v3555;
-        v7522 = v7553;
-        }
-      const v7554 = stdlib.div(v7344, v7522);
-      const v7555 = stdlib.mul(v7554, v3564);
-      const v7556 = stdlib.div(v7555, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-      let v7557;
-      if (v7525) {
-        v7557 = v3562;
-        }
-      else {
-        const v7559 = stdlib.div(v3560, v3561);
-        const v7560 = stdlib.gt(v7559, v3562);
-        const v7562 = v7560 ? v3562 : v7559;
-        v7557 = v7562;
-        }
-      const v7563 = stdlib.mul(v3561, v7557);
-      const v7564 = stdlib.div(v3560, v7563);
-      const v7565 = stdlib.ge(v7564, v3557);
-      let v7566;
-      let v7568;
-      if (v7525) {
-        v7568 = v3562;
-        }
-      else {
-        const v7570 = stdlib.div(v3560, v3561);
-        const v7571 = stdlib.gt(v7570, v3562);
-        const v7573 = v7571 ? v3562 : v7570;
-        v7568 = v7573;
-        }
-      const v7574 = stdlib.mul(v3561, v7568);
-      const v7575 = stdlib.sub(v3560, v7574);
-      const v7576 = stdlib.eq(v7575, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-      const v7577 = v7523 ? true : v7576;
-      if (v7577) {
-        v7566 = v3555;
-        }
-      else {
-        let v7578;
-        if (v7525) {
-          v7578 = v3562;
+        const v6232 = stdlib.mul(v3197, v6226);
+        const v6233 = stdlib.sub(v3196, v6232);
+        const v6234 = stdlib.div(v6233, v3195);
+        const v6235 = stdlib.gt(v6234, v3191);
+        let v6236;
+        if (v6217) {
+          v6236 = v3198;
           }
         else {
-          const v7580 = stdlib.div(v3560, v3561);
-          const v7581 = stdlib.gt(v7580, v3562);
-          const v7583 = v7581 ? v3562 : v7580;
-          v7578 = v7583;
+          const v6238 = stdlib.div(v3196, v3197);
+          const v6239 = stdlib.gt(v6238, v3198);
+          const v6241 = v6239 ? v3198 : v6238;
+          v6236 = v6241;
           }
-        const v7584 = stdlib.mul(v3561, v7578);
-        const v7585 = stdlib.sub(v3560, v7584);
-        const v7586 = stdlib.div(v7585, v3559);
-        const v7587 = stdlib.gt(v7586, v3555);
-        let v7588;
-        if (v7525) {
-          v7588 = v3562;
+        const v6242 = stdlib.mul(v3197, v6236);
+        const v6243 = stdlib.sub(v3196, v6242);
+        const v6244 = stdlib.div(v6243, v3195);
+        const v6245 = v6235 ? v6244 : v3191;
+        v6214 = v6245;
+        }
+      const v6246 = stdlib.div(v6064, v6214);
+      const v6247 = stdlib.mul(v6246, v3200);
+      const v6248 = stdlib.div(v6247, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+      let v6249;
+      if (v6217) {
+        v6249 = v3198;
+        }
+      else {
+        const v6251 = stdlib.div(v3196, v3197);
+        const v6252 = stdlib.gt(v6251, v3198);
+        const v6254 = v6252 ? v3198 : v6251;
+        v6249 = v6254;
+        }
+      const v6255 = stdlib.mul(v3197, v6249);
+      const v6256 = stdlib.div(v3196, v6255);
+      const v6257 = stdlib.ge(v6256, v3193);
+      let v6258;
+      let v6260;
+      if (v6217) {
+        v6260 = v3198;
+        }
+      else {
+        const v6262 = stdlib.div(v3196, v3197);
+        const v6263 = stdlib.gt(v6262, v3198);
+        const v6265 = v6263 ? v3198 : v6262;
+        v6260 = v6265;
+        }
+      const v6266 = stdlib.mul(v3197, v6260);
+      const v6267 = stdlib.sub(v3196, v6266);
+      const v6268 = stdlib.eq(v6267, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+      const v6269 = v6215 ? true : v6268;
+      if (v6269) {
+        v6258 = v3191;
+        }
+      else {
+        let v6270;
+        if (v6217) {
+          v6270 = v3198;
           }
         else {
-          const v7590 = stdlib.div(v3560, v3561);
-          const v7591 = stdlib.gt(v7590, v3562);
-          const v7593 = v7591 ? v3562 : v7590;
-          v7588 = v7593;
+          const v6272 = stdlib.div(v3196, v3197);
+          const v6273 = stdlib.gt(v6272, v3198);
+          const v6275 = v6273 ? v3198 : v6272;
+          v6270 = v6275;
           }
-        const v7594 = stdlib.mul(v3561, v7588);
-        const v7595 = stdlib.sub(v3560, v7594);
-        const v7596 = stdlib.div(v7595, v3559);
-        const v7597 = v7587 ? v7596 : v3555;
-        v7566 = v7597;
+        const v6276 = stdlib.mul(v3197, v6270);
+        const v6277 = stdlib.sub(v3196, v6276);
+        const v6278 = stdlib.div(v6277, v3195);
+        const v6279 = stdlib.gt(v6278, v3191);
+        let v6280;
+        if (v6217) {
+          v6280 = v3198;
+          }
+        else {
+          const v6282 = stdlib.div(v3196, v3197);
+          const v6283 = stdlib.gt(v6282, v3198);
+          const v6285 = v6283 ? v3198 : v6282;
+          v6280 = v6285;
+          }
+        const v6286 = stdlib.mul(v3197, v6280);
+        const v6287 = stdlib.sub(v3196, v6286);
+        const v6288 = stdlib.div(v6287, v3195);
+        const v6289 = v6279 ? v6288 : v3191;
+        v6258 = v6289;
         }
-      const v7598 = stdlib.div(v7344, v7566);
-      const v7599 = stdlib.gt(v7598, stdlib.checkedBigNumberify('./index.rsh:417:115:decimal', stdlib.UInt_max, '0'));
-      const v7600 = v7565 ? v7599 : false;
-      const v7602 = stdlib.ge(v3572, v7554);
-      const v7603 = v7600 ? v7602 : false;
-      const v7608 = stdlib.mul(v7556, v3558);
-      const v7609 = stdlib.div(v7608, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-      const v7612 = stdlib.mul(v7556, v3552);
-      const v7613 = stdlib.div(v7612, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-      const v7614 = stdlib.add(v7609, v7613);
-      const v7615 = stdlib.eq(v7556, v7614);
-      const v7616 = v7603 ? v7615 : false;
-      stdlib.assert(v7616, {
-        at: './index.rsh:416:14:application',
-        fs: ['at ./index.rsh:413:23:application call to [unknown function] (defined at: ./index.rsh:413:23:function exp)'],
+      const v6290 = stdlib.div(v6064, v6258);
+      const v6291 = stdlib.gt(v6290, stdlib.checkedBigNumberify('./index.rsh:362:115:decimal', stdlib.UInt_max, '0'));
+      const v6292 = v6257 ? v6291 : false;
+      const v6294 = stdlib.ge(v3208, v6246);
+      const v6295 = v6292 ? v6294 : false;
+      const v6300 = stdlib.mul(v6248, v3194);
+      const v6301 = stdlib.div(v6300, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+      const v6304 = stdlib.mul(v6248, v3189);
+      const v6305 = stdlib.div(v6304, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+      const v6306 = stdlib.add(v6301, v6305);
+      const v6307 = stdlib.eq(v6248, v6306);
+      const v6308 = v6295 ? v6307 : false;
+      stdlib.assert(v6308, {
+        at: './index.rsh:361:14:application',
+        fs: ['at ./index.rsh:358:23:application call to [unknown function] (defined at: ./index.rsh:358:23:function exp)'],
         msg: null,
         who: 'Claimant_burnReserve'
         });
-      const v7617 = stdlib.sub(v7554, v7556);
-      const v7621 = stdlib.sub(v3572, v7617);
+      const v6309 = stdlib.sub(v6246, v6248);
+      const v6313 = stdlib.sub(v3208, v6309);
       ;
-      const v7622 = true;
-      const v7623 = await txn1.getOutput('Claimant_burnReserve', 'v7622', ctc3, v7622);
-      if (v2094) {
-        stdlib.protect(ctc10, await interact.out(v7296, v7623), {
-          at: './index.rsh:406:10:application',
-          fs: ['at ./index.rsh:406:10:application call to [unknown function] (defined at: ./index.rsh:406:10:function exp)', 'at ./index.rsh:422:8:application call to "k" (defined at: ./index.rsh:413:23:function exp)', 'at ./index.rsh:413:23:application call to [unknown function] (defined at: ./index.rsh:413:23:function exp)'],
+      const v6314 = true;
+      const v6315 = await txn1.getOutput('Claimant_burnReserve', 'v6314', ctc3, v6314);
+      if (v1894) {
+        stdlib.protect(ctc10, await interact.out(v6026, v6315), {
+          at: './index.rsh:351:10:application',
+          fs: ['at ./index.rsh:351:10:application call to [unknown function] (defined at: ./index.rsh:351:10:function exp)', 'at ./index.rsh:367:8:application call to "k" (defined at: ./index.rsh:358:23:function exp)', 'at ./index.rsh:358:23:application call to [unknown function] (defined at: ./index.rsh:358:23:function exp)'],
           msg: 'out',
           who: 'Claimant_burnReserve'
           });
@@ -3387,46 +2989,46 @@ export async function _Claimant_burnReserve4(ctcTop, interact) {
       else {
         }
       
-      const v7629 = stdlib.sub(v3559, v7344);
-      const v7630 = stdlib.sub(v3560, v7554);
-      const v7635 = stdlib.add(v7630, v7609);
-      const v7640 = stdlib.add(v3551, v7613);
-      const v25454 = v7640;
-      const v25455 = v3552;
-      const v25456 = v3554;
-      const v25457 = v3555;
-      const v25458 = v3563;
-      const v25459 = v3557;
-      const v25460 = v3558;
-      const v25461 = v7629;
-      const v25462 = v7635;
-      const v25463 = v3561;
-      const v25464 = v3562;
-      const v25465 = v3556;
-      const v25466 = v3564;
-      const v25468 = v7447;
-      const v25469 = v7621;
+      const v6321 = stdlib.sub(v3195, v6064);
+      const v6322 = stdlib.sub(v3196, v6246);
+      const v6327 = stdlib.add(v6322, v6301);
+      const v6332 = stdlib.add(v3188, v6305);
+      const v20548 = v6332;
+      const v20549 = v3189;
+      const v20550 = v3190;
+      const v20551 = v3191;
+      const v20552 = v3199;
+      const v20553 = v3193;
+      const v20554 = v3194;
+      const v20555 = v6321;
+      const v20556 = v6327;
+      const v20557 = v3197;
+      const v20558 = v3198;
+      const v20559 = v3192;
+      const v20560 = v3200;
+      const v20562 = v6167;
+      const v20563 = v6313;
       return;
       
       break;
       }
     case 'Claimant_burnStable0_192': {
-      const v8044 = v4301[1];
+      const v6736 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintFirstStable0_192': {
-      const v8792 = v4301[1];
+      const v7446 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintReserve0_192': {
-      const v9540 = v4301[1];
+      const v8156 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintStable0_192': {
-      const v10288 = v4301[1];
+      const v8866 = v3893[1];
       return;
       break;
       }
@@ -3442,17 +3044,16 @@ export async function _Claimant_burnStable4(ctcTop, interact) {
   const ctc = ctcTop._initialize();
   const stdlib = ctc.stdlib;
   const ctc0 = stdlib.T_Address;
-  const ctc1 = stdlib.T_UInt;
-  const ctc2 = stdlib.T_Token;
+  const ctc1 = stdlib.T_Token;
+  const ctc2 = stdlib.T_UInt;
   const ctc3 = stdlib.T_Bool;
-  const ctc4 = stdlib.T_Tuple([ctc1, ctc1, ctc3]);
+  const ctc4 = stdlib.T_Tuple([ctc2, ctc2, ctc3]);
   const ctc5 = stdlib.T_Array(ctc4, stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '2'));
-  const ctc6 = stdlib.T_Tuple([ctc1]);
+  const ctc6 = stdlib.T_Tuple([ctc2]);
   const ctc7 = stdlib.T_Tuple([]);
-  const ctc8 = stdlib.T_Tuple([ctc1, ctc1]);
+  const ctc8 = stdlib.T_Tuple([ctc2, ctc2]);
   const ctc9 = stdlib.T_Data({
     AdminAPI_claimAdminFee0_192: ctc7,
-    AdminAPI_closeBank0_192: ctc7,
     AdminAPI_setAdminFee0_192: ctc8,
     AdminAPI_updatePrice0_192: ctc6,
     Claimant_burnReserve0_192: ctc6,
@@ -3464,250 +3065,245 @@ export async function _Claimant_burnStable4(ctcTop, interact) {
   const ctc10 = stdlib.T_Null;
   
   
-  const [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1]);
-  const v3814 = stdlib.protect(ctc6, await interact.in(), {
+  const [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2]);
+  const v3430 = stdlib.protect(ctc6, await interact.in(), {
     at: './index.rsh:1:23:application',
-    fs: ['at ./index.rsh:382:20:application call to [unknown function] (defined at: ./index.rsh:382:20:function exp)', 'at ./index.rsh:118:17:application call to "runClaimant_burnStable0_192" (defined at: ./index.rsh:381:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+    fs: ['at ./index.rsh:328:20:application call to [unknown function] (defined at: ./index.rsh:328:20:function exp)', 'at ./index.rsh:109:17:application call to "runClaimant_burnStable0_192" (defined at: ./index.rsh:327:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: 'in',
     who: 'Claimant_burnStable'
     });
-  const v3815 = v3814[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '0')];
-  let v3818;
-  const v3819 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-  if (v3819) {
-    v3818 = v3562;
+  const v3431 = v3430[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '0')];
+  let v3434;
+  const v3435 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+  if (v3435) {
+    v3434 = v3198;
     }
   else {
-    const v3820 = stdlib.div(v3560, v3561);
-    const v3821 = stdlib.gt(v3820, v3562);
-    const v3823 = v3821 ? v3562 : v3820;
-    v3818 = v3823;
+    const v3436 = stdlib.div(v3196, v3197);
+    const v3437 = stdlib.gt(v3436, v3198);
+    const v3439 = v3437 ? v3198 : v3436;
+    v3434 = v3439;
     }
-  const v3824 = stdlib.div(v3815, v3818);
-  const v3825 = stdlib.ge(v3572, v3824);
-  let v3826;
-  if (v3819) {
-    v3826 = v3562;
-    }
-  else {
-    const v3828 = stdlib.div(v3560, v3561);
-    const v3829 = stdlib.gt(v3828, v3562);
-    const v3831 = v3829 ? v3562 : v3828;
-    v3826 = v3831;
-    }
-  const v3832 = stdlib.div(v3815, v3826);
-  const v3833 = stdlib.mul(v3832, v3564);
-  const v3834 = stdlib.div(v3833, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-  let v3835;
-  if (v3819) {
-    v3835 = v3562;
+  const v3440 = stdlib.div(v3431, v3434);
+  const v3441 = stdlib.ge(v3208, v3440);
+  let v3442;
+  if (v3435) {
+    v3442 = v3198;
     }
   else {
-    const v3837 = stdlib.div(v3560, v3561);
-    const v3838 = stdlib.gt(v3837, v3562);
-    const v3840 = v3838 ? v3562 : v3837;
-    v3835 = v3840;
+    const v3444 = stdlib.div(v3196, v3197);
+    const v3445 = stdlib.gt(v3444, v3198);
+    const v3447 = v3445 ? v3198 : v3444;
+    v3442 = v3447;
     }
-  const v3841 = stdlib.div(v3815, v3835);
-  const v3842 = stdlib.mul(v3841, v3564);
-  const v3843 = stdlib.div(v3842, stdlib.checkedBigNumberify('./index.rsh:172:31:decimal', stdlib.UInt_max, '100'));
-  const v3844 = stdlib.mul(v3843, v3558);
-  const v3845 = stdlib.div(v3844, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-  let v3846;
-  if (v3819) {
-    v3846 = v3562;
+  const v3448 = stdlib.div(v3431, v3442);
+  const v3449 = stdlib.mul(v3448, v3200);
+  const v3450 = stdlib.div(v3449, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+  let v3451;
+  if (v3435) {
+    v3451 = v3198;
     }
   else {
-    const v3848 = stdlib.div(v3560, v3561);
-    const v3849 = stdlib.gt(v3848, v3562);
-    const v3851 = v3849 ? v3562 : v3848;
-    v3846 = v3851;
+    const v3453 = stdlib.div(v3196, v3197);
+    const v3454 = stdlib.gt(v3453, v3198);
+    const v3456 = v3454 ? v3198 : v3453;
+    v3451 = v3456;
     }
-  const v3852 = stdlib.div(v3815, v3846);
-  const v3853 = stdlib.mul(v3852, v3564);
-  const v3854 = stdlib.div(v3853, stdlib.checkedBigNumberify('./index.rsh:172:31:decimal', stdlib.UInt_max, '100'));
-  const v3855 = stdlib.mul(v3854, v3552);
-  const v3856 = stdlib.div(v3855, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-  const v3857 = stdlib.add(v3845, v3856);
-  const v3858 = stdlib.eq(v3834, v3857);
-  const v3859 = v3825 ? v3858 : false;
-  stdlib.assert(v3859, {
-    at: './index.rsh:382:29:application',
-    fs: ['at ./index.rsh:382:20:application call to [unknown function] (defined at: ./index.rsh:382:20:function exp)', 'at ./index.rsh:382:20:application call to [unknown function] (defined at: ./index.rsh:382:20:function exp)', 'at ./index.rsh:118:17:application call to "runClaimant_burnStable0_192" (defined at: ./index.rsh:381:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+  const v3457 = stdlib.div(v3431, v3451);
+  const v3458 = stdlib.mul(v3457, v3200);
+  const v3459 = stdlib.div(v3458, stdlib.checkedBigNumberify('./index.rsh:159:31:decimal', stdlib.UInt_max, '100'));
+  const v3460 = stdlib.mul(v3459, v3194);
+  const v3461 = stdlib.div(v3460, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+  let v3462;
+  if (v3435) {
+    v3462 = v3198;
+    }
+  else {
+    const v3464 = stdlib.div(v3196, v3197);
+    const v3465 = stdlib.gt(v3464, v3198);
+    const v3467 = v3465 ? v3198 : v3464;
+    v3462 = v3467;
+    }
+  const v3468 = stdlib.div(v3431, v3462);
+  const v3469 = stdlib.mul(v3468, v3200);
+  const v3470 = stdlib.div(v3469, stdlib.checkedBigNumberify('./index.rsh:159:31:decimal', stdlib.UInt_max, '100'));
+  const v3471 = stdlib.mul(v3470, v3189);
+  const v3472 = stdlib.div(v3471, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+  const v3473 = stdlib.add(v3461, v3472);
+  const v3474 = stdlib.eq(v3450, v3473);
+  const v3475 = v3441 ? v3474 : false;
+  stdlib.assert(v3475, {
+    at: './index.rsh:328:29:application',
+    fs: ['at ./index.rsh:328:20:application call to [unknown function] (defined at: ./index.rsh:328:20:function exp)', 'at ./index.rsh:328:20:application call to [unknown function] (defined at: ./index.rsh:328:20:function exp)', 'at ./index.rsh:109:17:application call to "runClaimant_burnStable0_192" (defined at: ./index.rsh:327:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: null,
     who: 'Claimant_burnStable'
     });
-  const v3863 = ['Claimant_burnStable0_192', v3814];
+  const v3479 = ['Claimant_burnStable0_192', v3430];
   
   const txn1 = await (ctc.sendrecv({
-    args: [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572, v3863],
+    args: [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208, v3479],
     evt_cnt: 1,
     funcNum: 3,
     lct: stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '0'),
     onlyIf: true,
     out_tys: [ctc9],
-    pay: [stdlib.checkedBigNumberify('./index.rsh:384:24:decimal', stdlib.UInt_max, '0'), [[v3815, v3511], [stdlib.checkedBigNumberify('./index.rsh:384:62:decimal', stdlib.UInt_max, '0'), v3476]]],
+    pay: [stdlib.checkedBigNumberify('./index.rsh:330:24:decimal', stdlib.UInt_max, '0'), [[v3431, v3146], [stdlib.checkedBigNumberify('./index.rsh:330:62:decimal', stdlib.UInt_max, '0'), v3110]]],
     sim_p: (async (txn1) => {
       const sim_r = { txns: [], mapRefs: [], maps: [] };
       let sim_txn_ctr = stdlib.UInt_max;
       const getSimTokCtr = () => { sim_txn_ctr = sim_txn_ctr.sub(1); return sim_txn_ctr; };
       
       
-      const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
+      const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
       
-      switch (v4301[0]) {
+      switch (v3893[0]) {
         case 'AdminAPI_claimAdminFee0_192': {
-          const v4304 = v4301[1];
-          
-          break;
-          }
-        case 'AdminAPI_closeBank0_192': {
-          const v5052 = v4301[1];
+          const v3896 = v3893[1];
           
           break;
           }
         case 'AdminAPI_setAdminFee0_192': {
-          const v5800 = v4301[1];
+          const v4606 = v3893[1];
           
           break;
           }
         case 'AdminAPI_updatePrice0_192': {
-          const v6548 = v4301[1];
+          const v5316 = v3893[1];
           
           break;
           }
         case 'Claimant_burnReserve0_192': {
-          const v7296 = v4301[1];
+          const v6026 = v3893[1];
           
           break;
           }
         case 'Claimant_burnStable0_192': {
-          const v8044 = v4301[1];
+          const v6736 = v3893[1];
           sim_r.txns.push({
             kind: 'api',
             who: "Claimant_burnStable"
             });
-          const v8103 = v8044[stdlib.checkedBigNumberify('./index.rsh:381:9:spread', stdlib.UInt_max, '0')];
+          const v6785 = v6736[stdlib.checkedBigNumberify('./index.rsh:327:9:spread', stdlib.UInt_max, '0')];
           ;
-          const v8178 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v8179 = v8178[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v8180 = stdlib.add(v8179, v8103);
-          const v8183 = v8178[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v8184 = v8178[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v8185 = [v8180, v8183, v8184];
-          const v8186 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v8185);
+          const v6860 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v6861 = v6860[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v6862 = stdlib.add(v6861, v6785);
+          const v6865 = v6860[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v6866 = v6860[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v6867 = [v6862, v6865, v6866];
+          const v6868 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v6867);
           sim_r.txns.push({
-            amt: v8103,
+            amt: v6785,
             kind: 'to',
-            tok: v3511
+            tok: v3146
             });
-          const v8187 = v8186[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v8188 = v8187[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v8192 = v8187[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v8193 = v8187[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v8194 = [v8188, v8192, v8193];
-          const v8195 = stdlib.Array_set(v8186, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v8194);
+          const v6869 = v6868[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v6870 = v6869[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v6874 = v6869[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v6875 = v6869[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v6876 = [v6870, v6874, v6875];
+          const v6877 = stdlib.Array_set(v6868, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v6876);
           ;
-          let v8392;
-          const v8393 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-          if (v8393) {
-            v8392 = v3562;
+          let v7046;
+          const v7047 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+          if (v7047) {
+            v7046 = v3198;
             }
           else {
-            const v8394 = stdlib.div(v3560, v3561);
-            const v8395 = stdlib.gt(v8394, v3562);
-            const v8397 = v8395 ? v3562 : v8394;
-            v8392 = v8397;
+            const v7048 = stdlib.div(v3196, v3197);
+            const v7049 = stdlib.gt(v7048, v3198);
+            const v7051 = v7049 ? v3198 : v7048;
+            v7046 = v7051;
             }
-          const v8398 = stdlib.div(v8103, v8392);
-          const v8401 = stdlib.mul(v8398, v3564);
-          const v8402 = stdlib.div(v8401, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-          const v8423 = stdlib.sub(v8398, v8402);
-          const v8427 = stdlib.sub(v3572, v8423);
+          const v7052 = stdlib.div(v6785, v7046);
+          const v7055 = stdlib.mul(v7052, v3200);
+          const v7056 = stdlib.div(v7055, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+          const v7077 = stdlib.sub(v7052, v7056);
+          const v7081 = stdlib.sub(v3208, v7077);
           sim_r.txns.push({
             kind: 'from',
-            to: v4300,
+            to: v3892,
             tok: undefined /* Nothing */
             });
-          const v8428 = true;
-          const v8429 = await txn1.getOutput('Claimant_burnStable', 'v8428', ctc3, v8428);
+          const v7082 = true;
+          const v7083 = await txn1.getOutput('Claimant_burnStable', 'v7082', ctc3, v7082);
           
-          const v8435 = stdlib.sub(v3561, v8103);
-          let v8436;
-          if (v8393) {
-            v8436 = v3562;
+          const v7089 = stdlib.sub(v3197, v6785);
+          let v7090;
+          if (v7047) {
+            v7090 = v3198;
             }
           else {
-            const v8438 = stdlib.div(v3560, v3561);
-            const v8439 = stdlib.gt(v8438, v3562);
-            const v8441 = v8439 ? v3562 : v8438;
-            v8436 = v8441;
+            const v7092 = stdlib.div(v3196, v3197);
+            const v7093 = stdlib.gt(v7092, v3198);
+            const v7095 = v7093 ? v3198 : v7092;
+            v7090 = v7095;
             }
-          const v8442 = stdlib.div(v8103, v8436);
-          const v8443 = stdlib.sub(v3560, v8442);
-          let v8444;
-          if (v8393) {
-            v8444 = v3562;
-            }
-          else {
-            const v8446 = stdlib.div(v3560, v3561);
-            const v8447 = stdlib.gt(v8446, v3562);
-            const v8449 = v8447 ? v3562 : v8446;
-            v8444 = v8449;
-            }
-          const v8450 = stdlib.div(v8103, v8444);
-          const v8451 = stdlib.mul(v8450, v3564);
-          const v8452 = stdlib.div(v8451, stdlib.checkedBigNumberify('./index.rsh:172:31:decimal', stdlib.UInt_max, '100'));
-          const v8453 = stdlib.mul(v8452, v3558);
-          const v8454 = stdlib.div(v8453, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-          const v8455 = stdlib.add(v8443, v8454);
-          let v8456;
-          if (v8393) {
-            v8456 = v3562;
+          const v7096 = stdlib.div(v6785, v7090);
+          const v7097 = stdlib.sub(v3196, v7096);
+          let v7098;
+          if (v7047) {
+            v7098 = v3198;
             }
           else {
-            const v8458 = stdlib.div(v3560, v3561);
-            const v8459 = stdlib.gt(v8458, v3562);
-            const v8461 = v8459 ? v3562 : v8458;
-            v8456 = v8461;
+            const v7100 = stdlib.div(v3196, v3197);
+            const v7101 = stdlib.gt(v7100, v3198);
+            const v7103 = v7101 ? v3198 : v7100;
+            v7098 = v7103;
             }
-          const v8462 = stdlib.div(v8103, v8456);
-          const v8463 = stdlib.mul(v8462, v3564);
-          const v8464 = stdlib.div(v8463, stdlib.checkedBigNumberify('./index.rsh:172:31:decimal', stdlib.UInt_max, '100'));
-          const v8465 = stdlib.mul(v8464, v3552);
-          const v8466 = stdlib.div(v8465, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-          const v8467 = stdlib.add(v3551, v8466);
-          const v25614 = v8467;
-          const v25615 = v3552;
-          const v25616 = v3554;
-          const v25617 = v3555;
-          const v25618 = v3563;
-          const v25619 = v3557;
-          const v25620 = v3558;
-          const v25621 = v3559;
-          const v25622 = v8455;
-          const v25623 = v8435;
-          const v25624 = v3562;
-          const v25625 = v3556;
-          const v25626 = v3564;
-          const v25628 = v8195;
-          const v25629 = v8427;
+          const v7104 = stdlib.div(v6785, v7098);
+          const v7105 = stdlib.mul(v7104, v3200);
+          const v7106 = stdlib.div(v7105, stdlib.checkedBigNumberify('./index.rsh:159:31:decimal', stdlib.UInt_max, '100'));
+          const v7107 = stdlib.mul(v7106, v3194);
+          const v7108 = stdlib.div(v7107, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+          const v7109 = stdlib.add(v7097, v7108);
+          let v7110;
+          if (v7047) {
+            v7110 = v3198;
+            }
+          else {
+            const v7112 = stdlib.div(v3196, v3197);
+            const v7113 = stdlib.gt(v7112, v3198);
+            const v7115 = v7113 ? v3198 : v7112;
+            v7110 = v7115;
+            }
+          const v7116 = stdlib.div(v6785, v7110);
+          const v7117 = stdlib.mul(v7116, v3200);
+          const v7118 = stdlib.div(v7117, stdlib.checkedBigNumberify('./index.rsh:159:31:decimal', stdlib.UInt_max, '100'));
+          const v7119 = stdlib.mul(v7118, v3189);
+          const v7120 = stdlib.div(v7119, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+          const v7121 = stdlib.add(v3188, v7120);
+          const v20692 = v7121;
+          const v20693 = v3189;
+          const v20694 = v3190;
+          const v20695 = v3191;
+          const v20696 = v3199;
+          const v20697 = v3193;
+          const v20698 = v3194;
+          const v20699 = v3195;
+          const v20700 = v7109;
+          const v20701 = v7089;
+          const v20702 = v3198;
+          const v20703 = v3192;
+          const v20704 = v3200;
+          const v20706 = v6877;
+          const v20707 = v7081;
           sim_r.isHalt = false;
           
           break;
           }
         case 'Claimant_mintFirstStable0_192': {
-          const v8792 = v4301[1];
+          const v7446 = v3893[1];
           
           break;
           }
         case 'Claimant_mintReserve0_192': {
-          const v9540 = v4301[1];
+          const v8156 = v3893[1];
           
           break;
           }
         case 'Claimant_mintStable0_192': {
-          const v10288 = v4301[1];
+          const v8866 = v3893[1];
           
           break;
           }
@@ -3716,106 +3312,101 @@ export async function _Claimant_burnStable4(ctcTop, interact) {
       }),
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1, ctc9],
+    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2, ctc9],
     waitIfNotPresent: false
     }));
-  const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
-  switch (v4301[0]) {
+  const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
+  switch (v3893[0]) {
     case 'AdminAPI_claimAdminFee0_192': {
-      const v4304 = v4301[1];
-      return;
-      break;
-      }
-    case 'AdminAPI_closeBank0_192': {
-      const v5052 = v4301[1];
+      const v3896 = v3893[1];
       return;
       break;
       }
     case 'AdminAPI_setAdminFee0_192': {
-      const v5800 = v4301[1];
+      const v4606 = v3893[1];
       return;
       break;
       }
     case 'AdminAPI_updatePrice0_192': {
-      const v6548 = v4301[1];
+      const v5316 = v3893[1];
       return;
       break;
       }
     case 'Claimant_burnReserve0_192': {
-      const v7296 = v4301[1];
+      const v6026 = v3893[1];
       return;
       break;
       }
     case 'Claimant_burnStable0_192': {
-      const v8044 = v4301[1];
+      const v6736 = v3893[1];
       undefined /* setApiDetails */;
-      const v8103 = v8044[stdlib.checkedBigNumberify('./index.rsh:381:9:spread', stdlib.UInt_max, '0')];
+      const v6785 = v6736[stdlib.checkedBigNumberify('./index.rsh:327:9:spread', stdlib.UInt_max, '0')];
       ;
-      const v8178 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v8179 = v8178[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v8180 = stdlib.add(v8179, v8103);
-      const v8183 = v8178[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v8184 = v8178[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v8185 = [v8180, v8183, v8184];
-      const v8186 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v8185);
+      const v6860 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v6861 = v6860[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v6862 = stdlib.add(v6861, v6785);
+      const v6865 = v6860[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v6866 = v6860[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v6867 = [v6862, v6865, v6866];
+      const v6868 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v6867);
       ;
-      const v8187 = v8186[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v8188 = v8187[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v8192 = v8187[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v8193 = v8187[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v8194 = [v8188, v8192, v8193];
-      const v8195 = stdlib.Array_set(v8186, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v8194);
+      const v6869 = v6868[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v6870 = v6869[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v6874 = v6869[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v6875 = v6869[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v6876 = [v6870, v6874, v6875];
+      const v6877 = stdlib.Array_set(v6868, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v6876);
       ;
-      let v8392;
-      const v8393 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-      if (v8393) {
-        v8392 = v3562;
+      let v7046;
+      const v7047 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+      if (v7047) {
+        v7046 = v3198;
         }
       else {
-        const v8394 = stdlib.div(v3560, v3561);
-        const v8395 = stdlib.gt(v8394, v3562);
-        const v8397 = v8395 ? v3562 : v8394;
-        v8392 = v8397;
+        const v7048 = stdlib.div(v3196, v3197);
+        const v7049 = stdlib.gt(v7048, v3198);
+        const v7051 = v7049 ? v3198 : v7048;
+        v7046 = v7051;
         }
-      const v8398 = stdlib.div(v8103, v8392);
-      const v8400 = stdlib.ge(v3572, v8398);
-      const v8401 = stdlib.mul(v8398, v3564);
-      const v8402 = stdlib.div(v8401, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-      const v8405 = stdlib.mul(v8402, v3558);
-      const v8406 = stdlib.div(v8405, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-      let v8407;
-      if (v8393) {
-        v8407 = v3562;
+      const v7052 = stdlib.div(v6785, v7046);
+      const v7054 = stdlib.ge(v3208, v7052);
+      const v7055 = stdlib.mul(v7052, v3200);
+      const v7056 = stdlib.div(v7055, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+      const v7059 = stdlib.mul(v7056, v3194);
+      const v7060 = stdlib.div(v7059, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+      let v7061;
+      if (v7047) {
+        v7061 = v3198;
         }
       else {
-        const v8409 = stdlib.div(v3560, v3561);
-        const v8410 = stdlib.gt(v8409, v3562);
-        const v8412 = v8410 ? v3562 : v8409;
-        v8407 = v8412;
+        const v7063 = stdlib.div(v3196, v3197);
+        const v7064 = stdlib.gt(v7063, v3198);
+        const v7066 = v7064 ? v3198 : v7063;
+        v7061 = v7066;
         }
-      const v8413 = stdlib.div(v8103, v8407);
-      const v8414 = stdlib.mul(v8413, v3564);
-      const v8415 = stdlib.div(v8414, stdlib.checkedBigNumberify('./index.rsh:172:31:decimal', stdlib.UInt_max, '100'));
-      const v8416 = stdlib.mul(v8415, v3552);
-      const v8417 = stdlib.div(v8416, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-      const v8418 = stdlib.add(v8406, v8417);
-      const v8419 = stdlib.eq(v8402, v8418);
-      const v8420 = v8400 ? v8419 : false;
-      stdlib.assert(v8420, {
-        at: './index.rsh:387:14:application',
-        fs: ['at ./index.rsh:385:23:application call to [unknown function] (defined at: ./index.rsh:385:23:function exp)'],
+      const v7067 = stdlib.div(v6785, v7061);
+      const v7068 = stdlib.mul(v7067, v3200);
+      const v7069 = stdlib.div(v7068, stdlib.checkedBigNumberify('./index.rsh:159:31:decimal', stdlib.UInt_max, '100'));
+      const v7070 = stdlib.mul(v7069, v3189);
+      const v7071 = stdlib.div(v7070, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+      const v7072 = stdlib.add(v7060, v7071);
+      const v7073 = stdlib.eq(v7056, v7072);
+      const v7074 = v7054 ? v7073 : false;
+      stdlib.assert(v7074, {
+        at: './index.rsh:333:14:application',
+        fs: ['at ./index.rsh:331:23:application call to [unknown function] (defined at: ./index.rsh:331:23:function exp)'],
         msg: null,
         who: 'Claimant_burnStable'
         });
-      const v8423 = stdlib.sub(v8398, v8402);
-      const v8427 = stdlib.sub(v3572, v8423);
+      const v7077 = stdlib.sub(v7052, v7056);
+      const v7081 = stdlib.sub(v3208, v7077);
       ;
-      const v8428 = true;
-      const v8429 = await txn1.getOutput('Claimant_burnStable', 'v8428', ctc3, v8428);
-      if (v2094) {
-        stdlib.protect(ctc10, await interact.out(v8044, v8429), {
-          at: './index.rsh:381:10:application',
-          fs: ['at ./index.rsh:381:10:application call to [unknown function] (defined at: ./index.rsh:381:10:function exp)', 'at ./index.rsh:390:8:application call to "k" (defined at: ./index.rsh:385:23:function exp)', 'at ./index.rsh:385:23:application call to [unknown function] (defined at: ./index.rsh:385:23:function exp)'],
+      const v7082 = true;
+      const v7083 = await txn1.getOutput('Claimant_burnStable', 'v7082', ctc3, v7082);
+      if (v1894) {
+        stdlib.protect(ctc10, await interact.out(v6736, v7083), {
+          at: './index.rsh:327:10:application',
+          fs: ['at ./index.rsh:327:10:application call to [unknown function] (defined at: ./index.rsh:327:10:function exp)', 'at ./index.rsh:336:8:application call to "k" (defined at: ./index.rsh:331:23:function exp)', 'at ./index.rsh:331:23:application call to [unknown function] (defined at: ./index.rsh:331:23:function exp)'],
           msg: 'out',
           who: 'Claimant_burnStable'
           });
@@ -3823,82 +3414,82 @@ export async function _Claimant_burnStable4(ctcTop, interact) {
       else {
         }
       
-      const v8435 = stdlib.sub(v3561, v8103);
-      let v8436;
-      if (v8393) {
-        v8436 = v3562;
+      const v7089 = stdlib.sub(v3197, v6785);
+      let v7090;
+      if (v7047) {
+        v7090 = v3198;
         }
       else {
-        const v8438 = stdlib.div(v3560, v3561);
-        const v8439 = stdlib.gt(v8438, v3562);
-        const v8441 = v8439 ? v3562 : v8438;
-        v8436 = v8441;
+        const v7092 = stdlib.div(v3196, v3197);
+        const v7093 = stdlib.gt(v7092, v3198);
+        const v7095 = v7093 ? v3198 : v7092;
+        v7090 = v7095;
         }
-      const v8442 = stdlib.div(v8103, v8436);
-      const v8443 = stdlib.sub(v3560, v8442);
-      let v8444;
-      if (v8393) {
-        v8444 = v3562;
-        }
-      else {
-        const v8446 = stdlib.div(v3560, v3561);
-        const v8447 = stdlib.gt(v8446, v3562);
-        const v8449 = v8447 ? v3562 : v8446;
-        v8444 = v8449;
-        }
-      const v8450 = stdlib.div(v8103, v8444);
-      const v8451 = stdlib.mul(v8450, v3564);
-      const v8452 = stdlib.div(v8451, stdlib.checkedBigNumberify('./index.rsh:172:31:decimal', stdlib.UInt_max, '100'));
-      const v8453 = stdlib.mul(v8452, v3558);
-      const v8454 = stdlib.div(v8453, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-      const v8455 = stdlib.add(v8443, v8454);
-      let v8456;
-      if (v8393) {
-        v8456 = v3562;
+      const v7096 = stdlib.div(v6785, v7090);
+      const v7097 = stdlib.sub(v3196, v7096);
+      let v7098;
+      if (v7047) {
+        v7098 = v3198;
         }
       else {
-        const v8458 = stdlib.div(v3560, v3561);
-        const v8459 = stdlib.gt(v8458, v3562);
-        const v8461 = v8459 ? v3562 : v8458;
-        v8456 = v8461;
+        const v7100 = stdlib.div(v3196, v3197);
+        const v7101 = stdlib.gt(v7100, v3198);
+        const v7103 = v7101 ? v3198 : v7100;
+        v7098 = v7103;
         }
-      const v8462 = stdlib.div(v8103, v8456);
-      const v8463 = stdlib.mul(v8462, v3564);
-      const v8464 = stdlib.div(v8463, stdlib.checkedBigNumberify('./index.rsh:172:31:decimal', stdlib.UInt_max, '100'));
-      const v8465 = stdlib.mul(v8464, v3552);
-      const v8466 = stdlib.div(v8465, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-      const v8467 = stdlib.add(v3551, v8466);
-      const v25614 = v8467;
-      const v25615 = v3552;
-      const v25616 = v3554;
-      const v25617 = v3555;
-      const v25618 = v3563;
-      const v25619 = v3557;
-      const v25620 = v3558;
-      const v25621 = v3559;
-      const v25622 = v8455;
-      const v25623 = v8435;
-      const v25624 = v3562;
-      const v25625 = v3556;
-      const v25626 = v3564;
-      const v25628 = v8195;
-      const v25629 = v8427;
+      const v7104 = stdlib.div(v6785, v7098);
+      const v7105 = stdlib.mul(v7104, v3200);
+      const v7106 = stdlib.div(v7105, stdlib.checkedBigNumberify('./index.rsh:159:31:decimal', stdlib.UInt_max, '100'));
+      const v7107 = stdlib.mul(v7106, v3194);
+      const v7108 = stdlib.div(v7107, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+      const v7109 = stdlib.add(v7097, v7108);
+      let v7110;
+      if (v7047) {
+        v7110 = v3198;
+        }
+      else {
+        const v7112 = stdlib.div(v3196, v3197);
+        const v7113 = stdlib.gt(v7112, v3198);
+        const v7115 = v7113 ? v3198 : v7112;
+        v7110 = v7115;
+        }
+      const v7116 = stdlib.div(v6785, v7110);
+      const v7117 = stdlib.mul(v7116, v3200);
+      const v7118 = stdlib.div(v7117, stdlib.checkedBigNumberify('./index.rsh:159:31:decimal', stdlib.UInt_max, '100'));
+      const v7119 = stdlib.mul(v7118, v3189);
+      const v7120 = stdlib.div(v7119, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+      const v7121 = stdlib.add(v3188, v7120);
+      const v20692 = v7121;
+      const v20693 = v3189;
+      const v20694 = v3190;
+      const v20695 = v3191;
+      const v20696 = v3199;
+      const v20697 = v3193;
+      const v20698 = v3194;
+      const v20699 = v3195;
+      const v20700 = v7109;
+      const v20701 = v7089;
+      const v20702 = v3198;
+      const v20703 = v3192;
+      const v20704 = v3200;
+      const v20706 = v6877;
+      const v20707 = v7081;
       return;
       
       break;
       }
     case 'Claimant_mintFirstStable0_192': {
-      const v8792 = v4301[1];
+      const v7446 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintReserve0_192': {
-      const v9540 = v4301[1];
+      const v8156 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintStable0_192': {
-      const v10288 = v4301[1];
+      const v8866 = v3893[1];
       return;
       break;
       }
@@ -3914,17 +3505,16 @@ export async function _Claimant_mintFirstStable4(ctcTop, interact) {
   const ctc = ctcTop._initialize();
   const stdlib = ctc.stdlib;
   const ctc0 = stdlib.T_Address;
-  const ctc1 = stdlib.T_UInt;
-  const ctc2 = stdlib.T_Token;
+  const ctc1 = stdlib.T_Token;
+  const ctc2 = stdlib.T_UInt;
   const ctc3 = stdlib.T_Bool;
-  const ctc4 = stdlib.T_Tuple([ctc1, ctc1, ctc3]);
+  const ctc4 = stdlib.T_Tuple([ctc2, ctc2, ctc3]);
   const ctc5 = stdlib.T_Array(ctc4, stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '2'));
-  const ctc6 = stdlib.T_Tuple([ctc1]);
+  const ctc6 = stdlib.T_Tuple([ctc2]);
   const ctc7 = stdlib.T_Tuple([]);
-  const ctc8 = stdlib.T_Tuple([ctc1, ctc1]);
+  const ctc8 = stdlib.T_Tuple([ctc2, ctc2]);
   const ctc9 = stdlib.T_Data({
     AdminAPI_claimAdminFee0_192: ctc7,
-    AdminAPI_closeBank0_192: ctc7,
     AdminAPI_setAdminFee0_192: ctc8,
     AdminAPI_updatePrice0_192: ctc6,
     Claimant_burnReserve0_192: ctc6,
@@ -3936,166 +3526,161 @@ export async function _Claimant_mintFirstStable4(ctcTop, interact) {
   const ctc10 = stdlib.T_Null;
   
   
-  const [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1]);
-  const v3631 = stdlib.protect(ctc6, await interact.in(), {
+  const [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2]);
+  const v3267 = stdlib.protect(ctc6, await interact.in(), {
     at: './index.rsh:1:23:application',
-    fs: ['at ./index.rsh:270:20:application call to [unknown function] (defined at: ./index.rsh:270:20:function exp)', 'at ./index.rsh:118:17:application call to "runClaimant_mintFirstStable0_192" (defined at: ./index.rsh:269:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+    fs: ['at ./index.rsh:250:20:application call to [unknown function] (defined at: ./index.rsh:250:20:function exp)', 'at ./index.rsh:109:17:application call to "runClaimant_mintFirstStable0_192" (defined at: ./index.rsh:249:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: 'in',
     who: 'Claimant_mintFirstStable'
     });
-  const v3632 = v3631[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '0')];
-  const v3634 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:270:51:decimal', stdlib.UInt_max, '0'));
-  const v3635 = stdlib.div(v3632, v3562);
-  const v3636 = v3571[stdlib.checkedBigNumberify('./index.rsh:271:47:application', stdlib.UInt_max, '1')];
-  const v3637 = v3636[stdlib.checkedBigNumberify('./index.rsh:271:47:application', stdlib.UInt_max, '0')];
-  const v3638 = stdlib.le(v3635, v3637);
-  const v3639 = v3634 ? v3638 : false;
-  const v3640 = stdlib.mul(v3632, v3564);
-  const v3641 = stdlib.div(v3640, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-  const v3644 = stdlib.mul(v3641, v3558);
-  const v3645 = stdlib.div(v3644, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-  const v3648 = stdlib.mul(v3641, v3552);
-  const v3649 = stdlib.div(v3648, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-  const v3650 = stdlib.add(v3645, v3649);
-  const v3651 = stdlib.eq(v3641, v3650);
-  const v3652 = v3639 ? v3651 : false;
-  stdlib.assert(v3652, {
-    at: './index.rsh:270:29:application',
-    fs: ['at ./index.rsh:270:20:application call to [unknown function] (defined at: ./index.rsh:270:20:function exp)', 'at ./index.rsh:270:20:application call to [unknown function] (defined at: ./index.rsh:270:20:function exp)', 'at ./index.rsh:118:17:application call to "runClaimant_mintFirstStable0_192" (defined at: ./index.rsh:269:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+  const v3268 = v3267[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '0')];
+  const v3270 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:250:51:decimal', stdlib.UInt_max, '0'));
+  const v3271 = stdlib.div(v3268, v3198);
+  const v3272 = v3207[stdlib.checkedBigNumberify('./index.rsh:251:47:application', stdlib.UInt_max, '1')];
+  const v3273 = v3272[stdlib.checkedBigNumberify('./index.rsh:251:47:application', stdlib.UInt_max, '0')];
+  const v3274 = stdlib.le(v3271, v3273);
+  const v3275 = v3270 ? v3274 : false;
+  const v3276 = stdlib.mul(v3268, v3200);
+  const v3277 = stdlib.div(v3276, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+  const v3280 = stdlib.mul(v3277, v3194);
+  const v3281 = stdlib.div(v3280, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+  const v3284 = stdlib.mul(v3277, v3189);
+  const v3285 = stdlib.div(v3284, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+  const v3286 = stdlib.add(v3281, v3285);
+  const v3287 = stdlib.eq(v3277, v3286);
+  const v3288 = v3275 ? v3287 : false;
+  stdlib.assert(v3288, {
+    at: './index.rsh:250:29:application',
+    fs: ['at ./index.rsh:250:20:application call to [unknown function] (defined at: ./index.rsh:250:20:function exp)', 'at ./index.rsh:250:20:application call to [unknown function] (defined at: ./index.rsh:250:20:function exp)', 'at ./index.rsh:109:17:application call to "runClaimant_mintFirstStable0_192" (defined at: ./index.rsh:249:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: null,
     who: 'Claimant_mintFirstStable'
     });
-  const v3656 = ['Claimant_mintFirstStable0_192', v3631];
+  const v3292 = ['Claimant_mintFirstStable0_192', v3267];
   
-  const v4220 = stdlib.add(v3632, v3641);
+  const v3812 = stdlib.add(v3268, v3277);
   
   const txn1 = await (ctc.sendrecv({
-    args: [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572, v3656],
+    args: [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208, v3292],
     evt_cnt: 1,
     funcNum: 3,
     lct: stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '0'),
     onlyIf: true,
     out_tys: [ctc9],
-    pay: [v4220, [[stdlib.checkedBigNumberify('./index.rsh:273:66:decimal', stdlib.UInt_max, '0'), v3511], [stdlib.checkedBigNumberify('./index.rsh:273:89:decimal', stdlib.UInt_max, '0'), v3476]]],
+    pay: [v3812, [[stdlib.checkedBigNumberify('./index.rsh:253:66:decimal', stdlib.UInt_max, '0'), v3146], [stdlib.checkedBigNumberify('./index.rsh:253:89:decimal', stdlib.UInt_max, '0'), v3110]]],
     sim_p: (async (txn1) => {
       const sim_r = { txns: [], mapRefs: [], maps: [] };
       let sim_txn_ctr = stdlib.UInt_max;
       const getSimTokCtr = () => { sim_txn_ctr = sim_txn_ctr.sub(1); return sim_txn_ctr; };
       
       
-      const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
+      const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
       
-      switch (v4301[0]) {
+      switch (v3893[0]) {
         case 'AdminAPI_claimAdminFee0_192': {
-          const v4304 = v4301[1];
-          
-          break;
-          }
-        case 'AdminAPI_closeBank0_192': {
-          const v5052 = v4301[1];
+          const v3896 = v3893[1];
           
           break;
           }
         case 'AdminAPI_setAdminFee0_192': {
-          const v5800 = v4301[1];
+          const v4606 = v3893[1];
           
           break;
           }
         case 'AdminAPI_updatePrice0_192': {
-          const v6548 = v4301[1];
+          const v5316 = v3893[1];
           
           break;
           }
         case 'Claimant_burnReserve0_192': {
-          const v7296 = v4301[1];
+          const v6026 = v3893[1];
           
           break;
           }
         case 'Claimant_burnStable0_192': {
-          const v8044 = v4301[1];
+          const v6736 = v3893[1];
           
           break;
           }
         case 'Claimant_mintFirstStable0_192': {
-          const v8792 = v4301[1];
+          const v7446 = v3893[1];
           sim_r.txns.push({
             kind: 'api',
             who: "Claimant_mintFirstStable"
             });
-          const v8862 = v8792[stdlib.checkedBigNumberify('./index.rsh:269:9:spread', stdlib.UInt_max, '0')];
-          const v8863 = stdlib.mul(v8862, v3564);
-          const v8864 = stdlib.div(v8863, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-          const v8865 = stdlib.add(v8862, v8864);
-          const v8925 = stdlib.add(v3572, v8865);
+          const v7506 = v7446[stdlib.checkedBigNumberify('./index.rsh:249:9:spread', stdlib.UInt_max, '0')];
+          const v7507 = stdlib.mul(v7506, v3200);
+          const v7508 = stdlib.div(v7507, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+          const v7509 = stdlib.add(v7506, v7508);
+          const v7569 = stdlib.add(v3208, v7509);
           sim_r.txns.push({
-            amt: v8865,
+            amt: v7509,
             kind: 'to',
             tok: undefined /* Nothing */
             });
-          const v8926 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v8927 = v8926[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v8931 = v8926[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v8932 = v8926[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v8933 = [v8927, v8931, v8932];
-          const v8934 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v8933);
+          const v7570 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v7571 = v7570[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v7575 = v7570[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v7576 = v7570[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v7577 = [v7571, v7575, v7576];
+          const v7578 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v7577);
           ;
-          const v8935 = v8934[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v8936 = v8935[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v8940 = v8935[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v8941 = v8935[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v8942 = [v8936, v8940, v8941];
-          const v8943 = stdlib.Array_set(v8934, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v8942);
+          const v7579 = v7578[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v7580 = v7579[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v7584 = v7579[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v7585 = v7579[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v7586 = [v7580, v7584, v7585];
+          const v7587 = stdlib.Array_set(v7578, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v7586);
           ;
-          const v9227 = v8943[stdlib.checkedBigNumberify('./index.rsh:276:91:application', stdlib.UInt_max, '1')];
-          const v9228 = v9227[stdlib.checkedBigNumberify('./index.rsh:276:91:application', stdlib.UInt_max, '0')];
-          const v9235 = stdlib.mul(v8864, v3558);
-          const v9236 = stdlib.div(v9235, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-          const v9239 = stdlib.mul(v8864, v3552);
-          const v9240 = stdlib.div(v9239, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-          const v9244 = stdlib.div(v8862, v3562);
-          const v9250 = stdlib.sub(v9228, v9244);
-          const v9253 = v9227[stdlib.checkedBigNumberify('./index.rsh:278:72:application', stdlib.UInt_max, '1')];
-          const v9254 = v9227[stdlib.checkedBigNumberify('./index.rsh:278:72:application', stdlib.UInt_max, '2')];
-          const v9255 = [v9250, v9253, v9254];
-          const v9256 = stdlib.Array_set(v8943, stdlib.checkedBigNumberify('./index.rsh:278:72:application', stdlib.UInt_max, '1'), v9255);
+          const v7843 = v7587[stdlib.checkedBigNumberify('./index.rsh:256:91:application', stdlib.UInt_max, '1')];
+          const v7844 = v7843[stdlib.checkedBigNumberify('./index.rsh:256:91:application', stdlib.UInt_max, '0')];
+          const v7851 = stdlib.mul(v7508, v3194);
+          const v7852 = stdlib.div(v7851, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+          const v7855 = stdlib.mul(v7508, v3189);
+          const v7856 = stdlib.div(v7855, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+          const v7860 = stdlib.div(v7506, v3198);
+          const v7866 = stdlib.sub(v7844, v7860);
+          const v7869 = v7843[stdlib.checkedBigNumberify('./index.rsh:258:72:application', stdlib.UInt_max, '1')];
+          const v7870 = v7843[stdlib.checkedBigNumberify('./index.rsh:258:72:application', stdlib.UInt_max, '2')];
+          const v7871 = [v7866, v7869, v7870];
+          const v7872 = stdlib.Array_set(v7587, stdlib.checkedBigNumberify('./index.rsh:258:72:application', stdlib.UInt_max, '1'), v7871);
           sim_r.txns.push({
             kind: 'from',
-            to: v4300,
-            tok: v3511
+            to: v3892,
+            tok: v3146
             });
-          const v9257 = true;
-          const v9258 = await txn1.getOutput('Claimant_mintFirstStable', 'v9257', ctc3, v9257);
+          const v7873 = true;
+          const v7874 = await txn1.getOutput('Claimant_mintFirstStable', 'v7873', ctc3, v7873);
           
-          const v9265 = stdlib.add(v3561, v9244);
-          const v9266 = stdlib.add(v3560, v8862);
-          const v9271 = stdlib.add(v9266, v9236);
-          const v9276 = stdlib.add(v3551, v9240);
-          const v25774 = v9276;
-          const v25775 = v3552;
-          const v25776 = v3554;
-          const v25777 = v3555;
-          const v25778 = v3563;
-          const v25779 = v3557;
-          const v25780 = v3558;
-          const v25781 = v3559;
-          const v25782 = v9271;
-          const v25783 = v9265;
-          const v25784 = v3562;
-          const v25785 = v3556;
-          const v25786 = v3564;
-          const v25788 = v9256;
-          const v25789 = v8925;
+          const v7881 = stdlib.add(v3197, v7860);
+          const v7882 = stdlib.add(v3196, v7506);
+          const v7887 = stdlib.add(v7882, v7852);
+          const v7892 = stdlib.add(v3188, v7856);
+          const v20836 = v7892;
+          const v20837 = v3189;
+          const v20838 = v3190;
+          const v20839 = v3191;
+          const v20840 = v3199;
+          const v20841 = v3193;
+          const v20842 = v3194;
+          const v20843 = v3195;
+          const v20844 = v7887;
+          const v20845 = v7881;
+          const v20846 = v3198;
+          const v20847 = v3192;
+          const v20848 = v3200;
+          const v20850 = v7872;
+          const v20851 = v7569;
           sim_r.isHalt = false;
           
           break;
           }
         case 'Claimant_mintReserve0_192': {
-          const v9540 = v4301[1];
+          const v8156 = v3893[1];
           
           break;
           }
         case 'Claimant_mintStable0_192': {
-          const v10288 = v4301[1];
+          const v8866 = v3893[1];
           
           break;
           }
@@ -4104,106 +3689,101 @@ export async function _Claimant_mintFirstStable4(ctcTop, interact) {
       }),
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1, ctc9],
+    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2, ctc9],
     waitIfNotPresent: false
     }));
-  const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
-  switch (v4301[0]) {
+  const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
+  switch (v3893[0]) {
     case 'AdminAPI_claimAdminFee0_192': {
-      const v4304 = v4301[1];
-      return;
-      break;
-      }
-    case 'AdminAPI_closeBank0_192': {
-      const v5052 = v4301[1];
+      const v3896 = v3893[1];
       return;
       break;
       }
     case 'AdminAPI_setAdminFee0_192': {
-      const v5800 = v4301[1];
+      const v4606 = v3893[1];
       return;
       break;
       }
     case 'AdminAPI_updatePrice0_192': {
-      const v6548 = v4301[1];
+      const v5316 = v3893[1];
       return;
       break;
       }
     case 'Claimant_burnReserve0_192': {
-      const v7296 = v4301[1];
+      const v6026 = v3893[1];
       return;
       break;
       }
     case 'Claimant_burnStable0_192': {
-      const v8044 = v4301[1];
+      const v6736 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintFirstStable0_192': {
-      const v8792 = v4301[1];
+      const v7446 = v3893[1];
       undefined /* setApiDetails */;
-      const v8862 = v8792[stdlib.checkedBigNumberify('./index.rsh:269:9:spread', stdlib.UInt_max, '0')];
-      const v8863 = stdlib.mul(v8862, v3564);
-      const v8864 = stdlib.div(v8863, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-      const v8865 = stdlib.add(v8862, v8864);
-      const v8925 = stdlib.add(v3572, v8865);
+      const v7506 = v7446[stdlib.checkedBigNumberify('./index.rsh:249:9:spread', stdlib.UInt_max, '0')];
+      const v7507 = stdlib.mul(v7506, v3200);
+      const v7508 = stdlib.div(v7507, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+      const v7509 = stdlib.add(v7506, v7508);
+      const v7569 = stdlib.add(v3208, v7509);
       ;
-      const v8926 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v8927 = v8926[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v8931 = v8926[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v8932 = v8926[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v8933 = [v8927, v8931, v8932];
-      const v8934 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v8933);
+      const v7570 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v7571 = v7570[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v7575 = v7570[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v7576 = v7570[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v7577 = [v7571, v7575, v7576];
+      const v7578 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v7577);
       ;
-      const v8935 = v8934[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v8936 = v8935[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v8940 = v8935[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v8941 = v8935[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v8942 = [v8936, v8940, v8941];
-      const v8943 = stdlib.Array_set(v8934, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v8942);
+      const v7579 = v7578[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v7580 = v7579[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v7584 = v7579[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v7585 = v7579[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v7586 = [v7580, v7584, v7585];
+      const v7587 = stdlib.Array_set(v7578, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v7586);
       ;
-      const v9219 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:275:38:decimal', stdlib.UInt_max, '0'));
-      let v9220;
-      if (v9219) {
-        v9220 = v3562;
+      const v7835 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:255:38:decimal', stdlib.UInt_max, '0'));
+      let v7836;
+      if (v7835) {
+        v7836 = v3198;
         }
       else {
-        const v9222 = stdlib.div(v3560, v3561);
-        const v9223 = stdlib.gt(v9222, v3562);
-        const v9225 = v9223 ? v3562 : v9222;
-        v9220 = v9225;
+        const v7838 = stdlib.div(v3196, v3197);
+        const v7839 = stdlib.gt(v7838, v3198);
+        const v7841 = v7839 ? v3198 : v7838;
+        v7836 = v7841;
         }
-      const v9226 = stdlib.div(v8862, v9220);
-      const v9227 = v8943[stdlib.checkedBigNumberify('./index.rsh:276:91:application', stdlib.UInt_max, '1')];
-      const v9228 = v9227[stdlib.checkedBigNumberify('./index.rsh:276:91:application', stdlib.UInt_max, '0')];
-      const v9229 = stdlib.le(v9226, v9228);
-      const v9230 = v9219 ? v9229 : false;
-      const v9235 = stdlib.mul(v8864, v3558);
-      const v9236 = stdlib.div(v9235, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-      const v9239 = stdlib.mul(v8864, v3552);
-      const v9240 = stdlib.div(v9239, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-      const v9241 = stdlib.add(v9236, v9240);
-      const v9242 = stdlib.eq(v8864, v9241);
-      const v9243 = v9230 ? v9242 : false;
-      stdlib.assert(v9243, {
-        at: './index.rsh:275:16:application',
-        fs: ['at ./index.rsh:274:23:application call to [unknown function] (defined at: ./index.rsh:274:23:function exp)'],
+      const v7842 = stdlib.div(v7506, v7836);
+      const v7843 = v7587[stdlib.checkedBigNumberify('./index.rsh:256:91:application', stdlib.UInt_max, '1')];
+      const v7844 = v7843[stdlib.checkedBigNumberify('./index.rsh:256:91:application', stdlib.UInt_max, '0')];
+      const v7845 = stdlib.le(v7842, v7844);
+      const v7846 = v7835 ? v7845 : false;
+      const v7851 = stdlib.mul(v7508, v3194);
+      const v7852 = stdlib.div(v7851, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+      const v7855 = stdlib.mul(v7508, v3189);
+      const v7856 = stdlib.div(v7855, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+      const v7857 = stdlib.add(v7852, v7856);
+      const v7858 = stdlib.eq(v7508, v7857);
+      const v7859 = v7846 ? v7858 : false;
+      stdlib.assert(v7859, {
+        at: './index.rsh:255:16:application',
+        fs: ['at ./index.rsh:254:23:application call to [unknown function] (defined at: ./index.rsh:254:23:function exp)'],
         msg: null,
         who: 'Claimant_mintFirstStable'
         });
-      const v9244 = stdlib.div(v8862, v3562);
-      const v9250 = stdlib.sub(v9228, v9244);
-      const v9253 = v9227[stdlib.checkedBigNumberify('./index.rsh:278:72:application', stdlib.UInt_max, '1')];
-      const v9254 = v9227[stdlib.checkedBigNumberify('./index.rsh:278:72:application', stdlib.UInt_max, '2')];
-      const v9255 = [v9250, v9253, v9254];
-      const v9256 = stdlib.Array_set(v8943, stdlib.checkedBigNumberify('./index.rsh:278:72:application', stdlib.UInt_max, '1'), v9255);
+      const v7860 = stdlib.div(v7506, v3198);
+      const v7866 = stdlib.sub(v7844, v7860);
+      const v7869 = v7843[stdlib.checkedBigNumberify('./index.rsh:258:72:application', stdlib.UInt_max, '1')];
+      const v7870 = v7843[stdlib.checkedBigNumberify('./index.rsh:258:72:application', stdlib.UInt_max, '2')];
+      const v7871 = [v7866, v7869, v7870];
+      const v7872 = stdlib.Array_set(v7587, stdlib.checkedBigNumberify('./index.rsh:258:72:application', stdlib.UInt_max, '1'), v7871);
       ;
-      const v9257 = true;
-      const v9258 = await txn1.getOutput('Claimant_mintFirstStable', 'v9257', ctc3, v9257);
-      if (v2094) {
-        stdlib.protect(ctc10, await interact.out(v8792, v9258), {
-          at: './index.rsh:269:10:application',
-          fs: ['at ./index.rsh:269:10:application call to [unknown function] (defined at: ./index.rsh:269:10:function exp)', 'at ./index.rsh:279:10:application call to "k" (defined at: ./index.rsh:274:23:function exp)', 'at ./index.rsh:274:23:application call to [unknown function] (defined at: ./index.rsh:274:23:function exp)'],
+      const v7873 = true;
+      const v7874 = await txn1.getOutput('Claimant_mintFirstStable', 'v7873', ctc3, v7873);
+      if (v1894) {
+        stdlib.protect(ctc10, await interact.out(v7446, v7874), {
+          at: './index.rsh:249:10:application',
+          fs: ['at ./index.rsh:249:10:application call to [unknown function] (defined at: ./index.rsh:249:10:function exp)', 'at ./index.rsh:259:10:application call to "k" (defined at: ./index.rsh:254:23:function exp)', 'at ./index.rsh:254:23:application call to [unknown function] (defined at: ./index.rsh:254:23:function exp)'],
           msg: 'out',
           who: 'Claimant_mintFirstStable'
           });
@@ -4211,36 +3791,36 @@ export async function _Claimant_mintFirstStable4(ctcTop, interact) {
       else {
         }
       
-      const v9265 = stdlib.add(v3561, v9244);
-      const v9266 = stdlib.add(v3560, v8862);
-      const v9271 = stdlib.add(v9266, v9236);
-      const v9276 = stdlib.add(v3551, v9240);
-      const v25774 = v9276;
-      const v25775 = v3552;
-      const v25776 = v3554;
-      const v25777 = v3555;
-      const v25778 = v3563;
-      const v25779 = v3557;
-      const v25780 = v3558;
-      const v25781 = v3559;
-      const v25782 = v9271;
-      const v25783 = v9265;
-      const v25784 = v3562;
-      const v25785 = v3556;
-      const v25786 = v3564;
-      const v25788 = v9256;
-      const v25789 = v8925;
+      const v7881 = stdlib.add(v3197, v7860);
+      const v7882 = stdlib.add(v3196, v7506);
+      const v7887 = stdlib.add(v7882, v7852);
+      const v7892 = stdlib.add(v3188, v7856);
+      const v20836 = v7892;
+      const v20837 = v3189;
+      const v20838 = v3190;
+      const v20839 = v3191;
+      const v20840 = v3199;
+      const v20841 = v3193;
+      const v20842 = v3194;
+      const v20843 = v3195;
+      const v20844 = v7887;
+      const v20845 = v7881;
+      const v20846 = v3198;
+      const v20847 = v3192;
+      const v20848 = v3200;
+      const v20850 = v7872;
+      const v20851 = v7569;
       return;
       
       break;
       }
     case 'Claimant_mintReserve0_192': {
-      const v9540 = v4301[1];
+      const v8156 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintStable0_192': {
-      const v10288 = v4301[1];
+      const v8866 = v3893[1];
       return;
       break;
       }
@@ -4256,17 +3836,16 @@ export async function _Claimant_mintReserve4(ctcTop, interact) {
   const ctc = ctcTop._initialize();
   const stdlib = ctc.stdlib;
   const ctc0 = stdlib.T_Address;
-  const ctc1 = stdlib.T_UInt;
-  const ctc2 = stdlib.T_Token;
+  const ctc1 = stdlib.T_Token;
+  const ctc2 = stdlib.T_UInt;
   const ctc3 = stdlib.T_Bool;
-  const ctc4 = stdlib.T_Tuple([ctc1, ctc1, ctc3]);
+  const ctc4 = stdlib.T_Tuple([ctc2, ctc2, ctc3]);
   const ctc5 = stdlib.T_Array(ctc4, stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '2'));
-  const ctc6 = stdlib.T_Tuple([ctc1]);
+  const ctc6 = stdlib.T_Tuple([ctc2]);
   const ctc7 = stdlib.T_Tuple([]);
-  const ctc8 = stdlib.T_Tuple([ctc1, ctc1]);
+  const ctc8 = stdlib.T_Tuple([ctc2, ctc2]);
   const ctc9 = stdlib.T_Data({
     AdminAPI_claimAdminFee0_192: ctc7,
-    AdminAPI_closeBank0_192: ctc7,
     AdminAPI_setAdminFee0_192: ctc8,
     AdminAPI_updatePrice0_192: ctc6,
     Claimant_burnReserve0_192: ctc6,
@@ -4278,333 +3857,328 @@ export async function _Claimant_mintReserve4(ctcTop, interact) {
   const ctc10 = stdlib.T_Null;
   
   
-  const [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1]);
-  const v3738 = stdlib.protect(ctc6, await interact.in(), {
+  const [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2]);
+  const v3354 = stdlib.protect(ctc6, await interact.in(), {
     at: './index.rsh:1:23:application',
-    fs: ['at ./index.rsh:356:18:application call to [unknown function] (defined at: ./index.rsh:356:18:function exp)', 'at ./index.rsh:118:17:application call to "runClaimant_mintReserve0_192" (defined at: ./index.rsh:355:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+    fs: ['at ./index.rsh:303:18:application call to [unknown function] (defined at: ./index.rsh:303:18:function exp)', 'at ./index.rsh:109:17:application call to "runClaimant_mintReserve0_192" (defined at: ./index.rsh:302:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: 'in',
     who: 'Claimant_mintReserve'
     });
-  const v3739 = v3738[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '0')];
-  const v3741 = stdlib.mul(v3739, v3564);
-  const v3742 = stdlib.div(v3741, stdlib.checkedBigNumberify('./index.rsh:172:31:decimal', stdlib.UInt_max, '100'));
-  const v3743 = stdlib.mul(v3742, v3558);
-  const v3744 = stdlib.div(v3743, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-  const v3745 = stdlib.add(v3560, v3744);
-  let v3746;
-  const v3747 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-  if (v3747) {
-    v3746 = v3562;
+  const v3355 = v3354[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '0')];
+  const v3357 = stdlib.mul(v3355, v3200);
+  const v3358 = stdlib.div(v3357, stdlib.checkedBigNumberify('./index.rsh:159:31:decimal', stdlib.UInt_max, '100'));
+  const v3359 = stdlib.mul(v3358, v3194);
+  const v3360 = stdlib.div(v3359, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+  const v3361 = stdlib.add(v3196, v3360);
+  let v3362;
+  const v3363 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+  if (v3363) {
+    v3362 = v3198;
     }
   else {
-    const v3748 = stdlib.div(v3745, v3561);
-    const v3749 = stdlib.gt(v3748, v3562);
-    const v3751 = v3749 ? v3562 : v3748;
-    v3746 = v3751;
+    const v3364 = stdlib.div(v3361, v3197);
+    const v3365 = stdlib.gt(v3364, v3198);
+    const v3367 = v3365 ? v3198 : v3364;
+    v3362 = v3367;
     }
-  const v3752 = stdlib.mul(v3561, v3746);
-  const v3753 = stdlib.div(v3745, v3752);
-  const v3754 = stdlib.le(v3753, v3554);
-  const v3755 = stdlib.lt(v3561, v3563);
-  const v3756 = v3754 ? true : v3755;
-  let v3757;
-  const v3758 = stdlib.eq(v3559, stdlib.checkedBigNumberify('./index.rsh:163:23:decimal', stdlib.UInt_max, '0'));
-  let v3759;
-  if (v3747) {
-    v3759 = v3562;
-    }
-  else {
-    const v3761 = stdlib.div(v3560, v3561);
-    const v3762 = stdlib.gt(v3761, v3562);
-    const v3764 = v3762 ? v3562 : v3761;
-    v3759 = v3764;
-    }
-  const v3765 = stdlib.mul(v3561, v3759);
-  const v3766 = stdlib.sub(v3560, v3765);
-  const v3767 = stdlib.eq(v3766, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-  const v3768 = v3758 ? true : v3767;
-  if (v3768) {
-    v3757 = v3555;
+  const v3368 = stdlib.mul(v3197, v3362);
+  const v3369 = stdlib.div(v3361, v3368);
+  const v3370 = stdlib.le(v3369, v3190);
+  const v3371 = stdlib.lt(v3197, v3199);
+  const v3372 = v3370 ? true : v3371;
+  let v3373;
+  const v3374 = stdlib.eq(v3195, stdlib.checkedBigNumberify('./index.rsh:151:23:decimal', stdlib.UInt_max, '0'));
+  let v3375;
+  if (v3363) {
+    v3375 = v3198;
     }
   else {
-    let v3769;
-    if (v3747) {
-      v3769 = v3562;
+    const v3377 = stdlib.div(v3196, v3197);
+    const v3378 = stdlib.gt(v3377, v3198);
+    const v3380 = v3378 ? v3198 : v3377;
+    v3375 = v3380;
+    }
+  const v3381 = stdlib.mul(v3197, v3375);
+  const v3382 = stdlib.sub(v3196, v3381);
+  const v3383 = stdlib.eq(v3382, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+  const v3384 = v3374 ? true : v3383;
+  if (v3384) {
+    v3373 = v3191;
+    }
+  else {
+    let v3385;
+    if (v3363) {
+      v3385 = v3198;
       }
     else {
-      const v3771 = stdlib.div(v3560, v3561);
-      const v3772 = stdlib.gt(v3771, v3562);
-      const v3774 = v3772 ? v3562 : v3771;
-      v3769 = v3774;
+      const v3387 = stdlib.div(v3196, v3197);
+      const v3388 = stdlib.gt(v3387, v3198);
+      const v3390 = v3388 ? v3198 : v3387;
+      v3385 = v3390;
       }
-    const v3775 = stdlib.mul(v3561, v3769);
-    const v3776 = stdlib.sub(v3560, v3775);
-    const v3777 = stdlib.div(v3776, v3559);
-    const v3778 = stdlib.gt(v3777, v3555);
-    let v3779;
-    if (v3747) {
-      v3779 = v3562;
+    const v3391 = stdlib.mul(v3197, v3385);
+    const v3392 = stdlib.sub(v3196, v3391);
+    const v3393 = stdlib.div(v3392, v3195);
+    const v3394 = stdlib.gt(v3393, v3191);
+    let v3395;
+    if (v3363) {
+      v3395 = v3198;
       }
     else {
-      const v3781 = stdlib.div(v3560, v3561);
-      const v3782 = stdlib.gt(v3781, v3562);
-      const v3784 = v3782 ? v3562 : v3781;
-      v3779 = v3784;
+      const v3397 = stdlib.div(v3196, v3197);
+      const v3398 = stdlib.gt(v3397, v3198);
+      const v3400 = v3398 ? v3198 : v3397;
+      v3395 = v3400;
       }
-    const v3785 = stdlib.mul(v3561, v3779);
-    const v3786 = stdlib.sub(v3560, v3785);
-    const v3787 = stdlib.div(v3786, v3559);
-    const v3788 = v3778 ? v3787 : v3555;
-    v3757 = v3788;
+    const v3401 = stdlib.mul(v3197, v3395);
+    const v3402 = stdlib.sub(v3196, v3401);
+    const v3403 = stdlib.div(v3402, v3195);
+    const v3404 = v3394 ? v3403 : v3191;
+    v3373 = v3404;
     }
-  const v3789 = stdlib.div(v3739, v3757);
-  const v3790 = v3571[stdlib.checkedBigNumberify('./index.rsh:357:119:application', stdlib.UInt_max, '0')];
-  const v3791 = v3790[stdlib.checkedBigNumberify('./index.rsh:357:119:application', stdlib.UInt_max, '0')];
-  const v3792 = stdlib.le(v3789, v3791);
-  const v3793 = v3756 ? v3792 : false;
-  const v3802 = stdlib.mul(v3742, v3552);
-  const v3803 = stdlib.div(v3802, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-  const v3804 = stdlib.add(v3744, v3803);
-  const v3805 = stdlib.eq(v3742, v3804);
-  const v3806 = v3793 ? v3805 : false;
-  stdlib.assert(v3806, {
-    at: './index.rsh:356:27:application',
-    fs: ['at ./index.rsh:356:18:application call to [unknown function] (defined at: ./index.rsh:356:18:function exp)', 'at ./index.rsh:356:18:application call to [unknown function] (defined at: ./index.rsh:356:18:function exp)', 'at ./index.rsh:118:17:application call to "runClaimant_mintReserve0_192" (defined at: ./index.rsh:355:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+  const v3405 = stdlib.div(v3355, v3373);
+  const v3406 = v3207[stdlib.checkedBigNumberify('./index.rsh:304:119:application', stdlib.UInt_max, '0')];
+  const v3407 = v3406[stdlib.checkedBigNumberify('./index.rsh:304:119:application', stdlib.UInt_max, '0')];
+  const v3408 = stdlib.le(v3405, v3407);
+  const v3409 = v3372 ? v3408 : false;
+  const v3418 = stdlib.mul(v3358, v3189);
+  const v3419 = stdlib.div(v3418, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+  const v3420 = stdlib.add(v3360, v3419);
+  const v3421 = stdlib.eq(v3358, v3420);
+  const v3422 = v3409 ? v3421 : false;
+  stdlib.assert(v3422, {
+    at: './index.rsh:303:27:application',
+    fs: ['at ./index.rsh:303:18:application call to [unknown function] (defined at: ./index.rsh:303:18:function exp)', 'at ./index.rsh:303:18:application call to [unknown function] (defined at: ./index.rsh:303:18:function exp)', 'at ./index.rsh:109:17:application call to "runClaimant_mintReserve0_192" (defined at: ./index.rsh:302:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: null,
     who: 'Claimant_mintReserve'
     });
-  const v3810 = ['Claimant_mintReserve0_192', v3738];
+  const v3426 = ['Claimant_mintReserve0_192', v3354];
   
-  const v4248 = stdlib.add(v3739, v3742);
+  const v3840 = stdlib.add(v3355, v3358);
   
   const txn1 = await (ctc.sendrecv({
-    args: [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572, v3810],
+    args: [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208, v3426],
     evt_cnt: 1,
     funcNum: 3,
     lct: stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '0'),
     onlyIf: true,
     out_tys: [ctc9],
-    pay: [v4248, [[stdlib.checkedBigNumberify('./index.rsh:359:63:decimal', stdlib.UInt_max, '0'), v3511], [stdlib.checkedBigNumberify('./index.rsh:359:86:decimal', stdlib.UInt_max, '0'), v3476]]],
+    pay: [v3840, [[stdlib.checkedBigNumberify('./index.rsh:306:63:decimal', stdlib.UInt_max, '0'), v3146], [stdlib.checkedBigNumberify('./index.rsh:306:86:decimal', stdlib.UInt_max, '0'), v3110]]],
     sim_p: (async (txn1) => {
       const sim_r = { txns: [], mapRefs: [], maps: [] };
       let sim_txn_ctr = stdlib.UInt_max;
       const getSimTokCtr = () => { sim_txn_ctr = sim_txn_ctr.sub(1); return sim_txn_ctr; };
       
       
-      const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
+      const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
       
-      switch (v4301[0]) {
+      switch (v3893[0]) {
         case 'AdminAPI_claimAdminFee0_192': {
-          const v4304 = v4301[1];
-          
-          break;
-          }
-        case 'AdminAPI_closeBank0_192': {
-          const v5052 = v4301[1];
+          const v3896 = v3893[1];
           
           break;
           }
         case 'AdminAPI_setAdminFee0_192': {
-          const v5800 = v4301[1];
+          const v4606 = v3893[1];
           
           break;
           }
         case 'AdminAPI_updatePrice0_192': {
-          const v6548 = v4301[1];
+          const v5316 = v3893[1];
           
           break;
           }
         case 'Claimant_burnReserve0_192': {
-          const v7296 = v4301[1];
+          const v6026 = v3893[1];
           
           break;
           }
         case 'Claimant_burnStable0_192': {
-          const v8044 = v4301[1];
+          const v6736 = v3893[1];
           
           break;
           }
         case 'Claimant_mintFirstStable0_192': {
-          const v8792 = v4301[1];
+          const v7446 = v3893[1];
           
           break;
           }
         case 'Claimant_mintReserve0_192': {
-          const v9540 = v4301[1];
+          const v8156 = v3893[1];
           sim_r.txns.push({
             kind: 'api',
             who: "Claimant_mintReserve"
             });
-          const v9624 = v9540[stdlib.checkedBigNumberify('./index.rsh:355:9:spread', stdlib.UInt_max, '0')];
-          const v9625 = stdlib.mul(v9624, v3564);
-          const v9626 = stdlib.div(v9625, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-          const v9627 = stdlib.add(v9624, v9626);
-          const v9673 = stdlib.add(v3572, v9627);
+          const v8230 = v8156[stdlib.checkedBigNumberify('./index.rsh:302:9:spread', stdlib.UInt_max, '0')];
+          const v8231 = stdlib.mul(v8230, v3200);
+          const v8232 = stdlib.div(v8231, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+          const v8233 = stdlib.add(v8230, v8232);
+          const v8279 = stdlib.add(v3208, v8233);
           sim_r.txns.push({
-            amt: v9627,
+            amt: v8233,
             kind: 'to',
             tok: undefined /* Nothing */
             });
-          const v9674 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v9675 = v9674[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v9679 = v9674[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v9680 = v9674[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v9681 = [v9675, v9679, v9680];
-          const v9682 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v9681);
+          const v8280 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v8281 = v8280[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v8285 = v8280[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v8286 = v8280[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v8287 = [v8281, v8285, v8286];
+          const v8288 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v8287);
           ;
-          const v9683 = v9682[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v9684 = v9683[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v9688 = v9683[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v9689 = v9683[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v9690 = [v9684, v9688, v9689];
-          const v9691 = stdlib.Array_set(v9682, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v9690);
+          const v8289 = v8288[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v8290 = v8289[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v8294 = v8289[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v8295 = v8289[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v8296 = [v8290, v8294, v8295];
+          const v8297 = stdlib.Array_set(v8288, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v8296);
           ;
-          const v10030 = stdlib.mul(v9626, v3558);
-          const v10031 = stdlib.div(v10030, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-          const v10034 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-          const v10045 = stdlib.eq(v3559, stdlib.checkedBigNumberify('./index.rsh:163:23:decimal', stdlib.UInt_max, '0'));
-          const v10077 = v9691[stdlib.checkedBigNumberify('./index.rsh:362:122:application', stdlib.UInt_max, '0')];
-          const v10078 = v10077[stdlib.checkedBigNumberify('./index.rsh:362:122:application', stdlib.UInt_max, '0')];
-          const v10089 = stdlib.mul(v9626, v3552);
-          const v10090 = stdlib.div(v10089, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-          let v10094;
-          let v10096;
-          if (v10034) {
-            v10096 = v3562;
+          const v8608 = stdlib.mul(v8232, v3194);
+          const v8609 = stdlib.div(v8608, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+          const v8612 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+          const v8623 = stdlib.eq(v3195, stdlib.checkedBigNumberify('./index.rsh:151:23:decimal', stdlib.UInt_max, '0'));
+          const v8655 = v8297[stdlib.checkedBigNumberify('./index.rsh:309:122:application', stdlib.UInt_max, '0')];
+          const v8656 = v8655[stdlib.checkedBigNumberify('./index.rsh:309:122:application', stdlib.UInt_max, '0')];
+          const v8667 = stdlib.mul(v8232, v3189);
+          const v8668 = stdlib.div(v8667, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+          let v8672;
+          let v8674;
+          if (v8612) {
+            v8674 = v3198;
             }
           else {
-            const v10098 = stdlib.div(v3560, v3561);
-            const v10099 = stdlib.gt(v10098, v3562);
-            const v10101 = v10099 ? v3562 : v10098;
-            v10096 = v10101;
+            const v8676 = stdlib.div(v3196, v3197);
+            const v8677 = stdlib.gt(v8676, v3198);
+            const v8679 = v8677 ? v3198 : v8676;
+            v8674 = v8679;
             }
-          const v10102 = stdlib.mul(v3561, v10096);
-          const v10103 = stdlib.sub(v3560, v10102);
-          const v10104 = stdlib.eq(v10103, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-          const v10105 = v10045 ? true : v10104;
-          if (v10105) {
-            v10094 = v3555;
+          const v8680 = stdlib.mul(v3197, v8674);
+          const v8681 = stdlib.sub(v3196, v8680);
+          const v8682 = stdlib.eq(v8681, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+          const v8683 = v8623 ? true : v8682;
+          if (v8683) {
+            v8672 = v3191;
             }
           else {
-            let v10106;
-            if (v10034) {
-              v10106 = v3562;
+            let v8684;
+            if (v8612) {
+              v8684 = v3198;
               }
             else {
-              const v10108 = stdlib.div(v3560, v3561);
-              const v10109 = stdlib.gt(v10108, v3562);
-              const v10111 = v10109 ? v3562 : v10108;
-              v10106 = v10111;
+              const v8686 = stdlib.div(v3196, v3197);
+              const v8687 = stdlib.gt(v8686, v3198);
+              const v8689 = v8687 ? v3198 : v8686;
+              v8684 = v8689;
               }
-            const v10112 = stdlib.mul(v3561, v10106);
-            const v10113 = stdlib.sub(v3560, v10112);
-            const v10114 = stdlib.div(v10113, v3559);
-            const v10115 = stdlib.gt(v10114, v3555);
-            let v10116;
-            if (v10034) {
-              v10116 = v3562;
+            const v8690 = stdlib.mul(v3197, v8684);
+            const v8691 = stdlib.sub(v3196, v8690);
+            const v8692 = stdlib.div(v8691, v3195);
+            const v8693 = stdlib.gt(v8692, v3191);
+            let v8694;
+            if (v8612) {
+              v8694 = v3198;
               }
             else {
-              const v10118 = stdlib.div(v3560, v3561);
-              const v10119 = stdlib.gt(v10118, v3562);
-              const v10121 = v10119 ? v3562 : v10118;
-              v10116 = v10121;
+              const v8696 = stdlib.div(v3196, v3197);
+              const v8697 = stdlib.gt(v8696, v3198);
+              const v8699 = v8697 ? v3198 : v8696;
+              v8694 = v8699;
               }
-            const v10122 = stdlib.mul(v3561, v10116);
-            const v10123 = stdlib.sub(v3560, v10122);
-            const v10124 = stdlib.div(v10123, v3559);
-            const v10125 = v10115 ? v10124 : v3555;
-            v10094 = v10125;
+            const v8700 = stdlib.mul(v3197, v8694);
+            const v8701 = stdlib.sub(v3196, v8700);
+            const v8702 = stdlib.div(v8701, v3195);
+            const v8703 = v8693 ? v8702 : v3191;
+            v8672 = v8703;
             }
-          const v10126 = stdlib.div(v9624, v10094);
-          const v10132 = stdlib.sub(v10078, v10126);
-          const v10135 = v10077[stdlib.checkedBigNumberify('./index.rsh:364:145:application', stdlib.UInt_max, '1')];
-          const v10136 = v10077[stdlib.checkedBigNumberify('./index.rsh:364:145:application', stdlib.UInt_max, '2')];
-          const v10137 = [v10132, v10135, v10136];
-          const v10138 = stdlib.Array_set(v9691, stdlib.checkedBigNumberify('./index.rsh:364:145:application', stdlib.UInt_max, '0'), v10137);
+          const v8704 = stdlib.div(v8230, v8672);
+          const v8710 = stdlib.sub(v8656, v8704);
+          const v8713 = v8655[stdlib.checkedBigNumberify('./index.rsh:311:145:application', stdlib.UInt_max, '1')];
+          const v8714 = v8655[stdlib.checkedBigNumberify('./index.rsh:311:145:application', stdlib.UInt_max, '2')];
+          const v8715 = [v8710, v8713, v8714];
+          const v8716 = stdlib.Array_set(v8297, stdlib.checkedBigNumberify('./index.rsh:311:145:application', stdlib.UInt_max, '0'), v8715);
           sim_r.txns.push({
             kind: 'from',
-            to: v4300,
-            tok: v3476
+            to: v3892,
+            tok: v3110
             });
-          const v10139 = true;
-          const v10140 = await txn1.getOutput('Claimant_mintReserve', 'v10139', ctc3, v10139);
+          const v8717 = true;
+          const v8718 = await txn1.getOutput('Claimant_mintReserve', 'v8717', ctc3, v8717);
           
-          let v10146;
-          let v10148;
-          if (v10034) {
-            v10148 = v3562;
+          let v8724;
+          let v8726;
+          if (v8612) {
+            v8726 = v3198;
             }
           else {
-            const v10150 = stdlib.div(v3560, v3561);
-            const v10151 = stdlib.gt(v10150, v3562);
-            const v10153 = v10151 ? v3562 : v10150;
-            v10148 = v10153;
+            const v8728 = stdlib.div(v3196, v3197);
+            const v8729 = stdlib.gt(v8728, v3198);
+            const v8731 = v8729 ? v3198 : v8728;
+            v8726 = v8731;
             }
-          const v10154 = stdlib.mul(v3561, v10148);
-          const v10155 = stdlib.sub(v3560, v10154);
-          const v10156 = stdlib.eq(v10155, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-          const v10157 = v10045 ? true : v10156;
-          if (v10157) {
-            v10146 = v3555;
+          const v8732 = stdlib.mul(v3197, v8726);
+          const v8733 = stdlib.sub(v3196, v8732);
+          const v8734 = stdlib.eq(v8733, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+          const v8735 = v8623 ? true : v8734;
+          if (v8735) {
+            v8724 = v3191;
             }
           else {
-            let v10158;
-            if (v10034) {
-              v10158 = v3562;
+            let v8736;
+            if (v8612) {
+              v8736 = v3198;
               }
             else {
-              const v10160 = stdlib.div(v3560, v3561);
-              const v10161 = stdlib.gt(v10160, v3562);
-              const v10163 = v10161 ? v3562 : v10160;
-              v10158 = v10163;
+              const v8738 = stdlib.div(v3196, v3197);
+              const v8739 = stdlib.gt(v8738, v3198);
+              const v8741 = v8739 ? v3198 : v8738;
+              v8736 = v8741;
               }
-            const v10164 = stdlib.mul(v3561, v10158);
-            const v10165 = stdlib.sub(v3560, v10164);
-            const v10166 = stdlib.div(v10165, v3559);
-            const v10167 = stdlib.gt(v10166, v3555);
-            let v10168;
-            if (v10034) {
-              v10168 = v3562;
+            const v8742 = stdlib.mul(v3197, v8736);
+            const v8743 = stdlib.sub(v3196, v8742);
+            const v8744 = stdlib.div(v8743, v3195);
+            const v8745 = stdlib.gt(v8744, v3191);
+            let v8746;
+            if (v8612) {
+              v8746 = v3198;
               }
             else {
-              const v10170 = stdlib.div(v3560, v3561);
-              const v10171 = stdlib.gt(v10170, v3562);
-              const v10173 = v10171 ? v3562 : v10170;
-              v10168 = v10173;
+              const v8748 = stdlib.div(v3196, v3197);
+              const v8749 = stdlib.gt(v8748, v3198);
+              const v8751 = v8749 ? v3198 : v8748;
+              v8746 = v8751;
               }
-            const v10174 = stdlib.mul(v3561, v10168);
-            const v10175 = stdlib.sub(v3560, v10174);
-            const v10176 = stdlib.div(v10175, v3559);
-            const v10177 = v10167 ? v10176 : v3555;
-            v10146 = v10177;
+            const v8752 = stdlib.mul(v3197, v8746);
+            const v8753 = stdlib.sub(v3196, v8752);
+            const v8754 = stdlib.div(v8753, v3195);
+            const v8755 = v8745 ? v8754 : v3191;
+            v8724 = v8755;
             }
-          const v10178 = stdlib.div(v9624, v10146);
-          const v10179 = stdlib.add(v3559, v10178);
-          const v10180 = stdlib.add(v3560, v9624);
-          const v10185 = stdlib.add(v10180, v10031);
-          const v10190 = stdlib.add(v3551, v10090);
-          const v25934 = v10190;
-          const v25935 = v3552;
-          const v25936 = v3554;
-          const v25937 = v3555;
-          const v25938 = v3563;
-          const v25939 = v3557;
-          const v25940 = v3558;
-          const v25941 = v10179;
-          const v25942 = v10185;
-          const v25943 = v3561;
-          const v25944 = v3562;
-          const v25945 = v3556;
-          const v25946 = v3564;
-          const v25948 = v10138;
-          const v25949 = v9673;
+          const v8756 = stdlib.div(v8230, v8724);
+          const v8757 = stdlib.add(v3195, v8756);
+          const v8758 = stdlib.add(v3196, v8230);
+          const v8763 = stdlib.add(v8758, v8609);
+          const v8768 = stdlib.add(v3188, v8668);
+          const v20980 = v8768;
+          const v20981 = v3189;
+          const v20982 = v3190;
+          const v20983 = v3191;
+          const v20984 = v3199;
+          const v20985 = v3193;
+          const v20986 = v3194;
+          const v20987 = v8757;
+          const v20988 = v8763;
+          const v20989 = v3197;
+          const v20990 = v3198;
+          const v20991 = v3192;
+          const v20992 = v3200;
+          const v20994 = v8716;
+          const v20995 = v8279;
           sim_r.isHalt = false;
           
           break;
           }
         case 'Claimant_mintStable0_192': {
-          const v10288 = v4301[1];
+          const v8866 = v3893[1];
           
           break;
           }
@@ -4613,216 +4187,211 @@ export async function _Claimant_mintReserve4(ctcTop, interact) {
       }),
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1, ctc9],
+    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2, ctc9],
     waitIfNotPresent: false
     }));
-  const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
-  switch (v4301[0]) {
+  const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
+  switch (v3893[0]) {
     case 'AdminAPI_claimAdminFee0_192': {
-      const v4304 = v4301[1];
-      return;
-      break;
-      }
-    case 'AdminAPI_closeBank0_192': {
-      const v5052 = v4301[1];
+      const v3896 = v3893[1];
       return;
       break;
       }
     case 'AdminAPI_setAdminFee0_192': {
-      const v5800 = v4301[1];
+      const v4606 = v3893[1];
       return;
       break;
       }
     case 'AdminAPI_updatePrice0_192': {
-      const v6548 = v4301[1];
+      const v5316 = v3893[1];
       return;
       break;
       }
     case 'Claimant_burnReserve0_192': {
-      const v7296 = v4301[1];
+      const v6026 = v3893[1];
       return;
       break;
       }
     case 'Claimant_burnStable0_192': {
-      const v8044 = v4301[1];
+      const v6736 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintFirstStable0_192': {
-      const v8792 = v4301[1];
+      const v7446 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintReserve0_192': {
-      const v9540 = v4301[1];
+      const v8156 = v3893[1];
       undefined /* setApiDetails */;
-      const v9624 = v9540[stdlib.checkedBigNumberify('./index.rsh:355:9:spread', stdlib.UInt_max, '0')];
-      const v9625 = stdlib.mul(v9624, v3564);
-      const v9626 = stdlib.div(v9625, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-      const v9627 = stdlib.add(v9624, v9626);
-      const v9673 = stdlib.add(v3572, v9627);
+      const v8230 = v8156[stdlib.checkedBigNumberify('./index.rsh:302:9:spread', stdlib.UInt_max, '0')];
+      const v8231 = stdlib.mul(v8230, v3200);
+      const v8232 = stdlib.div(v8231, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+      const v8233 = stdlib.add(v8230, v8232);
+      const v8279 = stdlib.add(v3208, v8233);
       ;
-      const v9674 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v9675 = v9674[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v9679 = v9674[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v9680 = v9674[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v9681 = [v9675, v9679, v9680];
-      const v9682 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v9681);
+      const v8280 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v8281 = v8280[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v8285 = v8280[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v8286 = v8280[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v8287 = [v8281, v8285, v8286];
+      const v8288 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v8287);
       ;
-      const v9683 = v9682[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v9684 = v9683[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v9688 = v9683[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v9689 = v9683[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v9690 = [v9684, v9688, v9689];
-      const v9691 = stdlib.Array_set(v9682, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v9690);
+      const v8289 = v8288[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v8290 = v8289[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v8294 = v8289[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v8295 = v8289[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v8296 = [v8290, v8294, v8295];
+      const v8297 = stdlib.Array_set(v8288, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v8296);
       ;
-      const v10030 = stdlib.mul(v9626, v3558);
-      const v10031 = stdlib.div(v10030, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-      const v10032 = stdlib.add(v3560, v10031);
-      let v10033;
-      const v10034 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-      if (v10034) {
-        v10033 = v3562;
+      const v8608 = stdlib.mul(v8232, v3194);
+      const v8609 = stdlib.div(v8608, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+      const v8610 = stdlib.add(v3196, v8609);
+      let v8611;
+      const v8612 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+      if (v8612) {
+        v8611 = v3198;
         }
       else {
-        const v10035 = stdlib.div(v10032, v3561);
-        const v10036 = stdlib.gt(v10035, v3562);
-        const v10038 = v10036 ? v3562 : v10035;
-        v10033 = v10038;
+        const v8613 = stdlib.div(v8610, v3197);
+        const v8614 = stdlib.gt(v8613, v3198);
+        const v8616 = v8614 ? v3198 : v8613;
+        v8611 = v8616;
         }
-      const v10039 = stdlib.mul(v3561, v10033);
-      const v10040 = stdlib.div(v10032, v10039);
-      const v10041 = stdlib.le(v10040, v3554);
-      const v10042 = stdlib.lt(v3561, v3563);
-      const v10043 = v10041 ? true : v10042;
-      let v10044;
-      const v10045 = stdlib.eq(v3559, stdlib.checkedBigNumberify('./index.rsh:163:23:decimal', stdlib.UInt_max, '0'));
-      let v10046;
-      if (v10034) {
-        v10046 = v3562;
-        }
-      else {
-        const v10048 = stdlib.div(v3560, v3561);
-        const v10049 = stdlib.gt(v10048, v3562);
-        const v10051 = v10049 ? v3562 : v10048;
-        v10046 = v10051;
-        }
-      const v10052 = stdlib.mul(v3561, v10046);
-      const v10053 = stdlib.sub(v3560, v10052);
-      const v10054 = stdlib.eq(v10053, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-      const v10055 = v10045 ? true : v10054;
-      if (v10055) {
-        v10044 = v3555;
+      const v8617 = stdlib.mul(v3197, v8611);
+      const v8618 = stdlib.div(v8610, v8617);
+      const v8619 = stdlib.le(v8618, v3190);
+      const v8620 = stdlib.lt(v3197, v3199);
+      const v8621 = v8619 ? true : v8620;
+      let v8622;
+      const v8623 = stdlib.eq(v3195, stdlib.checkedBigNumberify('./index.rsh:151:23:decimal', stdlib.UInt_max, '0'));
+      let v8624;
+      if (v8612) {
+        v8624 = v3198;
         }
       else {
-        let v10056;
-        if (v10034) {
-          v10056 = v3562;
+        const v8626 = stdlib.div(v3196, v3197);
+        const v8627 = stdlib.gt(v8626, v3198);
+        const v8629 = v8627 ? v3198 : v8626;
+        v8624 = v8629;
+        }
+      const v8630 = stdlib.mul(v3197, v8624);
+      const v8631 = stdlib.sub(v3196, v8630);
+      const v8632 = stdlib.eq(v8631, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+      const v8633 = v8623 ? true : v8632;
+      if (v8633) {
+        v8622 = v3191;
+        }
+      else {
+        let v8634;
+        if (v8612) {
+          v8634 = v3198;
           }
         else {
-          const v10058 = stdlib.div(v3560, v3561);
-          const v10059 = stdlib.gt(v10058, v3562);
-          const v10061 = v10059 ? v3562 : v10058;
-          v10056 = v10061;
+          const v8636 = stdlib.div(v3196, v3197);
+          const v8637 = stdlib.gt(v8636, v3198);
+          const v8639 = v8637 ? v3198 : v8636;
+          v8634 = v8639;
           }
-        const v10062 = stdlib.mul(v3561, v10056);
-        const v10063 = stdlib.sub(v3560, v10062);
-        const v10064 = stdlib.div(v10063, v3559);
-        const v10065 = stdlib.gt(v10064, v3555);
-        let v10066;
-        if (v10034) {
-          v10066 = v3562;
+        const v8640 = stdlib.mul(v3197, v8634);
+        const v8641 = stdlib.sub(v3196, v8640);
+        const v8642 = stdlib.div(v8641, v3195);
+        const v8643 = stdlib.gt(v8642, v3191);
+        let v8644;
+        if (v8612) {
+          v8644 = v3198;
           }
         else {
-          const v10068 = stdlib.div(v3560, v3561);
-          const v10069 = stdlib.gt(v10068, v3562);
-          const v10071 = v10069 ? v3562 : v10068;
-          v10066 = v10071;
+          const v8646 = stdlib.div(v3196, v3197);
+          const v8647 = stdlib.gt(v8646, v3198);
+          const v8649 = v8647 ? v3198 : v8646;
+          v8644 = v8649;
           }
-        const v10072 = stdlib.mul(v3561, v10066);
-        const v10073 = stdlib.sub(v3560, v10072);
-        const v10074 = stdlib.div(v10073, v3559);
-        const v10075 = v10065 ? v10074 : v3555;
-        v10044 = v10075;
+        const v8650 = stdlib.mul(v3197, v8644);
+        const v8651 = stdlib.sub(v3196, v8650);
+        const v8652 = stdlib.div(v8651, v3195);
+        const v8653 = v8643 ? v8652 : v3191;
+        v8622 = v8653;
         }
-      const v10076 = stdlib.div(v9624, v10044);
-      const v10077 = v9691[stdlib.checkedBigNumberify('./index.rsh:362:122:application', stdlib.UInt_max, '0')];
-      const v10078 = v10077[stdlib.checkedBigNumberify('./index.rsh:362:122:application', stdlib.UInt_max, '0')];
-      const v10079 = stdlib.le(v10076, v10078);
-      const v10080 = v10043 ? v10079 : false;
-      const v10089 = stdlib.mul(v9626, v3552);
-      const v10090 = stdlib.div(v10089, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-      const v10091 = stdlib.add(v10031, v10090);
-      const v10092 = stdlib.eq(v9626, v10091);
-      const v10093 = v10080 ? v10092 : false;
-      stdlib.assert(v10093, {
-        at: './index.rsh:361:14:application',
-        fs: ['at ./index.rsh:360:21:application call to [unknown function] (defined at: ./index.rsh:360:21:function exp)'],
+      const v8654 = stdlib.div(v8230, v8622);
+      const v8655 = v8297[stdlib.checkedBigNumberify('./index.rsh:309:122:application', stdlib.UInt_max, '0')];
+      const v8656 = v8655[stdlib.checkedBigNumberify('./index.rsh:309:122:application', stdlib.UInt_max, '0')];
+      const v8657 = stdlib.le(v8654, v8656);
+      const v8658 = v8621 ? v8657 : false;
+      const v8667 = stdlib.mul(v8232, v3189);
+      const v8668 = stdlib.div(v8667, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+      const v8669 = stdlib.add(v8609, v8668);
+      const v8670 = stdlib.eq(v8232, v8669);
+      const v8671 = v8658 ? v8670 : false;
+      stdlib.assert(v8671, {
+        at: './index.rsh:308:14:application',
+        fs: ['at ./index.rsh:307:21:application call to [unknown function] (defined at: ./index.rsh:307:21:function exp)'],
         msg: null,
         who: 'Claimant_mintReserve'
         });
-      let v10094;
-      let v10096;
-      if (v10034) {
-        v10096 = v3562;
+      let v8672;
+      let v8674;
+      if (v8612) {
+        v8674 = v3198;
         }
       else {
-        const v10098 = stdlib.div(v3560, v3561);
-        const v10099 = stdlib.gt(v10098, v3562);
-        const v10101 = v10099 ? v3562 : v10098;
-        v10096 = v10101;
+        const v8676 = stdlib.div(v3196, v3197);
+        const v8677 = stdlib.gt(v8676, v3198);
+        const v8679 = v8677 ? v3198 : v8676;
+        v8674 = v8679;
         }
-      const v10102 = stdlib.mul(v3561, v10096);
-      const v10103 = stdlib.sub(v3560, v10102);
-      const v10104 = stdlib.eq(v10103, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-      const v10105 = v10045 ? true : v10104;
-      if (v10105) {
-        v10094 = v3555;
+      const v8680 = stdlib.mul(v3197, v8674);
+      const v8681 = stdlib.sub(v3196, v8680);
+      const v8682 = stdlib.eq(v8681, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+      const v8683 = v8623 ? true : v8682;
+      if (v8683) {
+        v8672 = v3191;
         }
       else {
-        let v10106;
-        if (v10034) {
-          v10106 = v3562;
+        let v8684;
+        if (v8612) {
+          v8684 = v3198;
           }
         else {
-          const v10108 = stdlib.div(v3560, v3561);
-          const v10109 = stdlib.gt(v10108, v3562);
-          const v10111 = v10109 ? v3562 : v10108;
-          v10106 = v10111;
+          const v8686 = stdlib.div(v3196, v3197);
+          const v8687 = stdlib.gt(v8686, v3198);
+          const v8689 = v8687 ? v3198 : v8686;
+          v8684 = v8689;
           }
-        const v10112 = stdlib.mul(v3561, v10106);
-        const v10113 = stdlib.sub(v3560, v10112);
-        const v10114 = stdlib.div(v10113, v3559);
-        const v10115 = stdlib.gt(v10114, v3555);
-        let v10116;
-        if (v10034) {
-          v10116 = v3562;
+        const v8690 = stdlib.mul(v3197, v8684);
+        const v8691 = stdlib.sub(v3196, v8690);
+        const v8692 = stdlib.div(v8691, v3195);
+        const v8693 = stdlib.gt(v8692, v3191);
+        let v8694;
+        if (v8612) {
+          v8694 = v3198;
           }
         else {
-          const v10118 = stdlib.div(v3560, v3561);
-          const v10119 = stdlib.gt(v10118, v3562);
-          const v10121 = v10119 ? v3562 : v10118;
-          v10116 = v10121;
+          const v8696 = stdlib.div(v3196, v3197);
+          const v8697 = stdlib.gt(v8696, v3198);
+          const v8699 = v8697 ? v3198 : v8696;
+          v8694 = v8699;
           }
-        const v10122 = stdlib.mul(v3561, v10116);
-        const v10123 = stdlib.sub(v3560, v10122);
-        const v10124 = stdlib.div(v10123, v3559);
-        const v10125 = v10115 ? v10124 : v3555;
-        v10094 = v10125;
+        const v8700 = stdlib.mul(v3197, v8694);
+        const v8701 = stdlib.sub(v3196, v8700);
+        const v8702 = stdlib.div(v8701, v3195);
+        const v8703 = v8693 ? v8702 : v3191;
+        v8672 = v8703;
         }
-      const v10126 = stdlib.div(v9624, v10094);
-      const v10132 = stdlib.sub(v10078, v10126);
-      const v10135 = v10077[stdlib.checkedBigNumberify('./index.rsh:364:145:application', stdlib.UInt_max, '1')];
-      const v10136 = v10077[stdlib.checkedBigNumberify('./index.rsh:364:145:application', stdlib.UInt_max, '2')];
-      const v10137 = [v10132, v10135, v10136];
-      const v10138 = stdlib.Array_set(v9691, stdlib.checkedBigNumberify('./index.rsh:364:145:application', stdlib.UInt_max, '0'), v10137);
+      const v8704 = stdlib.div(v8230, v8672);
+      const v8710 = stdlib.sub(v8656, v8704);
+      const v8713 = v8655[stdlib.checkedBigNumberify('./index.rsh:311:145:application', stdlib.UInt_max, '1')];
+      const v8714 = v8655[stdlib.checkedBigNumberify('./index.rsh:311:145:application', stdlib.UInt_max, '2')];
+      const v8715 = [v8710, v8713, v8714];
+      const v8716 = stdlib.Array_set(v8297, stdlib.checkedBigNumberify('./index.rsh:311:145:application', stdlib.UInt_max, '0'), v8715);
       ;
-      const v10139 = true;
-      const v10140 = await txn1.getOutput('Claimant_mintReserve', 'v10139', ctc3, v10139);
-      if (v2094) {
-        stdlib.protect(ctc10, await interact.out(v9540, v10140), {
-          at: './index.rsh:355:10:application',
-          fs: ['at ./index.rsh:355:10:application call to [unknown function] (defined at: ./index.rsh:355:10:function exp)', 'at ./index.rsh:365:8:application call to "k" (defined at: ./index.rsh:360:21:function exp)', 'at ./index.rsh:360:21:application call to [unknown function] (defined at: ./index.rsh:360:21:function exp)'],
+      const v8717 = true;
+      const v8718 = await txn1.getOutput('Claimant_mintReserve', 'v8717', ctc3, v8717);
+      if (v1894) {
+        stdlib.protect(ctc10, await interact.out(v8156, v8718), {
+          at: './index.rsh:302:10:application',
+          fs: ['at ./index.rsh:302:10:application call to [unknown function] (defined at: ./index.rsh:302:10:function exp)', 'at ./index.rsh:312:8:application call to "k" (defined at: ./index.rsh:307:21:function exp)', 'at ./index.rsh:307:21:application call to [unknown function] (defined at: ./index.rsh:307:21:function exp)'],
           msg: 'out',
           who: 'Claimant_mintReserve'
           });
@@ -4830,81 +4399,81 @@ export async function _Claimant_mintReserve4(ctcTop, interact) {
       else {
         }
       
-      let v10146;
-      let v10148;
-      if (v10034) {
-        v10148 = v3562;
+      let v8724;
+      let v8726;
+      if (v8612) {
+        v8726 = v3198;
         }
       else {
-        const v10150 = stdlib.div(v3560, v3561);
-        const v10151 = stdlib.gt(v10150, v3562);
-        const v10153 = v10151 ? v3562 : v10150;
-        v10148 = v10153;
+        const v8728 = stdlib.div(v3196, v3197);
+        const v8729 = stdlib.gt(v8728, v3198);
+        const v8731 = v8729 ? v3198 : v8728;
+        v8726 = v8731;
         }
-      const v10154 = stdlib.mul(v3561, v10148);
-      const v10155 = stdlib.sub(v3560, v10154);
-      const v10156 = stdlib.eq(v10155, stdlib.checkedBigNumberify('./index.rsh:163:61:decimal', stdlib.UInt_max, '0'));
-      const v10157 = v10045 ? true : v10156;
-      if (v10157) {
-        v10146 = v3555;
+      const v8732 = stdlib.mul(v3197, v8726);
+      const v8733 = stdlib.sub(v3196, v8732);
+      const v8734 = stdlib.eq(v8733, stdlib.checkedBigNumberify('./index.rsh:151:61:decimal', stdlib.UInt_max, '0'));
+      const v8735 = v8623 ? true : v8734;
+      if (v8735) {
+        v8724 = v3191;
         }
       else {
-        let v10158;
-        if (v10034) {
-          v10158 = v3562;
+        let v8736;
+        if (v8612) {
+          v8736 = v3198;
           }
         else {
-          const v10160 = stdlib.div(v3560, v3561);
-          const v10161 = stdlib.gt(v10160, v3562);
-          const v10163 = v10161 ? v3562 : v10160;
-          v10158 = v10163;
+          const v8738 = stdlib.div(v3196, v3197);
+          const v8739 = stdlib.gt(v8738, v3198);
+          const v8741 = v8739 ? v3198 : v8738;
+          v8736 = v8741;
           }
-        const v10164 = stdlib.mul(v3561, v10158);
-        const v10165 = stdlib.sub(v3560, v10164);
-        const v10166 = stdlib.div(v10165, v3559);
-        const v10167 = stdlib.gt(v10166, v3555);
-        let v10168;
-        if (v10034) {
-          v10168 = v3562;
+        const v8742 = stdlib.mul(v3197, v8736);
+        const v8743 = stdlib.sub(v3196, v8742);
+        const v8744 = stdlib.div(v8743, v3195);
+        const v8745 = stdlib.gt(v8744, v3191);
+        let v8746;
+        if (v8612) {
+          v8746 = v3198;
           }
         else {
-          const v10170 = stdlib.div(v3560, v3561);
-          const v10171 = stdlib.gt(v10170, v3562);
-          const v10173 = v10171 ? v3562 : v10170;
-          v10168 = v10173;
+          const v8748 = stdlib.div(v3196, v3197);
+          const v8749 = stdlib.gt(v8748, v3198);
+          const v8751 = v8749 ? v3198 : v8748;
+          v8746 = v8751;
           }
-        const v10174 = stdlib.mul(v3561, v10168);
-        const v10175 = stdlib.sub(v3560, v10174);
-        const v10176 = stdlib.div(v10175, v3559);
-        const v10177 = v10167 ? v10176 : v3555;
-        v10146 = v10177;
+        const v8752 = stdlib.mul(v3197, v8746);
+        const v8753 = stdlib.sub(v3196, v8752);
+        const v8754 = stdlib.div(v8753, v3195);
+        const v8755 = v8745 ? v8754 : v3191;
+        v8724 = v8755;
         }
-      const v10178 = stdlib.div(v9624, v10146);
-      const v10179 = stdlib.add(v3559, v10178);
-      const v10180 = stdlib.add(v3560, v9624);
-      const v10185 = stdlib.add(v10180, v10031);
-      const v10190 = stdlib.add(v3551, v10090);
-      const v25934 = v10190;
-      const v25935 = v3552;
-      const v25936 = v3554;
-      const v25937 = v3555;
-      const v25938 = v3563;
-      const v25939 = v3557;
-      const v25940 = v3558;
-      const v25941 = v10179;
-      const v25942 = v10185;
-      const v25943 = v3561;
-      const v25944 = v3562;
-      const v25945 = v3556;
-      const v25946 = v3564;
-      const v25948 = v10138;
-      const v25949 = v9673;
+      const v8756 = stdlib.div(v8230, v8724);
+      const v8757 = stdlib.add(v3195, v8756);
+      const v8758 = stdlib.add(v3196, v8230);
+      const v8763 = stdlib.add(v8758, v8609);
+      const v8768 = stdlib.add(v3188, v8668);
+      const v20980 = v8768;
+      const v20981 = v3189;
+      const v20982 = v3190;
+      const v20983 = v3191;
+      const v20984 = v3199;
+      const v20985 = v3193;
+      const v20986 = v3194;
+      const v20987 = v8757;
+      const v20988 = v8763;
+      const v20989 = v3197;
+      const v20990 = v3198;
+      const v20991 = v3192;
+      const v20992 = v3200;
+      const v20994 = v8716;
+      const v20995 = v8279;
       return;
       
       break;
       }
     case 'Claimant_mintStable0_192': {
-      const v10288 = v4301[1];
+      const v8866 = v3893[1];
       return;
       break;
       }
@@ -4920,17 +4489,16 @@ export async function _Claimant_mintStable4(ctcTop, interact) {
   const ctc = ctcTop._initialize();
   const stdlib = ctc.stdlib;
   const ctc0 = stdlib.T_Address;
-  const ctc1 = stdlib.T_UInt;
-  const ctc2 = stdlib.T_Token;
+  const ctc1 = stdlib.T_Token;
+  const ctc2 = stdlib.T_UInt;
   const ctc3 = stdlib.T_Bool;
-  const ctc4 = stdlib.T_Tuple([ctc1, ctc1, ctc3]);
+  const ctc4 = stdlib.T_Tuple([ctc2, ctc2, ctc3]);
   const ctc5 = stdlib.T_Array(ctc4, stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '2'));
-  const ctc6 = stdlib.T_Tuple([ctc1]);
+  const ctc6 = stdlib.T_Tuple([ctc2]);
   const ctc7 = stdlib.T_Tuple([]);
-  const ctc8 = stdlib.T_Tuple([ctc1, ctc1]);
+  const ctc8 = stdlib.T_Tuple([ctc2, ctc2]);
   const ctc9 = stdlib.T_Data({
     AdminAPI_claimAdminFee0_192: ctc7,
-    AdminAPI_closeBank0_192: ctc7,
     AdminAPI_setAdminFee0_192: ctc8,
     AdminAPI_updatePrice0_192: ctc6,
     Claimant_burnReserve0_192: ctc6,
@@ -4942,225 +4510,220 @@ export async function _Claimant_mintStable4(ctcTop, interact) {
   const ctc10 = stdlib.T_Null;
   
   
-  const [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1]);
-  const v3680 = stdlib.protect(ctc6, await interact.in(), {
+  const [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208] = await ctc.getState(stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '4'), [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2]);
+  const v3296 = stdlib.protect(ctc6, await interact.in(), {
     at: './index.rsh:1:23:application',
-    fs: ['at ./index.rsh:327:20:application call to [unknown function] (defined at: ./index.rsh:327:20:function exp)', 'at ./index.rsh:118:17:application call to "runClaimant_mintStable0_192" (defined at: ./index.rsh:326:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+    fs: ['at ./index.rsh:275:20:application call to [unknown function] (defined at: ./index.rsh:275:20:function exp)', 'at ./index.rsh:109:17:application call to "runClaimant_mintStable0_192" (defined at: ./index.rsh:274:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: 'in',
     who: 'Claimant_mintStable'
     });
-  const v3681 = v3680[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '0')];
-  let v3683;
-  const v3684 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-  if (v3684) {
-    v3683 = v3562;
+  const v3297 = v3296[stdlib.checkedBigNumberify('./index.rsh:1:23:application', stdlib.UInt_max, '0')];
+  let v3299;
+  const v3300 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+  if (v3300) {
+    v3299 = v3198;
     }
   else {
-    const v3685 = stdlib.div(v3560, v3561);
-    const v3686 = stdlib.gt(v3685, v3562);
-    const v3688 = v3686 ? v3562 : v3685;
-    v3683 = v3688;
+    const v3301 = stdlib.div(v3196, v3197);
+    const v3302 = stdlib.gt(v3301, v3198);
+    const v3304 = v3302 ? v3198 : v3301;
+    v3299 = v3304;
     }
-  const v3689 = stdlib.mul(v3561, v3683);
-  const v3690 = stdlib.div(v3560, v3689);
-  const v3691 = stdlib.ge(v3690, v3557);
-  const v3692 = stdlib.mul(v3681, v3564);
-  const v3693 = stdlib.div(v3692, stdlib.checkedBigNumberify('./index.rsh:172:31:decimal', stdlib.UInt_max, '100'));
-  const v3694 = stdlib.mul(v3693, v3558);
-  const v3695 = stdlib.div(v3694, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-  const v3696 = stdlib.add(v3560, v3695);
-  let v3697;
-  if (v3684) {
-    v3697 = v3562;
-    }
-  else {
-    const v3699 = stdlib.div(v3696, v3561);
-    const v3700 = stdlib.gt(v3699, v3562);
-    const v3702 = v3700 ? v3562 : v3699;
-    v3697 = v3702;
-    }
-  const v3703 = stdlib.mul(v3561, v3697);
-  const v3704 = stdlib.div(v3696, v3703);
-  const v3705 = stdlib.ge(v3704, v3557);
-  const v3706 = v3691 ? v3705 : false;
-  let v3707;
-  if (v3684) {
-    v3707 = v3562;
+  const v3305 = stdlib.mul(v3197, v3299);
+  const v3306 = stdlib.div(v3196, v3305);
+  const v3307 = stdlib.ge(v3306, v3193);
+  const v3308 = stdlib.mul(v3297, v3200);
+  const v3309 = stdlib.div(v3308, stdlib.checkedBigNumberify('./index.rsh:159:31:decimal', stdlib.UInt_max, '100'));
+  const v3310 = stdlib.mul(v3309, v3194);
+  const v3311 = stdlib.div(v3310, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+  const v3312 = stdlib.add(v3196, v3311);
+  let v3313;
+  if (v3300) {
+    v3313 = v3198;
     }
   else {
-    const v3709 = stdlib.div(v3560, v3561);
-    const v3710 = stdlib.gt(v3709, v3562);
-    const v3712 = v3710 ? v3562 : v3709;
-    v3707 = v3712;
+    const v3315 = stdlib.div(v3312, v3197);
+    const v3316 = stdlib.gt(v3315, v3198);
+    const v3318 = v3316 ? v3198 : v3315;
+    v3313 = v3318;
     }
-  const v3713 = stdlib.div(v3681, v3707);
-  const v3714 = v3571[stdlib.checkedBigNumberify('./index.rsh:329:89:application', stdlib.UInt_max, '1')];
-  const v3715 = v3714[stdlib.checkedBigNumberify('./index.rsh:329:89:application', stdlib.UInt_max, '0')];
-  const v3716 = stdlib.le(v3713, v3715);
-  const v3717 = v3706 ? v3716 : false;
-  const v3726 = stdlib.mul(v3693, v3552);
-  const v3727 = stdlib.div(v3726, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-  const v3728 = stdlib.add(v3695, v3727);
-  const v3729 = stdlib.eq(v3693, v3728);
-  const v3730 = v3717 ? v3729 : false;
-  stdlib.assert(v3730, {
-    at: './index.rsh:327:29:application',
-    fs: ['at ./index.rsh:327:20:application call to [unknown function] (defined at: ./index.rsh:327:20:function exp)', 'at ./index.rsh:327:20:application call to [unknown function] (defined at: ./index.rsh:327:20:function exp)', 'at ./index.rsh:118:17:application call to "runClaimant_mintStable0_192" (defined at: ./index.rsh:326:9:function exp)', 'at ./index.rsh:118:17:application call to [unknown function] (defined at: ./index.rsh:118:17:function exp)'],
+  const v3319 = stdlib.mul(v3197, v3313);
+  const v3320 = stdlib.div(v3312, v3319);
+  const v3321 = stdlib.ge(v3320, v3193);
+  const v3322 = v3307 ? v3321 : false;
+  let v3323;
+  if (v3300) {
+    v3323 = v3198;
+    }
+  else {
+    const v3325 = stdlib.div(v3196, v3197);
+    const v3326 = stdlib.gt(v3325, v3198);
+    const v3328 = v3326 ? v3198 : v3325;
+    v3323 = v3328;
+    }
+  const v3329 = stdlib.div(v3297, v3323);
+  const v3330 = v3207[stdlib.checkedBigNumberify('./index.rsh:277:89:application', stdlib.UInt_max, '1')];
+  const v3331 = v3330[stdlib.checkedBigNumberify('./index.rsh:277:89:application', stdlib.UInt_max, '0')];
+  const v3332 = stdlib.le(v3329, v3331);
+  const v3333 = v3322 ? v3332 : false;
+  const v3342 = stdlib.mul(v3309, v3189);
+  const v3343 = stdlib.div(v3342, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+  const v3344 = stdlib.add(v3311, v3343);
+  const v3345 = stdlib.eq(v3309, v3344);
+  const v3346 = v3333 ? v3345 : false;
+  stdlib.assert(v3346, {
+    at: './index.rsh:275:29:application',
+    fs: ['at ./index.rsh:275:20:application call to [unknown function] (defined at: ./index.rsh:275:20:function exp)', 'at ./index.rsh:275:20:application call to [unknown function] (defined at: ./index.rsh:275:20:function exp)', 'at ./index.rsh:109:17:application call to "runClaimant_mintStable0_192" (defined at: ./index.rsh:274:9:function exp)', 'at ./index.rsh:109:17:application call to [unknown function] (defined at: ./index.rsh:109:17:function exp)'],
     msg: null,
     who: 'Claimant_mintStable'
     });
-  const v3734 = ['Claimant_mintStable0_192', v3680];
+  const v3350 = ['Claimant_mintStable0_192', v3296];
   
-  const v4276 = stdlib.add(v3681, v3693);
+  const v3868 = stdlib.add(v3297, v3309);
   
   const txn1 = await (ctc.sendrecv({
-    args: [v3445, v3460, v3462, v3476, v3511, v3551, v3552, v3554, v3555, v3556, v3557, v3558, v3559, v3560, v3561, v3562, v3563, v3564, v3571, v3572, v3734],
+    args: [v3080, v3110, v3146, v3188, v3189, v3190, v3191, v3192, v3193, v3194, v3195, v3196, v3197, v3198, v3199, v3200, v3207, v3208, v3350],
     evt_cnt: 1,
     funcNum: 3,
     lct: stdlib.checkedBigNumberify('<builtin>', stdlib.UInt_max, '0'),
     onlyIf: true,
     out_tys: [ctc9],
-    pay: [v4276, [[stdlib.checkedBigNumberify('./index.rsh:331:66:decimal', stdlib.UInt_max, '0'), v3511], [stdlib.checkedBigNumberify('./index.rsh:331:89:decimal', stdlib.UInt_max, '0'), v3476]]],
+    pay: [v3868, [[stdlib.checkedBigNumberify('./index.rsh:279:66:decimal', stdlib.UInt_max, '0'), v3146], [stdlib.checkedBigNumberify('./index.rsh:279:89:decimal', stdlib.UInt_max, '0'), v3110]]],
     sim_p: (async (txn1) => {
       const sim_r = { txns: [], mapRefs: [], maps: [] };
       let sim_txn_ctr = stdlib.UInt_max;
       const getSimTokCtr = () => { sim_txn_ctr = sim_txn_ctr.sub(1); return sim_txn_ctr; };
       
       
-      const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
+      const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
       
-      switch (v4301[0]) {
+      switch (v3893[0]) {
         case 'AdminAPI_claimAdminFee0_192': {
-          const v4304 = v4301[1];
-          
-          break;
-          }
-        case 'AdminAPI_closeBank0_192': {
-          const v5052 = v4301[1];
+          const v3896 = v3893[1];
           
           break;
           }
         case 'AdminAPI_setAdminFee0_192': {
-          const v5800 = v4301[1];
+          const v4606 = v3893[1];
           
           break;
           }
         case 'AdminAPI_updatePrice0_192': {
-          const v6548 = v4301[1];
+          const v5316 = v3893[1];
           
           break;
           }
         case 'Claimant_burnReserve0_192': {
-          const v7296 = v4301[1];
+          const v6026 = v3893[1];
           
           break;
           }
         case 'Claimant_burnStable0_192': {
-          const v8044 = v4301[1];
+          const v6736 = v3893[1];
           
           break;
           }
         case 'Claimant_mintFirstStable0_192': {
-          const v8792 = v4301[1];
+          const v7446 = v3893[1];
           
           break;
           }
         case 'Claimant_mintReserve0_192': {
-          const v9540 = v4301[1];
+          const v8156 = v3893[1];
           
           break;
           }
         case 'Claimant_mintStable0_192': {
-          const v10288 = v4301[1];
+          const v8866 = v3893[1];
           sim_r.txns.push({
             kind: 'api',
             who: "Claimant_mintStable"
             });
-          const v10386 = v10288[stdlib.checkedBigNumberify('./index.rsh:326:9:spread', stdlib.UInt_max, '0')];
-          const v10387 = stdlib.mul(v10386, v3564);
-          const v10388 = stdlib.div(v10387, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-          const v10389 = stdlib.add(v10386, v10388);
-          const v10421 = stdlib.add(v3572, v10389);
+          const v8954 = v8866[stdlib.checkedBigNumberify('./index.rsh:274:9:spread', stdlib.UInt_max, '0')];
+          const v8955 = stdlib.mul(v8954, v3200);
+          const v8956 = stdlib.div(v8955, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+          const v8957 = stdlib.add(v8954, v8956);
+          const v8989 = stdlib.add(v3208, v8957);
           sim_r.txns.push({
-            amt: v10389,
+            amt: v8957,
             kind: 'to',
             tok: undefined /* Nothing */
             });
-          const v10422 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v10423 = v10422[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v10427 = v10422[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v10428 = v10422[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v10429 = [v10423, v10427, v10428];
-          const v10430 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v10429);
+          const v8990 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v8991 = v8990[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v8995 = v8990[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v8996 = v8990[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v8997 = [v8991, v8995, v8996];
+          const v8998 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v8997);
           ;
-          const v10431 = v10430[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v10432 = v10431[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-          const v10436 = v10431[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-          const v10437 = v10431[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-          const v10438 = [v10432, v10436, v10437];
-          const v10439 = stdlib.Array_set(v10430, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v10438);
+          const v8999 = v8998[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v9000 = v8999[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+          const v9004 = v8999[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+          const v9005 = v8999[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+          const v9006 = [v9000, v9004, v9005];
+          const v9007 = stdlib.Array_set(v8998, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v9006);
           ;
-          const v10943 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-          const v10953 = stdlib.mul(v10388, v3558);
-          const v10954 = stdlib.div(v10953, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-          const v10973 = v10439[stdlib.checkedBigNumberify('./index.rsh:335:91:application', stdlib.UInt_max, '1')];
-          const v10974 = v10973[stdlib.checkedBigNumberify('./index.rsh:335:91:application', stdlib.UInt_max, '0')];
-          const v10985 = stdlib.mul(v10388, v3552);
-          const v10986 = stdlib.div(v10985, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-          let v10990;
-          if (v10943) {
-            v10990 = v3562;
+          const v9483 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+          const v9493 = stdlib.mul(v8956, v3194);
+          const v9494 = stdlib.div(v9493, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+          const v9513 = v9007[stdlib.checkedBigNumberify('./index.rsh:283:91:application', stdlib.UInt_max, '1')];
+          const v9514 = v9513[stdlib.checkedBigNumberify('./index.rsh:283:91:application', stdlib.UInt_max, '0')];
+          const v9525 = stdlib.mul(v8956, v3189);
+          const v9526 = stdlib.div(v9525, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+          let v9530;
+          if (v9483) {
+            v9530 = v3198;
             }
           else {
-            const v10992 = stdlib.div(v3560, v3561);
-            const v10993 = stdlib.gt(v10992, v3562);
-            const v10995 = v10993 ? v3562 : v10992;
-            v10990 = v10995;
+            const v9532 = stdlib.div(v3196, v3197);
+            const v9533 = stdlib.gt(v9532, v3198);
+            const v9535 = v9533 ? v3198 : v9532;
+            v9530 = v9535;
             }
-          const v10996 = stdlib.div(v10386, v10990);
-          const v11002 = stdlib.sub(v10974, v10996);
-          const v11005 = v10973[stdlib.checkedBigNumberify('./index.rsh:338:54:application', stdlib.UInt_max, '1')];
-          const v11006 = v10973[stdlib.checkedBigNumberify('./index.rsh:338:54:application', stdlib.UInt_max, '2')];
-          const v11007 = [v11002, v11005, v11006];
-          const v11008 = stdlib.Array_set(v10439, stdlib.checkedBigNumberify('./index.rsh:338:54:application', stdlib.UInt_max, '1'), v11007);
+          const v9536 = stdlib.div(v8954, v9530);
+          const v9542 = stdlib.sub(v9514, v9536);
+          const v9545 = v9513[stdlib.checkedBigNumberify('./index.rsh:286:54:application', stdlib.UInt_max, '1')];
+          const v9546 = v9513[stdlib.checkedBigNumberify('./index.rsh:286:54:application', stdlib.UInt_max, '2')];
+          const v9547 = [v9542, v9545, v9546];
+          const v9548 = stdlib.Array_set(v9007, stdlib.checkedBigNumberify('./index.rsh:286:54:application', stdlib.UInt_max, '1'), v9547);
           sim_r.txns.push({
             kind: 'from',
-            to: v4300,
-            tok: v3511
+            to: v3892,
+            tok: v3146
             });
-          const v11009 = true;
-          const v11010 = await txn1.getOutput('Claimant_mintStable', 'v11009', ctc3, v11009);
+          const v9549 = true;
+          const v9550 = await txn1.getOutput('Claimant_mintStable', 'v9549', ctc3, v9549);
           
-          let v11016;
-          if (v10943) {
-            v11016 = v3562;
+          let v9556;
+          if (v9483) {
+            v9556 = v3198;
             }
           else {
-            const v11018 = stdlib.div(v3560, v3561);
-            const v11019 = stdlib.gt(v11018, v3562);
-            const v11021 = v11019 ? v3562 : v11018;
-            v11016 = v11021;
+            const v9558 = stdlib.div(v3196, v3197);
+            const v9559 = stdlib.gt(v9558, v3198);
+            const v9561 = v9559 ? v3198 : v9558;
+            v9556 = v9561;
             }
-          const v11022 = stdlib.div(v10386, v11016);
-          const v11023 = stdlib.add(v3561, v11022);
-          const v11024 = stdlib.add(v3560, v10386);
-          const v11029 = stdlib.add(v11024, v10954);
-          const v11034 = stdlib.add(v3551, v10986);
-          const v26094 = v11034;
-          const v26095 = v3552;
-          const v26096 = v3554;
-          const v26097 = v3555;
-          const v26098 = v3563;
-          const v26099 = v3557;
-          const v26100 = v3558;
-          const v26101 = v3559;
-          const v26102 = v11029;
-          const v26103 = v11023;
-          const v26104 = v3562;
-          const v26105 = v3556;
-          const v26106 = v3564;
-          const v26108 = v11008;
-          const v26109 = v10421;
+          const v9562 = stdlib.div(v8954, v9556);
+          const v9563 = stdlib.add(v3197, v9562);
+          const v9564 = stdlib.add(v3196, v8954);
+          const v9569 = stdlib.add(v9564, v9494);
+          const v9574 = stdlib.add(v3188, v9526);
+          const v21124 = v9574;
+          const v21125 = v3189;
+          const v21126 = v3190;
+          const v21127 = v3191;
+          const v21128 = v3199;
+          const v21129 = v3193;
+          const v21130 = v3194;
+          const v21131 = v3195;
+          const v21132 = v9569;
+          const v21133 = v9563;
+          const v21134 = v3198;
+          const v21135 = v3192;
+          const v21136 = v3200;
+          const v21138 = v9548;
+          const v21139 = v8989;
           sim_r.isHalt = false;
           
           break;
@@ -5170,154 +4733,149 @@ export async function _Claimant_mintStable4(ctcTop, interact) {
       }),
     soloSend: false,
     timeoutAt: undefined /* mto */,
-    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc1, ctc5, ctc1, ctc9],
+    tys: [ctc0, ctc1, ctc1, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc2, ctc5, ctc2, ctc9],
     waitIfNotPresent: false
     }));
-  const {data: [v4301], secs: v4303, time: v4302, didSend: v2094, from: v4300 } = txn1;
-  switch (v4301[0]) {
+  const {data: [v3893], secs: v3895, time: v3894, didSend: v1894, from: v3892 } = txn1;
+  switch (v3893[0]) {
     case 'AdminAPI_claimAdminFee0_192': {
-      const v4304 = v4301[1];
-      return;
-      break;
-      }
-    case 'AdminAPI_closeBank0_192': {
-      const v5052 = v4301[1];
+      const v3896 = v3893[1];
       return;
       break;
       }
     case 'AdminAPI_setAdminFee0_192': {
-      const v5800 = v4301[1];
+      const v4606 = v3893[1];
       return;
       break;
       }
     case 'AdminAPI_updatePrice0_192': {
-      const v6548 = v4301[1];
+      const v5316 = v3893[1];
       return;
       break;
       }
     case 'Claimant_burnReserve0_192': {
-      const v7296 = v4301[1];
+      const v6026 = v3893[1];
       return;
       break;
       }
     case 'Claimant_burnStable0_192': {
-      const v8044 = v4301[1];
+      const v6736 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintFirstStable0_192': {
-      const v8792 = v4301[1];
+      const v7446 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintReserve0_192': {
-      const v9540 = v4301[1];
+      const v8156 = v3893[1];
       return;
       break;
       }
     case 'Claimant_mintStable0_192': {
-      const v10288 = v4301[1];
+      const v8866 = v3893[1];
       undefined /* setApiDetails */;
-      const v10386 = v10288[stdlib.checkedBigNumberify('./index.rsh:326:9:spread', stdlib.UInt_max, '0')];
-      const v10387 = stdlib.mul(v10386, v3564);
-      const v10388 = stdlib.div(v10387, stdlib.checkedBigNumberify('./index.rsh:176:30:decimal', stdlib.UInt_max, '100'));
-      const v10389 = stdlib.add(v10386, v10388);
-      const v10421 = stdlib.add(v3572, v10389);
+      const v8954 = v8866[stdlib.checkedBigNumberify('./index.rsh:274:9:spread', stdlib.UInt_max, '0')];
+      const v8955 = stdlib.mul(v8954, v3200);
+      const v8956 = stdlib.div(v8955, stdlib.checkedBigNumberify('./index.rsh:162:30:decimal', stdlib.UInt_max, '100'));
+      const v8957 = stdlib.add(v8954, v8956);
+      const v8989 = stdlib.add(v3208, v8957);
       ;
-      const v10422 = v3571[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v10423 = v10422[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v10427 = v10422[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v10428 = v10422[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v10429 = [v10423, v10427, v10428];
-      const v10430 = stdlib.Array_set(v3571, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1'), v10429);
+      const v8990 = v3207[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v8991 = v8990[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v8995 = v8990[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v8996 = v8990[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v8997 = [v8991, v8995, v8996];
+      const v8998 = stdlib.Array_set(v3207, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1'), v8997);
       ;
-      const v10431 = v10430[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v10432 = v10431[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0')];
-      const v10436 = v10431[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '1')];
-      const v10437 = v10431[stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '2')];
-      const v10438 = [v10432, v10436, v10437];
-      const v10439 = stdlib.Array_set(v10430, stdlib.checkedBigNumberify('./index.rsh:118:17:dot', stdlib.UInt_max, '0'), v10438);
+      const v8999 = v8998[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v9000 = v8999[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0')];
+      const v9004 = v8999[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '1')];
+      const v9005 = v8999[stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '2')];
+      const v9006 = [v9000, v9004, v9005];
+      const v9007 = stdlib.Array_set(v8998, stdlib.checkedBigNumberify('./index.rsh:109:17:dot', stdlib.UInt_max, '0'), v9006);
       ;
-      let v10942;
-      const v10943 = stdlib.eq(v3561, stdlib.checkedBigNumberify('./index.rsh:142:23:decimal', stdlib.UInt_max, '0'));
-      if (v10943) {
-        v10942 = v3562;
+      let v9482;
+      const v9483 = stdlib.eq(v3197, stdlib.checkedBigNumberify('./index.rsh:131:23:decimal', stdlib.UInt_max, '0'));
+      if (v9483) {
+        v9482 = v3198;
         }
       else {
-        const v10944 = stdlib.div(v3560, v3561);
-        const v10945 = stdlib.gt(v10944, v3562);
-        const v10947 = v10945 ? v3562 : v10944;
-        v10942 = v10947;
+        const v9484 = stdlib.div(v3196, v3197);
+        const v9485 = stdlib.gt(v9484, v3198);
+        const v9487 = v9485 ? v3198 : v9484;
+        v9482 = v9487;
         }
-      const v10948 = stdlib.mul(v3561, v10942);
-      const v10949 = stdlib.div(v3560, v10948);
-      const v10950 = stdlib.ge(v10949, v3557);
-      const v10953 = stdlib.mul(v10388, v3558);
-      const v10954 = stdlib.div(v10953, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-      const v10955 = stdlib.add(v3560, v10954);
-      let v10956;
-      if (v10943) {
-        v10956 = v3562;
-        }
-      else {
-        const v10958 = stdlib.div(v10955, v3561);
-        const v10959 = stdlib.gt(v10958, v3562);
-        const v10961 = v10959 ? v3562 : v10958;
-        v10956 = v10961;
-        }
-      const v10962 = stdlib.mul(v3561, v10956);
-      const v10963 = stdlib.div(v10955, v10962);
-      const v10964 = stdlib.ge(v10963, v3557);
-      const v10965 = v10950 ? v10964 : false;
-      let v10966;
-      if (v10943) {
-        v10966 = v3562;
+      const v9488 = stdlib.mul(v3197, v9482);
+      const v9489 = stdlib.div(v3196, v9488);
+      const v9490 = stdlib.ge(v9489, v3193);
+      const v9493 = stdlib.mul(v8956, v3194);
+      const v9494 = stdlib.div(v9493, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+      const v9495 = stdlib.add(v3196, v9494);
+      let v9496;
+      if (v9483) {
+        v9496 = v3198;
         }
       else {
-        const v10968 = stdlib.div(v3560, v3561);
-        const v10969 = stdlib.gt(v10968, v3562);
-        const v10971 = v10969 ? v3562 : v10968;
-        v10966 = v10971;
+        const v9498 = stdlib.div(v9495, v3197);
+        const v9499 = stdlib.gt(v9498, v3198);
+        const v9501 = v9499 ? v3198 : v9498;
+        v9496 = v9501;
         }
-      const v10972 = stdlib.div(v10386, v10966);
-      const v10973 = v10439[stdlib.checkedBigNumberify('./index.rsh:335:91:application', stdlib.UInt_max, '1')];
-      const v10974 = v10973[stdlib.checkedBigNumberify('./index.rsh:335:91:application', stdlib.UInt_max, '0')];
-      const v10975 = stdlib.le(v10972, v10974);
-      const v10976 = v10965 ? v10975 : false;
-      const v10985 = stdlib.mul(v10388, v3552);
-      const v10986 = stdlib.div(v10985, stdlib.checkedBigNumberify('./index.rsh:172:46:decimal', stdlib.UInt_max, '100'));
-      const v10987 = stdlib.add(v10954, v10986);
-      const v10988 = stdlib.eq(v10388, v10987);
-      const v10989 = v10976 ? v10988 : false;
-      stdlib.assert(v10989, {
-        at: './index.rsh:333:16:application',
-        fs: ['at ./index.rsh:332:23:application call to [unknown function] (defined at: ./index.rsh:332:23:function exp)'],
+      const v9502 = stdlib.mul(v3197, v9496);
+      const v9503 = stdlib.div(v9495, v9502);
+      const v9504 = stdlib.ge(v9503, v3193);
+      const v9505 = v9490 ? v9504 : false;
+      let v9506;
+      if (v9483) {
+        v9506 = v3198;
+        }
+      else {
+        const v9508 = stdlib.div(v3196, v3197);
+        const v9509 = stdlib.gt(v9508, v3198);
+        const v9511 = v9509 ? v3198 : v9508;
+        v9506 = v9511;
+        }
+      const v9512 = stdlib.div(v8954, v9506);
+      const v9513 = v9007[stdlib.checkedBigNumberify('./index.rsh:283:91:application', stdlib.UInt_max, '1')];
+      const v9514 = v9513[stdlib.checkedBigNumberify('./index.rsh:283:91:application', stdlib.UInt_max, '0')];
+      const v9515 = stdlib.le(v9512, v9514);
+      const v9516 = v9505 ? v9515 : false;
+      const v9525 = stdlib.mul(v8956, v3189);
+      const v9526 = stdlib.div(v9525, stdlib.checkedBigNumberify('./index.rsh:159:46:decimal', stdlib.UInt_max, '100'));
+      const v9527 = stdlib.add(v9494, v9526);
+      const v9528 = stdlib.eq(v8956, v9527);
+      const v9529 = v9516 ? v9528 : false;
+      stdlib.assert(v9529, {
+        at: './index.rsh:281:16:application',
+        fs: ['at ./index.rsh:280:23:application call to [unknown function] (defined at: ./index.rsh:280:23:function exp)'],
         msg: null,
         who: 'Claimant_mintStable'
         });
-      let v10990;
-      if (v10943) {
-        v10990 = v3562;
+      let v9530;
+      if (v9483) {
+        v9530 = v3198;
         }
       else {
-        const v10992 = stdlib.div(v3560, v3561);
-        const v10993 = stdlib.gt(v10992, v3562);
-        const v10995 = v10993 ? v3562 : v10992;
-        v10990 = v10995;
+        const v9532 = stdlib.div(v3196, v3197);
+        const v9533 = stdlib.gt(v9532, v3198);
+        const v9535 = v9533 ? v3198 : v9532;
+        v9530 = v9535;
         }
-      const v10996 = stdlib.div(v10386, v10990);
-      const v11002 = stdlib.sub(v10974, v10996);
-      const v11005 = v10973[stdlib.checkedBigNumberify('./index.rsh:338:54:application', stdlib.UInt_max, '1')];
-      const v11006 = v10973[stdlib.checkedBigNumberify('./index.rsh:338:54:application', stdlib.UInt_max, '2')];
-      const v11007 = [v11002, v11005, v11006];
-      const v11008 = stdlib.Array_set(v10439, stdlib.checkedBigNumberify('./index.rsh:338:54:application', stdlib.UInt_max, '1'), v11007);
+      const v9536 = stdlib.div(v8954, v9530);
+      const v9542 = stdlib.sub(v9514, v9536);
+      const v9545 = v9513[stdlib.checkedBigNumberify('./index.rsh:286:54:application', stdlib.UInt_max, '1')];
+      const v9546 = v9513[stdlib.checkedBigNumberify('./index.rsh:286:54:application', stdlib.UInt_max, '2')];
+      const v9547 = [v9542, v9545, v9546];
+      const v9548 = stdlib.Array_set(v9007, stdlib.checkedBigNumberify('./index.rsh:286:54:application', stdlib.UInt_max, '1'), v9547);
       ;
-      const v11009 = true;
-      const v11010 = await txn1.getOutput('Claimant_mintStable', 'v11009', ctc3, v11009);
-      if (v2094) {
-        stdlib.protect(ctc10, await interact.out(v10288, v11010), {
-          at: './index.rsh:326:10:application',
-          fs: ['at ./index.rsh:326:10:application call to [unknown function] (defined at: ./index.rsh:326:10:function exp)', 'at ./index.rsh:339:10:application call to "k" (defined at: ./index.rsh:332:23:function exp)', 'at ./index.rsh:332:23:application call to [unknown function] (defined at: ./index.rsh:332:23:function exp)'],
+      const v9549 = true;
+      const v9550 = await txn1.getOutput('Claimant_mintStable', 'v9549', ctc3, v9549);
+      if (v1894) {
+        stdlib.protect(ctc10, await interact.out(v8866, v9550), {
+          at: './index.rsh:274:10:application',
+          fs: ['at ./index.rsh:274:10:application call to [unknown function] (defined at: ./index.rsh:274:10:function exp)', 'at ./index.rsh:287:10:application call to "k" (defined at: ./index.rsh:280:23:function exp)', 'at ./index.rsh:280:23:application call to [unknown function] (defined at: ./index.rsh:280:23:function exp)'],
           msg: 'out',
           who: 'Claimant_mintStable'
           });
@@ -5325,36 +4883,36 @@ export async function _Claimant_mintStable4(ctcTop, interact) {
       else {
         }
       
-      let v11016;
-      if (v10943) {
-        v11016 = v3562;
+      let v9556;
+      if (v9483) {
+        v9556 = v3198;
         }
       else {
-        const v11018 = stdlib.div(v3560, v3561);
-        const v11019 = stdlib.gt(v11018, v3562);
-        const v11021 = v11019 ? v3562 : v11018;
-        v11016 = v11021;
+        const v9558 = stdlib.div(v3196, v3197);
+        const v9559 = stdlib.gt(v9558, v3198);
+        const v9561 = v9559 ? v3198 : v9558;
+        v9556 = v9561;
         }
-      const v11022 = stdlib.div(v10386, v11016);
-      const v11023 = stdlib.add(v3561, v11022);
-      const v11024 = stdlib.add(v3560, v10386);
-      const v11029 = stdlib.add(v11024, v10954);
-      const v11034 = stdlib.add(v3551, v10986);
-      const v26094 = v11034;
-      const v26095 = v3552;
-      const v26096 = v3554;
-      const v26097 = v3555;
-      const v26098 = v3563;
-      const v26099 = v3557;
-      const v26100 = v3558;
-      const v26101 = v3559;
-      const v26102 = v11029;
-      const v26103 = v11023;
-      const v26104 = v3562;
-      const v26105 = v3556;
-      const v26106 = v3564;
-      const v26108 = v11008;
-      const v26109 = v10421;
+      const v9562 = stdlib.div(v8954, v9556);
+      const v9563 = stdlib.add(v3197, v9562);
+      const v9564 = stdlib.add(v3196, v8954);
+      const v9569 = stdlib.add(v9564, v9494);
+      const v9574 = stdlib.add(v3188, v9526);
+      const v21124 = v9574;
+      const v21125 = v3189;
+      const v21126 = v3190;
+      const v21127 = v3191;
+      const v21128 = v3199;
+      const v21129 = v3193;
+      const v21130 = v3194;
+      const v21131 = v3195;
+      const v21132 = v9569;
+      const v21133 = v9563;
+      const v21134 = v3198;
+      const v21135 = v3192;
+      const v21136 = v3200;
+      const v21138 = v9548;
+      const v21139 = v8989;
       return;
       
       break;
@@ -5373,17 +4931,6 @@ export async function AdminAPI_claimAdminFee(ctcTop, interact) {
   const step = await ctc.getCurrentStep()
   stdlib.assert(step == 4, 'API called in the wrong state. Currently in state: ' + step + ', expected:  [4]');
   if (step == 4) {return _AdminAPI_claimAdminFee4(ctcTop, interact);}
-  };
-export async function AdminAPI_closeBank(ctcTop, interact) {
-  if (typeof(ctcTop) !== 'object' || ctcTop._initialize === undefined) {
-    return Promise.reject(new Error(`The backend for AdminAPI_closeBank expects to receive a contract as its first argument.`));}
-  if (typeof(interact) !== 'object') {
-    return Promise.reject(new Error(`The backend for AdminAPI_closeBank expects to receive an interact object as its second argument.`));}
-  const ctc = ctcTop._initialize();
-  const stdlib = ctc.stdlib;
-  const step = await ctc.getCurrentStep()
-  stdlib.assert(step == 4, 'API called in the wrong state. Currently in state: ' + step + ', expected:  [4]');
-  if (step == 4) {return _AdminAPI_closeBank4(ctcTop, interact);}
   };
 export async function AdminAPI_setAdminFee(ctcTop, interact) {
   if (typeof(ctcTop) !== 'object' || ctcTop._initialize === undefined) {
@@ -5464,37 +5011,37 @@ export async function Claimant_mintStable(ctcTop, interact) {
   };
 const _ALGO = {
   ABI: {
-    impure: [`AdminAPI_claimAdminFee()byte`, `AdminAPI_closeBank()byte`, `AdminAPI_setAdminFee(uint64,uint64)byte`, `AdminAPI_updatePrice(uint64)byte`, `Claimant_burnReserve(uint64)byte`, `Claimant_burnStable(uint64)byte`, `Claimant_mintFirstStable(uint64)byte`, `Claimant_mintReserve(uint64)byte`, `Claimant_mintStable(uint64)byte`],
+    impure: [`AdminAPI_claimAdminFee()byte`, `AdminAPI_setAdminFee(uint64,uint64)byte`, `AdminAPI_updatePrice(uint64)byte`, `Claimant_burnReserve(uint64)byte`, `Claimant_burnStable(uint64)byte`, `Claimant_mintFirstStable(uint64)byte`, `Claimant_mintReserve(uint64)byte`, `Claimant_mintStable(uint64)byte`],
     pure: [`Viewer_read()(uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64)`],
-    sigs: [`AdminAPI_claimAdminFee()byte`, `AdminAPI_closeBank()byte`, `AdminAPI_setAdminFee(uint64,uint64)byte`, `AdminAPI_updatePrice(uint64)byte`, `Claimant_burnReserve(uint64)byte`, `Claimant_burnStable(uint64)byte`, `Claimant_mintFirstStable(uint64)byte`, `Claimant_mintReserve(uint64)byte`, `Claimant_mintStable(uint64)byte`, `Viewer_read()(uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64)`]
+    sigs: [`AdminAPI_claimAdminFee()byte`, `AdminAPI_setAdminFee(uint64,uint64)byte`, `AdminAPI_updatePrice(uint64)byte`, `Claimant_burnReserve(uint64)byte`, `Claimant_burnStable(uint64)byte`, `Claimant_mintFirstStable(uint64)byte`, `Claimant_mintReserve(uint64)byte`, `Claimant_mintStable(uint64)byte`, `Viewer_read()(uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64)`]
     },
-  appApproval: `BiAfAGQBCAQDQBAgKDA4BqCNBs7A3MMK97nNqA3ttsTVDc+wovkN2YOligyd3oP+ApSJ4aQG19iP9gmv89yQAkhQWGBocHgFJgMBAQEAACI1ADEYQRJ1KmRJIls1ASVbNQI2GgAXSUEBYiI1BCQ1BkkhDgxAAIBJIQ8MQABLSSEQDEAAL0khEQxAABIhERJEKjX/KTT/UCEHr1BCAUwhEBJENhoBNhoCUDX/gAECNP9QQgE2IQ8SRDYaATX/gAEGNP9QJa9QQgEhSSESDEAAEiESEkQqNf8oNP9QIQevUEIBCCEOEkQ2GgE1/4ABBzT/UCWvUEIA80khEwxAAJpJIRQMQAAxSSEVDEAAFSEVEkQ2GgE1/4ABBDT/UCWvUEIAySEUEkQ2GgE1/4ABAzT/UCWvUEIAtCETEkQ0ASEEEkQpZChkUEk1A1d4CDQDV4gIUDQDV4AIUDQDV6AIUDQDV0gIUDQDV3AIUDQDV0AIUDQDV5AIUDQDV5gIUDQDV2AIUDQDV1gIUDQDV2gIUDQDV1AIUDUHQhEsSSEWDEAAFSEWEkQ2GgE1/4ABBTT/UCWvUEIANoHxgORVEkQ2GgE1/4ABCDT/UCWvUEIAHjYaAhc1BDYaAzYaARdJJAxADaBJIQUMQA0bIQUSRCEENAESRDQESSISTDQCEhFEKWQoZFBJNQNJSkpKSkpKSkpKVwAgNf8hCFs1/iEJWzX9IQpbNfwhC1s1+yEGWzX6IRdbNfkhGFs1+CEZWzX3IRpbNfYhG1s19SEcWzX0IR1bNfOBgAFbNfKBiAFbNfGBkAFbNfCBmAFbNe+BoAFbNe5XqCI17YHKAVs17Ek1BTXrgAQ0IGXYNOtQsDTrIlVJIQQMQAn1SSEMDEAGC0mBBwxABNFJJQxAAcwlEkQ061cBCDXgNOAXSTXfNO4LIwo13jTfNN4INd003YgQIjTtVxERNdw07VcAETTcVwAINNxXCAhQNNxXEAFQUDXbNNtXABFJNdpXAAg02lcICFA02lcQAVA021cREVA12TTxIhJJNddBAAc08DXYQgASNPI08QpJNdY08DTWNPANTTXYNN409AsjCjXWNPI01gg11TTXQQAHNPA11EIAEjTVNPEKSTXTNPA00zTwDU011DTXQQAHNPA100IAEjTyNPEKSTXSNPA00jTwDU010zTZVxERSTXSIls10TTeNPkLIwo10DTyNPE02AsKNPUPNNU08TTUCwo09Q8QNN800wo00Q4QNN401jTQCBIQRDTXQQAHNPA1z0IAEjTyNPEKSTXONPA0zjTwDU01zzTfNM8KNc6xIrIBNM6yEiEEshAxALIUNPuyEbOACQAAAAAAACsBAbAoNQc010EABzTwNc1CABI08jTxCkk1zDTwNMw08A1NNc00/zT+NP00/DT7NPo00Ag0+TT4NPc07zT1NPQ08zTyNN8INNYINPE03zTNCgg08DT2NO4yBjTZVwARNNE0zgkWNNJXCAhQNNJXEAFQUDTsNN0IQg17SDTrVwEINeA04BdJNd807gsjCjXeNN803gg13TTdiA5YNO1XERE13DTtVwARNNxXAAg03FcICFA03FcQAVBQNds021cAEUk12lcACDTaVwgIUDTaVxABUDTbVxERUDXZNN409AsjCjXYNPI02Ag11zTxIhJJNdVBAAc08DXWQgASNNc08QpJNdQ08DTUNPANTTXWNPMiEjXTNNVBAAc08DXSQgASNPI08QpJNdE08DTRNPANTTXSNNM08jTxNNILCSISEUEABzT3NdRCAFo01UEABzTwNdFCABI08jTxCkk10DTwNNA08A1NNdE01UEABzTwNdBCABI08jTxCkk1zzTwNM808A1NNdA09zTyNPE00AsJNPMKNPI08TTRCwk08wo09w1NNdQ02VcAEUk10SJbNdA03jT5CyMKNc801zTxNNYLCjT4DjTxNO8METTfNNQKNNAOEDTeNNg0zwgSEEQ01UEABzTwNc1CABI08jTxCkk1zDTwNMw08A1NNc000zTyNPE0zQsJIhIRQQAHNPc1zkIAWjTVQQAHNPA1zEIAEjTyNPEKSTXLNPA0yzTwDU01zDTVQQAHNPA1y0IAEjTyNPEKSTXKNPA0yjTwDU01yzT3NPI08TTLCwk08wo08jTxNMwLCTTzCjT3DU01zjTfNM4KNcyxIrIBNMyyEiEEshAxALIUNPyyEbOACQAAAAAAACebAbAoNQc01UEABzTwNcpCABI08jTxCkk1yTTwNMk08A1NNco00zTyNPE0ygsJIhIRQQAHNPc1y0IAWjTVQQAHNPA1yUIAEjTyNPEKSTXINPA0yDTwDU01yTTVQQAHNPA1yEIAEjTyNPEKSTXHNPA0xzTwDU01yDT3NPI08TTICwk08wo08jTxNMkLCTTzCjT3DU01yzT/NP40/TT8NPs0+jTPCDT5NPg09zTvNPU09DTzNN80ywoINPI03wg02Ag08TTwNPY07jIGNNA0zAkWNNFXCAhQNNFXEAFQNNlXERFQNOw03QhCCnxINOtXAQg14DTgF0k13zTuCyMKNd403zTeCDXdNN2IC1k07VcRETXcNO1XABE03FcACDTcVwgIUDTcVxABUFA12zTbVwARSTXaVwAINNpXCAhQNNpXEAFQNNtXERFQNdk08SISSTXYQQAHNPA110IAEjTyNPEKSTXWNPA01jTwDU011zTZVxERSTXWIls11TTeNPQLIwo11DTeNPkLIwo10zTYNN801wo01Q4QNN401DTTCBIQRDTfNPAKNdKxIrIBNNKyEiEEshAxALIUNPuyEbOACQAAAAAAACQpAbAoNQc0/zT+NP00/DT7NPo00wg0+TT4NPc07zT1NPQ08zTyNN8INNQINPE00gg08DT2NO4yBjTZVwARNNU00gkWNNZXCAhQNNZXEAFQUDTsNN0IQglJSSEeDEABnEg061cBCDXgNOAXNd807VcRETXeNO1XABE03iJbNN8IFjTeVwgIUDTeVxABUFA13TTfNPuICiE03VcAETXcNPEiEkk12kEABzTwNdtCABI08jTxCkk12TTwNNk08A1NNds03zTbCkk12TTuCyMKNdg02kEABzTwNddCABI08jTxCkk11jTwNNY08A1NNdc07DTZDzTYSTT0CyMKNN801wo07gsjCjT5CyMKCBIQRDTZNNgJNdaxIrIBNNayCCSyEDEAsgezgAkAAAAAAAAg7AGwKDUHNNpBAAc08DXVQgASNPI08QpJNdQ08DTUNPANTTXVNNpBAAc08DXUQgASNPI08QpJNdM08DTTNPANTTXUNNpBAAc08DXTQgASNPI08QpJNdI08DTSNPANTTXTNP80/jT9NPw0+zT6NN800wo07gsjCjT5CyMKCDT5NPg09zTvNPU09DTzNPI03zTVCgk03zTUCjTuCyMKNPQLIwoINPE03wk08DT2NO4yBjTcVwAINNxXCAhQNNxXEAFQNN1XERFQNOw01glCB6ZINOtXAQg14DTgFzXfNO1XERE13jTtVwARNN5XAAg03lcICFA03lcQAVBQNd003VcAETXcNN80/IgIgTTzIhI12jTxIhJJNdhBAAc08DXZQgASNPI08QpJNdc08DTXNPANTTXZNNo08jTxNNkLCSISEUEABzT3NdtCAFo02EEABzTwNddCABI08jTxCkk11jTwNNY08A1NNdc02EEABzTwNdZCABI08jTxCkk11TTwNNU08A1NNdY09zTyNPE01gsJNPMKNPI08TTXCwk08wo09w1NNds03zTbCkk11zTuCyMKNdY02EEABzTwNdVCABI08jTxCkk11DTwNNQ08A1NNdU02EEABzTwNdNCABI08jTxCkk10jTwNNI08A1NNdM02jTyNPE00wsJIhIRQQAHNPc11EIAWjTYQQAHNPA10kIAEjTyNPEKSTXRNPA00TTwDU010jTYQQAHNPA10UIAEjTyNPEKSTXQNPA00DTwDU010TT3NPI08TTRCwk08wo08jTxNNILCTTzCjT3DU011DTWNPQLIwo10jTWNPkLIwo10TTyNPE01QsKNPUPNN801AoiDRA07DTXDxA01jTSNNEIEhBENNc01gk10LEisgE00LIIJLIQMQCyB7OACQAAAAAAAB3GAbAoNQc0/zT+NP00/DT7NPo00Qg0+TT4NPc07zT1NPQ08zTfCTTyNNcJNNIINPE08DT2NO4yBjTcIls03wgWNNxXCAhQNNxXEAFQNN1XERFQNOw00AlCBWZJgQIMQAE7SSEFDEAAjkg061cBCDXgNO1XERE13zTtVwARNN9XAAg031cICFA031cQAVBQNd403lcAETXdNOAXSTXcIg0xADT/EhBEgAkAAAAAAAAabAGwKDUHNP80/jT9NPw0+zT6NPk0+DT3NO809TT0NPM08jTxNNxJNO4yBjTdVwAINN1XCAhQNN1XEAFQNN5XERFQNOxCBMpINOtXARA14DTtVxERNd807VcAETTfVwAINN9XCAhQNN9XEAFQUDXeNN5XABE13TTgIls13DTgJVs12zTcNNsIIxJEsSKyATT6sggkshA0/7IHs4AJAAAAAAAAF3IBsCg1BzT/NP40/TT8NPsiNNw0+DT3NPY09TTbNPM08jTxNPA07zTuMgY03VcACDTdVwgIUDTdVxABUDTeVxERUDTsNPoJQgQkSSQMQACiSDTtVxERNeA07VcAETTgVwAINOBXCAhQNOBXEAFQUDXfNN9XABFJNd5XAAg03lcICFA03lcQAVA031cREVA13TEANP8SNPEiEhA08yISEDTdVxERIls0/RIQNN1XABEiWzT+EhBEgAkAAAAAAAAUdgGwKDUHNP80/jT9NPw0+zT6NPk0+DT3NPY09TT0NPM08jTxNPA07zTuMgY03TTsQgN8SDTtVxERNeA07VcAETTgVwAINOBXCAhQNOBXEAFQUDXfNN9XABE13jEANP8SRLEisgE0+rIIJLIQNP+yB7OACQAAAAAAABFuAbAoNQc0/zT+NP00/DT7IjT5NPg09zT2NPU09DTzNPI08TTwNO807jIGNN5XAAg03lcICFA03lcQAVA031cREVA07DT6CUIC6yQSRCQ0ARJENARJIhJMNAISEUQpZChkUEk1A0lXACA1/yEXWzX+gASai5F0sDT/MQASRDT/NAMhGls0AyEbWzQDIRxbNAMhHVsiNAMhCVs0AyEGWzQDIRhbNAMhGVs0AyELWzQDIQpbIiIiNP5JNAMhCFsyBjQDV4AiIkICbUghDYgDZSI0ARJENARJIhJMNAISEURJNQVJSkpKSiJbNf8lWzX+IQdbNf2BGFs1/CEIWzX7IQlbNfohCls1+SELWzX4V0CwNfdX8LA19oAEv/eCXTT/FlA0/hZQNP0WUDT8FlA0+xZQNPoWUDT5FlA0+BZQNPdQNPZQsIERr0k19UlQNfQ0/jT9CCMSRDT3IQZbSTXzIg1ENPYhBltJNfIiDUSB////////////ASQJNfE08zTxEkQ08jTxEkQhDYgCqLEisgEhBbIQNPOyIiEMsiM091dICLIlNPdXICCyJjT3V1Bgsic091cAILIoMgqyKbO0PDXwgAgAAAAAAAANkzTwFlCwNPA17zT0VwARNe408xY07lcICFA07lcQAVA09FcREVBJNe1XABFJNexXAAg08xZQNOxXEAFQNO1XERFQSTXrVwARSTXqVwAINOpXCAhQKVA061cREVA16SENiAIHsSKyASEFshA08rIiIQyyIzT2V0gIsiU09lcgILImNPZXUGCyJzT2VwAgsigyCrIps7Q8NeiACAAAAAAAAA22NOgWULA06Ek15zTvFiJbE0Q06VcRETXmNOlXABE08hY05lcICFA05lcQAVBQSTXlVxERNeQ05VcAETTkVwAINPIWUDTkVxABUFBJNeNXERE14jTjVwARNOJXAAg04lcICFApUFBJNeFXEREiWzTyEkQ04VcAESJbNPMSRDEANP8WUDT+FlA0/RZQNPwWUDT7FlA0+hZQNPkWUDT4FlA08xZQNPIWUDTvFlA05xZQNOFQKUsBVwB/ZyhLAVd/I2dIJDUBMgY1AkIArDX/Nf41/TX8Nfs1+jX5Nfg19zX2NfU19DXzNfI18TXwNe817jXtNexJNes07BZQNO0WUDTuFlA07xZQNPAWUDTxFlA08hZQNPMWUDT0FlA09RZQNPYWUDT3FlA0+BZQNPkWUDT6FlA0+xZQNPwWUDT+UDT/FlApSwFXAH9nKEsBV39TZ0ghBDUBMgY1AkIAHDEZIR4SRLEisgEisggkshAyCbIJMgqyB7NCAAUxGSISRCo0ARY0AhZQZzQGQQAKgAQVH3x1NAdQsDQASSQIMgQSRDEWEkQkQzEZIhJEQv/fIjE0EkQhBTE1EkQiMTYSRCIxNxJEIjUBIjUCQv+uNABJSiQINQA4BzIKEkQ4ECQSRDgIEkSJNABJSkkkCDUAOBQyChJEOBAhBBJEOBFPAhJEOBISRIk=`,
+  appApproval: `BiAdAGQBCAQDSCAoMDigjQbX2I/2Cfe5zagN7bbE1Q3PsKL5DRDOwNzDCp3eg/4ClInhpAav89yQAkBQWGBoBwX///////////8BJgMBAQEAACI1ADEYQRFjKmRJIls1ASVbNQI2GgAXSUEBRyI1BCQ1BkkhDAxAAIFJIQ0MQABJSSEODEAALUkhDwxAABIhDxJEKjX/KTT/UCEQr1BCATEhDhJENhoBNhoCUDX/KDT/UEIBHSENEkQ2GgE1/4ABBTT/UCWvUEIBCEkhEQxAABUhERJENhoBNf+AAQY0/1Alr1BCAOwhDBJENhoBNf+AAQM0/1Alr1BCANdJIRIMQAB+SSETDEAAFSETEkQ2GgE1/4ABAjT/UCWvUEIAtCESEkQ0ASEEEkQpZChkUEk1A1doCDQDV3gIUDQDV3AIUDQDV5AIUDQDVzgIUDQDV2AIUDQDVzAIUDQDV4AIUDQDV4gIUDQDV1AIUDQDV0gIUDQDV1gIUDQDV0AIUDUHQhA1SSEUDEAAFSEUEkQ2GgE1/4ABBDT/UCWvUEIANoHxgORVEkQ2GgE1/4ABBzT/UCWvUEIAHjYaAhc1BDYaAzYaARdJJAxADMhJIQUMQAxHIQUSRCEENAESRDQESSISTDQCEhFEKWQoZFBJNQNJSkpKSkpKSkpXACA1/yEHWzX+IQhbNf0hCVs1/CEKWzX7IRVbNfohBls1+SEWWzX4IRdbNfchGFs19iEZWzX1gXBbNfSBeFs184GAAVs18oGIAVs18YGQAVs18FeYIjXvgboBWzXuSTUFNe2ABDQgZdg07VCwNO0iVUkhBAxAB6BJgQYMQATLSSEaDEABySEaEkQ07VcBCDXiNOIXSTXhNPALIwo14DThNOAINd8034gPPTTvVxERNd4071cAETTeVwAINN5XCAhQNN5XEAFQUDXdNN1XABFJNdxXAAg03FcICFA03FcQAVA03VcREVA12zTzIhJJNdlBAAc08jXaQgASNPQ08wpJNdg08jTYNPINTTXaNOA09gsjCjXYNPQ02Ag11zTZQQAHNPI11kIAEjTXNPMKSTXVNPI01TTyDU011jTZQQAHNPI11UIAEjT0NPMKSTXUNPI01DTyDU011TTbVxERSTXUIls10zTgNPsLIwo10jT0NPM02gsKNPcPNNc08zTWCwo09w8QNOE01Qo00w4QNOA02DTSCBIQRDTZQQAHNPI10UIAEjT0NPMKSTXQNPI00DTyDU010TThNNEKNdCxIrIBNNCyEiEEshAxALIUNP2yEbOACQAAAAAAACVNAbAoNQc02UEABzTyNc9CABI09DTzCkk1zjTyNM408g1NNc80/zT+NP00/DTSCDT7NPo0+TTxNPc09jT1NPQ04Qg02Ag08zThNM8KCDTyNPg08DIGNNtXABE00zTQCRY01FcICFA01FcQAVBQNO403whCDKZINO1XAQg14jTiF0k14TTwCyMKNeA04TTgCDXfNN+IDXc071cRETXeNO9XABE03lcACDTeVwgIUDTeVxABUFA13TTdVwARSTXcVwAINNxXCAhQNNxXEAFQNN1XERFQNds04DT2CyMKNdo09DTaCDXZNPMiEkk110EABzTyNdhCABI02TTzCkk11jTyNNY08g1NNdg09SISNdU010EABzTyNdRCABI09DTzCkk10zTyNNM08g1NNdQ01TT0NPM01AsJIhIRQQAHNPk11kIAWjTXQQAHNPI100IAEjT0NPMKSTXSNPI00jTyDU010zTXQQAHNPI10kIAEjT0NPMKSTXRNPI00TTyDU010jT5NPQ08zTSCwk09Qo09DTzNNMLCTT1CjT5DU011jTbVwARSTXTIls10jTgNPsLIwo10TTZNPM02AsKNPoONPM08QwRNOE01go00g4QNOA02jTRCBIQRDTXQQAHNPI1z0IAEjT0NPMKSTXONPI0zjTyDU01zzTVNPQ08zTPCwkiEhFBAAc0+TXQQgBaNNdBAAc08jXOQgASNPQ08wpJNc008jTNNPINTTXONNdBAAc08jXNQgASNPQ08wpJNcw08jTMNPINTTXNNPk09DTzNM0LCTT1CjT0NPM0zgsJNPUKNPkNTTXQNOE00Ao1zrEisgE0zrISIQSyEDEAshQ0/rIRs4AJAAAAAAAAIg0BsCg1BzTXQQAHNPI1zEIAEjT0NPMKSTXLNPI0yzTyDU01zDTVNPQ08zTMCwkiEhFBAAc0+TXNQgBaNNdBAAc08jXLQgASNPQ08wpJNco08jTKNPINTTXLNNdBAAc08jXKQgASNPQ08wpJNck08jTJNPINTTXKNPk09DTzNMoLCTT1CjT0NPM0ywsJNPUKNPkNTTXNNP80/jT9NPw00Qg0+zT6NPk08TT3NPY09TThNM0KCDT0NOEINNoINPM08jT4NPAyBjTSNM4JFjTTVwgIUDTTVxABUDTbVxERUDTuNN8IQgmrSSEbDEABL0g07VcBCDXiNOIXSTXhNPALIwo14DThNOAINd8034gKdTTvVxERNd4071cAETTeVwAINN5XCAhQNN5XEAFQUDXdNN1XABFJNdxXAAg03FcICFA03FcQAVA03VcREVA12zTzIhJJNdpBAAc08jXZQgASNPQ08wpJNdg08jTYNPINTTXZNNtXERFJNdgiWzXXNOA09gsjCjXWNOA0+wsjCjXVNNo04TTZCjTXDhA04DTWNNUIEhBENOE08go11LEisgE01LISIQSyEDEAshQ0/bIRs4AJAAAAAAAAHsEBsCg1BzT/NP40/TT8NNUINPs0+jT5NPE09zT2NPU09DThCDTWCDTzNNQINPI0+DTwMgY021cAETTXNNQJFjTYVwgIUDTYVxABUFA07jTfCEIIdUg07VcBCDXiNOIXNeE071cRETXgNO9XABE04CJbNOEIFjTgVwgIUDTgVxABUFA13zThNP2ICUg031cAETXeNPMiEkk13EEABzTyNd1CABI09DTzCkk12zTyNNs08g1NNd004TTdCkk12zTwCyMKNdo03EEABzTyNdlCABI09DTzCkk12DTyNNg08g1NNdk07jTbDzTaSTT2CyMKNOE02Qo08AsjCjT7CyMKCBIQRDTbNNoJNdixIrIBNNiyCCSyEDEAsgezgAkAAAAAAAAbqgGwKDUHNNxBAAc08jXXQgASNPQ08wpJNdY08jTWNPINTTXXNNxBAAc08jXWQgASNPQ08wpJNdU08jTVNPINTTXWNNxBAAc08jXVQgASNPQ08wpJNdQ08jTUNPINTTXVNP80/jT9NPw04TTVCjTwCyMKNPsLIwoINPs0+jT5NPE09zT2NPU09DThNNcKCTThNNYKNPALIwo09gsjCgg08zThCTTyNPg08DIGNN5XAAg03lcICFA03lcQAVA031cREVA07jTYCUIG3UmBAgxAAs1JIQUMQAI8SDTtVwEINeI04hc14TTvVxERNeA071cAETTgVwAINOBXCAhQNOBXEAFQUDXfNN9XABE13jThNP6IB5409SISNdw08yISSTXaQQAHNPI120IAEjT0NPMKSTXZNPI02TTyDU012zTcNPQ08zTbCwkiEhFBAAc0+TXdQgBaNNpBAAc08jXZQgASNPQ08wpJNdg08jTYNPINTTXZNNpBAAc08jXYQgASNPQ08wpJNdc08jTXNPINTTXYNPk09DTzNNgLCTT1CjT0NPM02QsJNPUKNPkNTTXdNOE03QpJNdk08AsjCjXYNNpBAAc08jXXQgASNPQ08wpJNdY08jTWNPINTTXXNNpBAAc08jXVQgASNPQ08wpJNdQ08jTUNPINTTXVNNw09DTzNNULCSISEUEABzT5NdZCAFo02kEABzTyNdRCABI09DTzCkk10zTyNNM08g1NNdQ02kEABzTyNdNCABI09DTzCkk10jTyNNI08g1NNdM0+TT0NPM00wsJNPUKNPQ08zTUCwk09Qo0+Q1NNdY02DT2CyMKNdQ02DT7CyMKNdM09DTzNNcLCjT3DzThNNYKIg0QNO402Q8QNNg01DTTCBIQRDTZNNgJNdKxIrIBNNKyCCSyEDEAsgezgAkAAAAAAAAYqgGwKDUHNP80/jT9NPw00wg0+zT6NPk08TT3NPY09TThCTT0NNkJNNQINPM08jT4NPAyBjTeIls04QgWNN5XCAhQNN5XEAFQNN9XERFQNO400glCBJNINO1XAQg14jTvVxERNeE071cAETThVwAINOFXCAhQNOFXEAFQUDXgNOBXABE13zTiF0k13iINMQA0/xIQRIAJAAAAAAAAFXYBsCg1BzT/NP40/TT8NPs0+jT5NPE09zT2NPU09DTzNN5JNPAyBjTfVwAINN9XCAhQNN9XEAFQNOBXERFQNO5CBAlJJAxAAKJINO1XARA14jTvVxERNeE071cAETThVwAINOFXCAhQNOFXEAFQUDXgNOBXABE13zTiIls13jTiJVs13TTeNN0IIxJEsSKyATT8sggkshA0/7IHs4AJAAAAAAAAEqIBsCg1BzT/NP40/SI03jT6NPk0+DT3NN009TT0NPM08jTxNPAyBjTfVwAINN9XCAhQNN9XEAFQNOBXERFQNO40/AlCA2FINO9XERE14jTvVwARNOJXAAg04lcICFA04lcQAVBQNeE04VcAETXgMQA0/xJEsSKyATT8sggkshA0/7IHs4AJAAAAAAAAD8wBsCg1BzT/NP40/SI0+zT6NPk0+DT3NPY09TT0NPM08jTxNPAyBjTgVwAINOBXCAhQNOBXEAFQNOFXERFQNO40/AlCAtQkEkQkNAESRDQESSISTDQCEhFEKWQoZFBJNQNXACA1/4AEmouRdLA0/zEAEkQ0AyEGW4HAhD0KNf40/zQDIRhbNAMhGVsiNAMhCFs0AyEVWzQDIRZbNAMhF1s0AyEKWzQDIQlbIiIiNP5JNAMhB1syBjQDV3AiIkICWkghC4gDRiI0ARJENARJIhJMNAISEURJNQVJSkpKSiJbNf8lWzX+IRBbNf2BGFs1/CEHWzX7IQhbNfohCVs1+SEKWzX4V0C4NfdX+Lg19oAE4PiDGzT/FlA0/hZQNP0WUDT8FlA0+xZQNPoWUDT5FlA0+BZQNPdQNPZQsIERr0k19UlQNfQ0/jT9CCMSRDT3IQZbSTXzIg1ENPYhBltJNfIiDUQ08yEcEkQ08iEcEkQhC4gCmLEisgEhBbIQNPOyIjT3IluyIzT3V1AIsiU091coILImNPdXWGCyJzT3VwggsigyCrIps7Q8NfGACAAAAAAAAAwlNPEWULA08TXwNPRXABE17zTzFjTvVwgIUDTvVxABUDT0VxERUEk17lcAEUk17VcACDTzFlA07VcQAVA07lcREVBJNexXABFJNetXAAg061cICFApUDTsVxERUDXqIQuIAfWxIrIBIQWyEDTysiI09iJbsiM09ldQCLIlNPZXKCCyJjT2V1hgsic09lcIILIoMgqyKbO0PDXpgAgAAAAAAAAMSTTpFlCwNOlJNeg08BYiWxNENOpXERE15zTqVwARNPIWNOdXCAhQNOdXEAFQUEk15lcRETXlNOZXABE05VcACDTyFlA05VcQAVBQSTXkVxERNeM05FcAETTjVwAINONXCAhQKVBQSTXiVxERIls08hJENOJXABEiWzTzEkQxADT/FlA0/hZQNP0WUDT8FlA0+xZQNPoWUDT5FlA0+BZQNPAWUDToFlA04lApSwFXAH9nKEsBV38TZ0gkNQEyBjUCQgCgNf81/jX9Nfw1+zX6Nfk1+DX3NfY19TX0NfM18jXxNfA17zXuSTXtNO4WUDTvFlA08BZQNPEWUDTyFlA08xZQNPQWUDT1FlA09hZQNPcWUDT4FlA0+RZQNPoWUDT7FlA0/BZQNP5QNP8WUClLAVcAf2coSwFXf0NnSCEENQEyBjUCQgAcMRkhGxJEsSKyASKyCCSyEDIJsgkyCrIHs0IABTEZIhJEKjQBFjQCFlBnNAZBAAqABBUffHU0B1CwNABJJAgyBBJEMRYSRCRDMRkiEkRC/98iMTQSRCEFMTUSRCIxNhJEIjE3EkQiNQEiNQJC/640AElKJAg1ADgHMgoSRDgQJBJEOAgSRIk0AElKSSQINQA4FDIKEkQ4ECEEEkQ4EU8CEkQ4EhJEiQ==`,
   appClear: `Bg==`,
   companionInfo: null,
   extraPages: 2,
   mapDataKeys: 0,
   mapDataSize: 0,
   stateKeys: 2,
-  stateSize: 210,
+  stateSize: 194,
   unsupported: [],
   version: 10,
   warnings: []
   };
 export const _stateSourceMap = {
   1: {
-    at: './index.rsh:99:11:after expr stmt semicolon',
+    at: './index.rsh:91:11:after expr stmt semicolon',
     fs: [],
     msg: null,
     who: 'Module'
     },
   3: {
-    at: './index.rsh:453:11:after expr stmt semicolon',
+    at: './index.rsh:383:11:after expr stmt semicolon',
     fs: [],
     msg: null,
     who: 'Module'
     },
   4: {
-    at: './index.rsh:118:17:after expr stmt semicolon',
+    at: './index.rsh:109:17:after expr stmt semicolon',
     fs: [],
     msg: null,
     who: 'Module'
@@ -5506,7 +5053,6 @@ export const _Connectors = {
 export const _Participants = {
   "Admin": Admin,
   "AdminAPI_claimAdminFee": AdminAPI_claimAdminFee,
-  "AdminAPI_closeBank": AdminAPI_closeBank,
   "AdminAPI_setAdminFee": AdminAPI_setAdminFee,
   "AdminAPI_updatePrice": AdminAPI_updatePrice,
   "Claimant_burnReserve": Claimant_burnReserve,
@@ -5518,7 +5064,6 @@ export const _Participants = {
 export const _APIs = {
   AdminAPI: {
     claimAdminFee: AdminAPI_claimAdminFee,
-    closeBank: AdminAPI_closeBank,
     setAdminFee: AdminAPI_setAdminFee,
     updatePrice: AdminAPI_updatePrice
     },
